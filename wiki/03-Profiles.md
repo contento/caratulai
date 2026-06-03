@@ -8,9 +8,9 @@ Seven aesthetic styles, each with distinct constraints and prompt tone. **All pr
 | **picasso** | Single-line drawings | B/W | 20 | Fundamental only | Sophisticated, minimal, elegant |
 | **contento** | Rich, dense, layered | 256-color | 80 | All shapes + effects | Visual abundance, complexity |
 | **dictionary** | Vocabulary & icons | 256-color | 60 | All shapes + effects | Semantic visual library |
-| **freud** *(future)* | Layers of the psyche | Grayscale + sepia | 50–70 | All shapes | Unconscious drives, dream logic |
-| **jung** *(future)* | Archetypal symbols | 256-color | 50 | All shapes | Psychological/symbolic depth |
-| **nietzsche** *(future)* | Full ontology-driven | 256-color | Variable | All shapes | Philosophical/conceptual mapping |
+| **freud** | Layers of the psyche | Grayscale + sepia | 50–70 | Shapes + groups | Unconscious drives, dream logic |
+| **jung** | Archetypal symbols | 256-color | 50 | Shapes + groups | Psychological/symbolic depth |
+| **nietzsche** | Genealogy of concepts | 256-color | 40–100 | Shapes + arrows | Philosophical/conceptual mapping |
 
 ## Per-Profile Details
 
@@ -58,37 +58,47 @@ Voyager record plate aesthetic: technical, minimal, profound. The canonical refe
 
 **Prompt tone:** Vocabulary-centric. Compose scenes from reusable semantic primitives. See [[design/02-Dictionary Profile]] for the full vision.
 
-### freud (in development)
+### freud (defined)
 
-**Aesthetic:** Layers of the psyche. Grayscale + sepia, concentric structures for id/ego/superego.
+**Aesthetic:** Concentric psychological layers (id, ego, superego) in grayscale + sepia. Dream-like, introspective, symbolic.
 
-**Palette:** Grayscale + Sepia (warm + cool tones).
+**Palette:** Grayscale + sepia (warm brown/rust tones inside → cool gray outside).
 
 **Max elements:** 50–70.
 
-**Prompt tone:** Dream-like, introspective. Symbolic representation of unconscious drives, layered consciousness.
+**Prompt tone:** Dream-like introspection. "Create nested, concentric psychological structures. Innermost core is sepia/warm (id), middle gray (ego), outer cool gray (superego). Use spirals, layered shapes, fading edges."
 
-**Vision:** Concentric layers representing the id (innermost), ego (middle), superego (outer). Visual metaphors for defense mechanisms, complexes, and psychological concepts.
+**Key visual metaphors:** Concentric circles/rings (consciousness layers), spirals (libido), organic forms (id), geometric boundaries (superego), fading/blurring edges (repression).
 
-### jung (in development)
+→ **Full spec:** [[design/03-Freud-Jung-Nietzsche Profiles]]
 
-**Aesthetic:** Archetypal symbols. Psychological/symbolic depth (shadow, anima, self, hero).
+### jung (defined)
 
-**Palette:** 256-color.
+**Aesthetic:** Archetypal symbols from collective unconscious. Mandalas, sacred geometry, symbolic animals. Radially symmetric compositions.
+
+**Palette:** 256-color (emphasize gold, deep blue, purple, green).
 
 **Max elements:** 50.
 
-**Prompt tone:** Archetypal, symbolic. Each image embodies Jungian archetypes — the Hero, the Shadow, the Wise Old Man, the Anima/Animus, the Self.
+**Prompt tone:** Sacred, integrated, mythic. "Create a mandala-like vision with luminous gold center (the Self). Concentric rings. Include symbolic animals (lion=Hero, serpent=Shadow, owl=Wise Old Man, dove=Anima). Rich colors, radial symmetry."
 
-### nietzsche (in development)
+**Key visual metaphors:** Mandalas (the Self), concentric circles (psyche layers), symbolic animals (archetypes), sacred geometry (divine order), gold luminosity (divine center).
 
-**Aesthetic:** Full ontology-driven. Philosophical/conceptual mapping via concept hierarchies.
+→ **Full spec:** [[design/03-Freud-Jung-Nietzsche Profiles]]
 
-**Palette:** 256-color.
+### nietzsche (defined)
 
-**Max elements:** Variable.
+**Aesthetic:** Hierarchical & cyclical. Philosophical genealogy via opposing forces (Apollonian/Dionysian, master/slave morality), eternal recurrence, will-to-power.
 
-**Prompt tone:** Philosophical, conceptual. Concepts map to visual hierarchies: the Apollonian vs. Dionysian, eternal recurrence, the Übermensch.
+**Palette:** 256-color with emphasis on opposing pairs (gold ↔ black, red ↔ blue).
+
+**Max elements:** 40–100 (concept-driven; more complex concepts = more elements).
+
+**Prompt tone:** Philosophical, dialectical. "Create a hierarchical diagram with opposing forces in tension: order (Apollonian, gold/white/structured) vs chaos (Dionysian, black/red/organic). Show arrows and flows for transformation. Include spirals for eternal recurrence. Ascend toward synthesis (Übermensch)."
+
+**Key visual metaphors:** Hierarchies/trees (genealogy), opposing colors/positions (Apollonian vs Dionysian), cycles/spirals (eternal recurrence), arrows/flows (will-to-power), ascending paths (Übermensch).
+
+→ **Full spec:** [[design/03-Freud-Jung-Nietzsche Profiles]]
 
 ## Configuration
 

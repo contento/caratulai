@@ -32,23 +32,23 @@ Legend: ✅ done · 🟡 in progress · ⬜ not started · ⭐ new
 - [x] Provider docs ([[11-LLM Providers]]) + `.env.example`
 - [x] **Test suite** (Vitest): 69 tests across validator, palettes, prompt, generate, providers, model ladder, HTTP provider (mocked fetch), factories — coverage thresholds enforced (≥98%)
 - [x] Re-enable the CI `test` step (now runs with coverage gating)
-- [x] **Image generation profiles** (aesthetic styles — 4 of 7 done):
+- [x] **Image generation profiles** (aesthetic styles — 7 of 7 defined, 4 of 7 implemented):
   - [x] sagan — Voyager Golden Record (gold + silver)
   - [x] picasso — elegant lines, minimal (single-line B/W, 20 elements)
   - [x] contento — less restrained, 80+ shapes, dense composition
   - [x] dictionary — vocabulary-based patterns (256-color, 60 elements)
-  - [ ] **freud** — layers of the psyche (grayscale + sepia, concentric structures)
-    - [ ] Define id/ego/superego visual metaphors (nested layers)
-    - [ ] Map defense mechanisms and complexes to symbolic patterns
-    - [ ] Design prompt tone: dream-like introspection, unconscious drives, layered symbolism
-  - [ ] **jung** — archetypal symbols (psychological/symbolic depth)
-    - [ ] Define Jungian archetype vocabulary (shadow, anima, self, hero, etc.)
-    - [ ] Map concepts to archetypal visual primitives
-    - [ ] Design prompt tone: mythic, symbolic, transpersonal
-  - [ ] **nietzsche** — full ontology-driven (rename to reflect philosophy?)
-    - [ ] Leverage full M3 ontology (concept taxonomy + relations)
-    - [ ] Map concept hierarchies to visual hierarchies (parent→child shapes)
-    - [ ] Design prompt tone: dialectical, relational, genealogical
+  - [x] **freud** — layers of the psyche (grayscale + sepia, concentric structures)
+    - [x] Define id/ego/superego visual metaphors (nested layers) [[design/03-Freud-Jung-Nietzsche Profiles]]
+    - [x] Map defense mechanisms and complexes to symbolic patterns
+    - [x] Design prompt tone: dream-like introspection, unconscious drives, layered symbolism
+  - [x] **jung** — archetypal symbols (psychological/symbolic depth)
+    - [x] Define Jungian archetype vocabulary (shadow, anima, self, hero, etc.)
+    - [x] Map concepts to archetypal visual primitives
+    - [x] Design prompt tone: mythic, symbolic, transpersonal
+  - [x] **nietzsche** — genealogy of concepts (philosophical/dialectical)
+    - [x] Define Apollonian/Dionysian visual oppositions
+    - [x] Map concept hierarchies to visual hierarchies (parent→child shapes, flows)
+    - [x] Design prompt tone: philosophical, genealogical, will-to-power
 - [ ] Verify against a live local model (Ollama/LM Studio) and tune the prompt
   - [ ] Test sagan profile with Ollama qwen2.5-coder or similar
   - [ ] Test contento profile — verify 80-element density achievable
