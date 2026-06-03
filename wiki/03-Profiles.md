@@ -100,20 +100,129 @@ Voyager record plate aesthetic: technical, minimal, profound. The canonical refe
 
 → **Full spec:** [[design/03-Freud-Jung-Nietzsche Profiles]]
 
+## Rationale: Why 7 Profiles?
+
+Each profile answers a different question about how concepts should be visualized. Together, they cover the full spectrum from **minimal elegance** to **abundant complexity**, and from **scientific archival** to **philosophical genealogy**.
+
+### The Visual Spectrum
+
+```text
+Restraint ────────────────────────────────────────────→ Abundance
+  ↑                                                         ↑
+Picasso (20 el)    Sagan (48 el)    Freud/Jung    Nietzsche/Dictionary    Contento (80+ el)
+"Say it with        "Timeless        (50-70 el)    (variable/60 el)        "Show it all
+one perfect line"   archive"         "Internal     "Compose from           in rich color"
+                                     psychology"   concepts"
+```
+
+### By Use Case
+
+| I want to... | Use Profile | Why |
+| --- | --- | --- |
+| Create something timeless & cosmic | **sagan** | Golden Record aesthetic; profound minimal beauty |
+| Celebrate elegant line drawing | **picasso** | Sophisticated restraint; every mark intentional |
+| Showcase visual abundance | **contento** | All shapes, colors, effects; maximize richness |
+| Build a reusable semantic library | **dictionary** | Compose from primitives; consistency + meaning |
+| Visualize psychological depth (Freudian) | **freud** | Concentric conflict; unconscious vs superego |
+| Visualize spiritual wholeness (Jungian) | **jung** | Mandala integration; collective archetypes |
+| Map philosophical genealogies | **nietzsche** | Concept hierarchies; Apollonian/Dionysian tension |
+
+### Design Philosophy: Seven Schools of Thought
+
+The 7 profiles aren't arbitrary—they're **schools of visualization**, each asking: *"How should a concept **look** if you believe in [this philosophical framework]?"*
+
+- **sagan:** "Concepts are cosmic data." (Scientific, archival, timeless)
+- **picasso:** "Concepts are elegant lines." (Minimalist, sophisticated)
+- **contento:** "Concepts are abundant experiences." (Maximalist, joyful)
+- **dictionary:** "Concepts are semantic primitives." (Compositional, reusable)
+- **freud:** "Concepts reveal unconscious conflict." (Psychological, introspective)
+- **jung:** "Concepts reflect archetypal wholeness." (Spiritual, integrative)
+- **nietzsche:** "Concepts genealogize values." (Philosophical, dialectical)
+
+---
+
+### Why Freud & Jung Are Essential
+
+**Freud** and **Jung** are not just psychology—they're **visualization languages** for the invisible:
+
+- **Freud's concentric layers** solve the problem: *"How do I show repression, conflict, hidden drives visually?"*
+  - Answer: Nested rings, with warmth (desire) inside and coolness (judgment) outside
+  - Use case: Concepts about struggle, ambivalence, unconscious motivation, psychology of personality
+  
+- **Jung's mandalas** solve the problem: *"How do I show integration, wholeness, archetypal unity visually?"*
+  - Answer: Radial symmetry with luminous center, opposites balanced in sacred geometry
+  - Use case: Concepts about transformation, collective meaning, spiritual wholeness, myth
+
+Without them, you can't visualize *psychological and spiritual depth*. The dictionary profile handles *semantics*; freud/jung handle *interiority*.
+
+---
+
+### Why Nietzsche Stands Alone
+
+**Nietzsche** is the *only* profile that's *genealogical*—it shows how concepts **become** and **transform** over time:
+
+- **Apollonian ↔ Dionysian:** Order vs chaos, form vs formlessness
+- **Master ↔ Slave morality:** Power-affirming vs reactive values
+- **Eternal recurrence + Übermensch:** Cycles and transformation
+
+Why it matters: Concepts aren't static. They evolve through struggle and opposition. Nietzsche visualizes *genealogy*—the hidden history of how values and ideas came to be.
+
+---
+
+### Philosophical Coverage
+
+```text
+                        RATIONALIST
+                        Sagan (data)
+                           ↑
+        MINIMALIST ←────────────────→ MAXIMALIST
+        Picasso            Contento
+        (restraint)        (abundance)
+                           ↓
+              SEMANTIC COMPOSER
+              Dictionary (reusable)
+              
+                    DEPTH LAYER
+        ┌───────────────────────────────┐
+        │  Freud (Conflict)             │
+        │  Jung (Integration)           │
+        │  Nietzsche (Genealogy)        │
+        └───────────────────────────────┘
+```
+
+The **depth layer** (freud/jung/nietzsche) gives caratulai its philosophical power—beyond pretty pictures, these profiles visualize *meaning*, *psychology*, and *becoming*.
+
+---
+
+### Implementation Notes
+
+- All 7 profiles enforce the same hard [[02-Principles|aesthetic constraints]] (no text, valid SVG, etc.)
+- But each has distinct **color palettes**, **element limits**, and **prompt tone**
+- The prompt builder [[04-Stack|shapes the prompt]] to each profile's philosophy
+- Testing with real models (M1) will reveal which profiles LLMs find easiest/hardest
+
+See: [[design/04-Profile Comparison Examples]] for concrete visual differences.
+
 ## Configuration
 
 **Via `caratulai.config.yaml`:**
+
 ```yaml
 generation:
-  profile: sagan  # or picasso, contento, dictionary, ...
+  profile: sagan  # or picasso, contento, dictionary, freud, jung, nietzsche
 ```
 
 **Via CLI:**
+
 ```sh
 node packages/cli/dist/index.js generate star water --profile sagan --out out/idea.svg
+node packages/cli/dist/index.js generate shadow --profile jung --out out/shadow.svg
+node packages/cli/dist/index.js generate power --profile nietzsche --out out/power.svg
 ```
 
 ## See Also
 
 - [[02-Principles]] — the 7 hard aesthetic constraints all profiles enforce
 - [[04-Stack]] — the generation pipeline and how profiles shape prompts
+- [[design/03-Freud-Jung-Nietzsche Profiles]] — full technical specs
+- [[design/04-Profile Comparison Examples]] — concrete visual examples & philosophical analysis
