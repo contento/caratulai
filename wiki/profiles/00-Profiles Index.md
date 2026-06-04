@@ -1,6 +1,6 @@
 # Generation Profiles — Complete Index
 
-Complete documentation for caratulai's 7 aesthetic profiles. Each profile is a **philosophical framework** for visualizing concepts—a school of thought about what shapes should mean and how ideas should look.
+Complete documentation for caratulai's **12 generation profiles**. Each profile is a **philosophical, epistemological, or aesthetic framework** for visualizing concepts—a school of thought about what shapes should mean and how ideas should look.
 
 ---
 
@@ -19,6 +19,7 @@ Complete documentation for caratulai's 7 aesthetic profiles. Each profile is a *
 | 9 | [[09-Carlin Profile\|Carlin]] | Linguistic subversion | Irreverent humor | George Carlin, comedy | Black + Red + Blue | 60–80 |
 | 10 | [[10-Trumpa Profile\|Trumpa]] | Sacred paradox | Crazy wisdom | Chögyam Trungpa | Gold + Black + Red | 50–70 |
 | 11 | [[11-Rosina Profile\|Rosina]] | Direct action | Grounded realism | Italian neorealism | Gray + Brown + Black | 30–50 |
+| 12 | [[12-Domingo Profile\|Domingo]] | Musical range | Flexible mastery | Plácido Domingo | Gold + Blue + Amber | 50–80 |
 
 ---
 
@@ -109,6 +110,13 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - When: work, practical action, ordinary struggle, unglamorous truth
 - Feel: Neorealist cinema, hands at work, honest and raw
 
+### E. Musical & Integrated (Range & Mastery)
+
+**[[12-Domingo Profile]]** — Musical range, flexible mastery
+
+- When: versatility, integration of opposites, sustained excellence, depth
+- Feel: Master tenor-baritone, warmth and depth, evolved elegance
+
 ---
 
 ## Reading Guide: Which Profile Should I Use?
@@ -126,6 +134,7 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - **Hypocrisy/contradiction/truth?** → [[09-Carlin Profile|Carlin]]
 - **Paradox/sacred-profane/mystery?** → [[10-Trumpa Profile|Trumpa]]
 - **Work/action/unglamorous truth?** → [[11-Rosina Profile|Rosina]]
+- **Versatility/integration/mastery?** → [[12-Domingo Profile|Domingo]]
 
 ### By Emotional Tone
 
@@ -140,6 +149,7 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - **Irreverent/cutting/subversive** → Carlin
 - **Paradoxical/playful-serious** → Trumpa
 - **Direct/raw/honest** → Rosina
+- **Warm/deep/integrated** → Domingo
 
 ### By Visual Complexity
 
@@ -150,6 +160,7 @@ line"          archive"      psychology"   vocabulary"    all in color"
 | Restrained | Sagan | 48 |
 | Moderate | Freud, Jung, Booch, Trumpa | 50–70 |
 | Compositional | Dictionary | 60 |
+| Musical | Domingo | 50–80 |
 | Chaotic | Carlin | 60–80 |
 | Abundant | Contento | 80+ |
 | Variable | Nietzsche | 40–100 |
