@@ -1,6 +1,6 @@
 # Image Generation Profiles
 
-**12 generation profiles**—each a distinct philosophical, epistemological, or aesthetic framework for visualizing concepts. Spanning aesthetics (minimal to maximal), psychology, philosophy, communication styles, engineering, grounded realism, and musical mastery. **All profiles enforce ZERO text elements.**
+**13 generation profiles**—each a distinct philosophical, epistemological, aesthetic, or literary framework for visualizing concepts. Spanning aesthetics (minimal to maximal), psychology, philosophy, communication styles, engineering, grounded realism, musical mastery, and literary magic realism. **All profiles enforce ZERO text elements.**
 
 | Profile | Aesthetic | Palette | Max Elements | Shapes | Use Case |
 | --- | --- | --- | --- | --- | --- |

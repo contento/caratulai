@@ -1,6 +1,6 @@
 # Generation Profiles — Complete Index
 
-Complete documentation for caratulai's **12 generation profiles**. Each profile is a **philosophical, epistemological, or aesthetic framework** for visualizing concepts—a school of thought about what shapes should mean and how ideas should look.
+Complete documentation for caratulai's **13 generation profiles**. Each profile is a **philosophical, epistemological, aesthetic, or literary framework** for visualizing concepts—a school of thought about what shapes should mean and how ideas should look.
 
 ---
 
@@ -20,6 +20,7 @@ Complete documentation for caratulai's **12 generation profiles**. Each profile 
 | 10 | [[10-Trumpa Profile\|Trumpa]] | Sacred paradox | Crazy wisdom | Chögyam Trungpa | Gold + Black + Red | 50–70 |
 | 11 | [[11-Rosina Profile\|Rosina]] | Direct action | Grounded realism | Italian neorealism | Gray + Brown + Black | 30–50 |
 | 12 | [[12-Domingo Profile\|Domingo]] | Musical range | Flexible mastery | Plácido Domingo | Gold + Blue + Amber | 50–80 |
+| 13 | [[13-Gabriel Profile\|Gabriel]] | Magic realism | Mythic elaboration | Gabriel García Márquez | Earth + Green + Gold | 70–120 |
 
 ---
 
@@ -117,6 +118,13 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - When: versatility, integration of opposites, sustained excellence, depth
 - Feel: Master tenor-baritone, warmth and depth, evolved elegance
 
+### F. Literary & Mythic (Narrative Elaboration)
+
+**[[13-Gabriel Profile]]** — Magic realism, mythic elaboration
+
+- When: cultural blending, mythology in everyday life, cyclical time, genealogy
+- Feel: García Márquez, magic woven into mundane, warm and elaborate
+
 ---
 
 ## Reading Guide: Which Profile Should I Use?
@@ -135,6 +143,7 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - **Paradox/sacred-profane/mystery?** → [[10-Trumpa Profile|Trumpa]]
 - **Work/action/unglamorous truth?** → [[11-Rosina Profile|Rosina]]
 - **Versatility/integration/mastery?** → [[12-Domingo Profile|Domingo]]
+- **Mythology/magic/cultural blend?** → [[13-Gabriel Profile|Gabriel]]
 
 ### By Emotional Tone
 
@@ -150,6 +159,7 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - **Paradoxical/playful-serious** → Trumpa
 - **Direct/raw/honest** → Rosina
 - **Warm/deep/integrated** → Domingo
+- **Magical/grounded/elaborate** → Gabriel
 
 ### By Visual Complexity
 
@@ -162,6 +172,7 @@ line"          archive"      psychology"   vocabulary"    all in color"
 | Compositional | Dictionary | 60 |
 | Musical | Domingo | 50–80 |
 | Chaotic | Carlin | 60–80 |
+| Elaborate | Gabriel | 70–120 |
 | Abundant | Contento | 80+ |
 | Variable | Nietzsche | 40–100 |
 
