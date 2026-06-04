@@ -15,6 +15,10 @@ Complete documentation for caratulai's 7 aesthetic profiles. Each profile is a *
 | 5 | [[05-Freud Profile\|Freud]] | Psychological layers | Conflict model | Psychoanalysis | Grayscale + Sepia | 50–70 |
 | 6 | [[06-Jung Profile\|Jung]] | Archetypal symbols | Integration model | Jungian psychology | 256-color | 50 |
 | 7 | [[07-Nietzsche Profile\|Nietzsche]] | Genealogy of becoming | Philosophical dialectics | Nietzschean philosophy | 256-color | 40–100 |
+| 8 | [[08-Booch Profile\|Booch]] | Engineering clarity | Grounded humanism | Grady Booch, UML, craft | Black + Blue + Gray | 50–70 |
+| 9 | [[09-Carlin Profile\|Carlin]] | Linguistic subversion | Irreverent humor | George Carlin, comedy | Black + Red + Blue | 60–80 |
+| 10 | [[10-Trumpa Profile\|Trumpa]] | Sacred paradox | Crazy wisdom | Chögyam Trungpa | Gold + Black + Red | 50–70 |
+| 11 | [[11-Rosina Profile\|Rosina]] | Direct action | Grounded realism | Italian neorealism | Gray + Brown + Black | 30–50 |
 
 ---
 
@@ -45,36 +49,65 @@ line"          archive"      psychology"   vocabulary"    all in color"
 ### A. Pure Aesthetics (Form & Elegance)
 
 **[[01-Sagan Profile]]** — Cosmic data, archival, timeless
+
 - When: concepts about space, time, profound truths
 - Feel: Golden Record engraved on gold plate
 
 **[[02-Picasso Profile]]** — Elegant lines, minimalist
+
 - When: human figures, emotions, refined ideas
 - Feel: Sketch in a master artist's notebook
 
 **[[03-Contento Profile]]** — Visual abundance, joyful
+
 - When: celebration, nature, richness, complexity
 - Feel: Festival, party, visual feast
 
 ### B. Compositional (Building Meaning)
 
 **[[04-Dictionary Profile]]** — Semantic primitives, vocabulary
+
 - When: educational, instructional, consistent scenes
 - Feel: Visual encyclopedia entry
 
 ### C. Psychological & Philosophical (Inner Worlds)
 
 **[[05-Freud Profile]]** — Conflict, repression, layers
+
 - When: struggle, ambivalence, unconscious drives
 - Feel: Dream, introspection, hidden conflict
 
 **[[06-Jung Profile]]** — Archetypes, integration, wholeness
+
 - When: transformation, collective meaning, spiritual
 - Feel: Mandala, sacred, mythic
 
 **[[07-Nietzsche Profile]]** — Genealogy, becoming, dialectics
+
 - When: philosophy, value-creation, power, opposition
 - Feel: Philosophical genealogy, historical depth
+
+### D. Epistemological (Ways of Knowing & Communicating)
+
+**[[08-Booch Profile]]** — Engineering clarity, grounded humanism
+
+- When: systems, architecture, clear thinking, human-centered design
+- Feel: UML diagram, crafted engineering
+
+**[[09-Carlin Profile]]** — Linguistic subversion, irreverent humor
+
+- When: hypocrisy, contradiction, bullshit-cutting, truth-telling
+- Feel: Sharp comedy, linguistic acrobatics, wake-up call
+
+**[[10-Trumpa Profile]]** — Sacred paradox, crazy wisdom
+
+- When: paradoxical truth, sacred/profane, breaking assumptions, shock teaching
+- Feel: Playful seriousness, mysterious, funny but deep
+
+**[[11-Rosina Profile]]** — Direct action, grounded realism
+
+- When: work, practical action, ordinary struggle, unglamorous truth
+- Feel: Neorealist cinema, hands at work, honest and raw
 
 ---
 
@@ -89,6 +122,10 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - **Internal struggle/conflict?** → [[05-Freud Profile|Freud]]
 - **Spiritual/archetypal/whole?** → [[06-Jung Profile|Jung]]
 - **Philosophical/historical/becoming?** → [[07-Nietzsche Profile|Nietzsche]]
+- **Systems/architecture/clear thinking?** → [[08-Booch Profile|Booch]]
+- **Hypocrisy/contradiction/truth?** → [[09-Carlin Profile|Carlin]]
+- **Paradox/sacred-profane/mystery?** → [[10-Trumpa Profile|Trumpa]]
+- **Work/action/unglamorous truth?** → [[11-Rosina Profile|Rosina]]
 
 ### By Emotional Tone
 
@@ -99,15 +136,21 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - **Introspective/mysterious** → Freud
 - **Sacred/integrated** → Jung
 - **Dialectical/transformative** → Nietzsche
+- **Clear/crafted/humanistic** → Booch
+- **Irreverent/cutting/subversive** → Carlin
+- **Paradoxical/playful-serious** → Trumpa
+- **Direct/raw/honest** → Rosina
 
 ### By Visual Complexity
 
 | Complexity | Profile | Elements |
 | --- | --- | --- |
+| Ultra-minimal | Rosina | 30–50 |
 | Minimal | Picasso | 20 |
 | Restrained | Sagan | 48 |
-| Moderate | Freud, Jung | 50–70 |
+| Moderate | Freud, Jung, Booch, Trumpa | 50–70 |
 | Compositional | Dictionary | 60 |
+| Chaotic | Carlin | 60–80 |
 | Abundant | Contento | 80+ |
 | Variable | Nietzsche | 40–100 |
 

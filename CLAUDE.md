@@ -26,16 +26,31 @@ This project has a knowledge graph at `graphify-out/`.
 - **Direct tags** → validate and pass through as ontology.
 - The generated image is **always driven by the final ontology**, never by the original narrative or image. This ensures predictable, tag-focused output that respects [[wiki/Principles|aesthetic constraints]].
 
+## Profiles: 10 Philosophical Frameworks
+
+Caratulai offers **10 generation profiles**—each a distinct philosophical framework for visualizing concepts. Profiles range from aesthetics (minimalist to maximalist) to epistemology (scientific engineering to linguistic subversion to sacred paradox).
+
+Every profile follows the same contract:
+
+- Clear, documented philosophy and historical grounding
+- Concrete visual language (colors, shapes, constraints)
+- Prompt tone tuned for LLM generation
+- References and deeper reading for understanding
+
+See **[[wiki/profiles/]]** for full documentation of each.
+
 ## Conventions
 
 - Workspace packages are ESM TypeScript, `@caratulai/<name>` scope.
 - `core` stays I/O-agnostic — no direct DB/filesystem in the engine; surfaces inject those.
 - Built-in palettes and the SVG sanitizer are the source of truth for [[wiki/Principles|aesthetic constraints]].
+- Every profile respects the same hard aesthetic constraints (no text, valid SVG, concept-driven).
 
 ## See Also
 
 - **[[wiki/01-Vision]]** — why it exists, name, musical analogy
 - **[[wiki/02-Principles]]** — the 7 hard aesthetic constraints (required reading)
-- **[[wiki/03-Profiles]]** — the 7 generation profiles and their specs
+- **[[wiki/03-Profiles]]** — generation profiles overview
+- **[[wiki/profiles/]]** — detailed documentation of all 10 profiles
 - **[[wiki/04-Stack]]** — tech stack, monorepo layout, architecture
 - **[[wiki/17-Roadmap]]** — M0–M10 milestones
