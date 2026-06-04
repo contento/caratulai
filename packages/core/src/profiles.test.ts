@@ -4,10 +4,21 @@ import { getPalette } from "./palettes.js";
 
 describe("profiles", () => {
   it("all profiles are defined for ProfileId type", () => {
+    // Original 4
     expect(PROFILES.sagan).toBeDefined();
     expect(PROFILES.picasso).toBeDefined();
     expect(PROFILES.contento).toBeDefined();
     expect(PROFILES.dictionary).toBeDefined();
+    // New 9
+    expect(PROFILES.freud).toBeDefined();
+    expect(PROFILES.jung).toBeDefined();
+    expect(PROFILES.nietzsche).toBeDefined();
+    expect(PROFILES.booch).toBeDefined();
+    expect(PROFILES.carlin).toBeDefined();
+    expect(PROFILES.trumpa).toBeDefined();
+    expect(PROFILES.rosina).toBeDefined();
+    expect(PROFILES.domingo).toBeDefined();
+    expect(PROFILES.gabriel).toBeDefined();
   });
 
   it("each profile has required fields", () => {

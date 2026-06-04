@@ -92,6 +92,83 @@ export const PALETTE_256: Palette = {
   ],
 };
 
+/** Freud: Grayscale + Sepia (psychological layers). */
+export const PALETTE_GRAYSCALE_SEPIA: Palette = {
+  id: "grayscale-sepia",
+  kind: "palette-16",
+  label: "Grayscale + Sepia",
+  colors: [
+    "#ffffff", "#f5f5f5", "#d8c3a0", "#c0c0c0", "#a8a8a8", "#8a6d3b", "#808080", "#696969",
+    "#5c4326", "#4a4a4a", "#3a3a3a", "#2c2c2c", "#1a1a1a", "#000000",
+  ],
+};
+
+/** Booch: Black, Blue, Gray (engineering clarity). */
+export const PALETTE_BOOCH: Palette = {
+  id: "booch",
+  kind: "palette-16",
+  label: "Engineering Clarity",
+  colors: [
+    "#ffffff", "#000000", "#0047ab", "#333333", "#808080", "#a9a9a9", "#1a3a52", "#4a7bd4",
+    "#2a5f99", "#696969", "#c0c0c0", "#d4d4d4",
+  ],
+};
+
+/** Carlin: Black, Red, Electric Blue (linguistic subversion). */
+export const PALETTE_CARLIN: Palette = {
+  id: "carlin",
+  kind: "palette-16",
+  label: "Linguistic Subversion",
+  colors: [
+    "#000000", "#ff0000", "#00bfff", "#ffffff", "#663300", "#808080", "#ff4500", "#1a1a1a",
+    "#cc0000", "#0099ff", "#333333", "#c0c0c0",
+  ],
+};
+
+/** Trumpa: Gold, Black, Red (sacred paradox). */
+export const PALETTE_TRUMPA: Palette = {
+  id: "trumpa",
+  kind: "palette-16",
+  label: "Sacred Paradox",
+  colors: [
+    "#ffd700", "#000000", "#ff0000", "#ffffff", "#663399", "#722f37", "#b87333", "#c0c0c0",
+    "#8a2010", "#f5e6aa", "#2c2c2c", "#a0522d",
+  ],
+};
+
+/** Rosina: Gray, Brown, Black (grounded realism). */
+export const PALETTE_ROSINA: Palette = {
+  id: "rosina",
+  kind: "palette-16",
+  label: "Grounded Realism",
+  colors: [
+    "#808080", "#8b4513", "#000000", "#ffffff", "#a0522d", "#696969", "#4a3318", "#2e2113",
+    "#c0c0c0", "#666666", "#3a3a3a", "#1a1a1a",
+  ],
+};
+
+/** Domingo: Gold, Blue, Amber (musical flexibility). */
+export const PALETTE_DOMINGO: Palette = {
+  id: "domingo",
+  kind: "palette-16",
+  label: "Musical Flexibility",
+  colors: [
+    "#ffd700", "#00008b", "#ffbf00", "#ffffff", "#a9a9a9", "#dc143c", "#fffdd0", "#1a1a1a",
+    "#ffa500", "#00008b", "#8b4513", "#c0c0c0",
+  ],
+};
+
+/** Gabriel: Earth, Green, Gold, Indigo (magic realism). */
+export const PALETTE_GABRIEL: Palette = {
+  id: "gabriel",
+  kind: "palette-16",
+  label: "Magic Realism",
+  colors: [
+    "#8b6f47", "#2d5016", "#ffd700", "#4b0082", "#a0522d", "#ffffff", "#ff1493", "#d8c3a0",
+    "#1a1a1a", "#56785b", "#f4ecd8", "#000000",
+  ],
+};
+
 export const BUILTIN_PALETTES: Record<string, Palette> = {
   [BW.id]: BW,
   [GRAYSCALE.id]: GRAYSCALE,
@@ -99,6 +176,13 @@ export const BUILTIN_PALETTES: Record<string, Palette> = {
   [PALETTE_16.id]: PALETTE_16,
   [PALETTE_SAGAN.id]: PALETTE_SAGAN,
   [PALETTE_256.id]: PALETTE_256,
+  [PALETTE_GRAYSCALE_SEPIA.id]: PALETTE_GRAYSCALE_SEPIA,
+  [PALETTE_BOOCH.id]: PALETTE_BOOCH,
+  [PALETTE_CARLIN.id]: PALETTE_CARLIN,
+  [PALETTE_TRUMPA.id]: PALETTE_TRUMPA,
+  [PALETTE_ROSINA.id]: PALETTE_ROSINA,
+  [PALETTE_DOMINGO.id]: PALETTE_DOMINGO,
+  [PALETTE_GABRIEL.id]: PALETTE_GABRIEL,
 };
 
 export function getPalette(id: string): Palette | undefined {

@@ -9,7 +9,27 @@
 export type PaletteKind = "bw" | "grayscale" | "sepia" | "palette-16" | "palette-256";
 
 /** Named aesthetic profiles for image generation. */
-export type ProfileId = "sagan" | "picasso" | "contento" | "dictionary";
+export type ProfileId =
+  // Pure aesthetics
+  | "sagan"
+  | "picasso"
+  | "contento"
+  // Compositional
+  | "dictionary"
+  // Psychological & philosophical
+  | "freud"
+  | "jung"
+  | "nietzsche"
+  // Epistemological & communication
+  | "booch"
+  | "carlin"
+  | "trumpa"
+  // Pragmatic & grounded
+  | "rosina"
+  // Musical & integrated
+  | "domingo"
+  // Literary & mythic
+  | "gabriel";
 
 /** A fundamental palette: an ordered list of hex colors output is snapped to. */
 export interface Palette {
