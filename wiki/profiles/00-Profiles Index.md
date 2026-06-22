@@ -6,21 +6,21 @@ Complete documentation for caratulai's **13 generation profiles**. Each profile 
 
 ## Quick Reference
 
-| # | Profile | Aesthetic | Philosophy | Historical Reference | Color Palette | Max Elements |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | [[01-Sagan Profile\|Sagan]] | Archival cosmic data | Scientific, timeless | Voyager Golden Record (1977) | Gold + Silver | 48 |
-| 2 | [[02-Picasso Profile\|Picasso]] | Elegant restraint | Minimalist sophistication | Picasso's line drawings | Black + White | 20 |
-| 3 | [[03-Contento Profile\|Contento]] | Visual abundance | Maximalist joy | Postmodernism, Baroque | 256-color | 80+ |
-| 4 | [[04-Dictionary Profile\|Dictionary]] | Semantic composition | Visual vocabulary | Icon systems, comics | 256-color | 60 |
-| 5 | [[05-Freud Profile\|Freud]] | Psychological layers | Conflict model | Psychoanalysis | Grayscale + Sepia | 50–70 |
-| 6 | [[06-Jung Profile\|Jung]] | Archetypal symbols | Integration model | Jungian psychology | 256-color | 50 |
-| 7 | [[07-Nietzsche Profile\|Nietzsche]] | Genealogy of becoming | Philosophical dialectics | Nietzschean philosophy | 256-color | 40–100 |
-| 8 | [[08-Booch Profile\|Booch]] | Engineering clarity | Grounded humanism | Grady Booch, UML, craft | Black + Blue + Gray | 50–70 |
-| 9 | [[09-Carlin Profile\|Carlin]] | Linguistic subversion | Irreverent humor | George Carlin, comedy | Black + Red + Blue | 60–80 |
-| 10 | [[10-Trumpa Profile\|Trumpa]] | Sacred paradox | Crazy wisdom | Chögyam Trungpa | Gold + Black + Red | 50–70 |
-| 11 | [[11-Rosina Profile\|Rosina]] | Direct action | Grounded realism | Italian neorealism | Gray + Brown + Black | 30–50 |
-| 12 | [[12-Domingo Profile\|Domingo]] | Musical range | Flexible mastery | Plácido Domingo | Gold + Blue + Amber | 50–80 |
-| 13 | [[13-Gabriel Profile\|Gabriel]] | Magic realism | Mythic elaboration | Gabriel García Márquez | Earth + Green + Gold | 70–120 |
+| # | Profile | Aesthetic | Philosophy | Historical Reference | Color Palette | Max Elements | Composition |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | [[01-Sagan Profile\|Sagan]] | Archival cosmic data | Scientific, timeless | Voyager Golden Record (1977) | Gold + Silver | 48 | Radial/technical diagram |
+| 2 | [[02-Picasso Profile\|Picasso]] | Elegant restraint | Minimalist sophistication | Picasso's line drawings | Black + White | 20 | Continuous flowing line |
+| 3 | [[03-Contento Profile\|Contento]] | Visual abundance | Maximalist joy | Postmodernism, Baroque | 256-color | 80+ | Layered density, 60-80% fill |
+| 4 | [[04-Dictionary Profile\|Dictionary]] | Semantic composition | Visual vocabulary | Icon systems, comics | 256-color | 60 | Grid/cluster lexicon |
+| 5 | [[05-Freud Profile\|Freud]] | Psychological layers | Conflict model | Psychoanalysis | Grayscale + Sepia | 50–70 | *(pending)* |
+| 6 | [[06-Jung Profile\|Jung]] | Archetypal symbols | Integration model | Jungian psychology | 256-color | 50 | *(pending)* |
+| 7 | [[07-Nietzsche Profile\|Nietzsche]] | Genealogy of becoming | Philosophical dialectics | Nietzschean philosophy | 256-color | 40–100 | *(pending)* |
+| 8 | [[08-Booch Profile\|Booch]] | Engineering clarity | Grounded humanism | Grady Booch, UML, craft | Black + Blue + Gray | 50–70 | *(pending)* |
+| 9 | [[09-Carlin Profile\|Carlin]] | Linguistic subversion | Irreverent humor | George Carlin, comedy | Black + Red + Blue | 60–80 | *(pending)* |
+| 10 | [[10-Trumpa Profile\|Trumpa]] | Sacred paradox | Crazy wisdom | Chögyam Trungpa | Gold + Black + Red | 50–70 | *(pending)* |
+| 11 | [[11-Rosina Profile\|Rosina]] | Direct action | Grounded realism | Italian neorealism | Gray + Brown + Black | 30–50 | *(pending)* |
+| 12 | [[12-Domingo Profile\|Domingo]] | Musical range | Flexible mastery | Plácido Domingo | Gold + Blue + Amber | 50–80 | *(pending)* |
+| 13 | [[13-Gabriel Profile\|Gabriel]] | Magic realism | Mythic elaboration | Gabriel García Márquez | Earth + Green + Gold | 70–120 | *(pending)* |
 
 ---
 
@@ -192,29 +192,29 @@ The **LLM prompt changes fundamentally** based on the profile, because the *phil
 
 ### Implementation Status
 
-- ✅ **All 7 profiles: Designed & Documented**
-- ✅ **4 profiles: Implemented** (sagan, picasso, contento, dictionary)
-- 🔨 **3 profiles: Ready for prompt engineering** (freud, jung, nietzsche)
+- ✅ **All 13 profiles: Designed & Documented**
+- ✅ **4 profiles: Implemented with composition** (sagan, picasso, contento, dictionary)
+- 🔨 **9 profiles: Ready for prompt engineering** (freud, jung, nietzsche, booch, carlin, trumpa, rosina, domingo, gabriel)
 
 ### Next Steps (M1)
 
 1. **Test existing 4 profiles** with Ollama/LM Studio
-   - Verify quality, density, element counts
-   - Tune prompts based on model behavior
+   - Verify composition guidance improves spatial arrangement
+   - Tune composition strings based on model behavior
+   - Generate visual samples with `pnpm samples:live`
 
-2. **Wire up new 3 profiles** in prompt builder
-   - Add freud, jung, nietzsche to profile enum
+2. **Wire up remaining 9 profiles** in prompt builder
+   - Add composition guidance for each
    - Test with local models
    - Verify layer metaphor (freud) and mandala structure (jung) work
 
 3. **Anthropic provider** (Claude with prompt caching)
    - Claude best at SVG generation
-   - Test all 7 profiles with Claude
+   - Test all 13 profiles with Claude
 
 4. **Model ladder** (Ollama → LM Studio → OpenRouter)
    - Auto-fallback on model failure
    - Cost optimization
-
 ---
 
 ## See Also

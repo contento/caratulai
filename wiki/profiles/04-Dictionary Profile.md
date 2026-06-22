@@ -187,6 +187,14 @@ primitives:
 
 > *"Compose a scene representing [CONCEPT] using a semantic vocabulary of simple primitives: traveler, mountain, path, tree, sky, etc. Each primitive is a reusable building block. Combine them with relationships (walking toward, standing on, above, beside) to express the concept. Use 60 elements maximum. The visual language should feel like a visual vocabulary—simple, clear, composable, semantic."*
 
+### Composition Guidance
+
+> *"Compose as a visual lexicon: arrange semantic primitives in grid or cluster formation. Each element distinct but related. Use consistent spacing between elements. Create visual rhythm through repetition and variation. Balance density with readability."*
+
+### Sample Output
+
+![[assets/dictionary.svg]]
+
 ---
 
 ## Future Vision (M9: Dictionary Profile Evolution)

@@ -7,9 +7,11 @@
 ### Generation Pipeline
 
 ```
-tags + ontology + palette + constraints
+tags + ontology + palette + constraints + profile
    ↓
-buildPrompt() → LLM provider (ladder: cheap→costly, local→remote) → raw SVG
+buildPrompt() → injects profile tone + composition guidance + strict rules
+   ↓
+LLM provider (ladder: cheap→costly, local→remote) → raw SVG
    ↓
 validator/sanitizer (palette-snap · strip text · allowed primitives only · complexity cap)
    ↓

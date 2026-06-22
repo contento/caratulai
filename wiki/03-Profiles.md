@@ -1,16 +1,16 @@
 # Image Generation Profiles
 
-**13 generation profiles**—each a distinct philosophical, epistemological, aesthetic, or literary framework for visualizing concepts. Spanning aesthetics (minimal to maximal), psychology, philosophy, communication styles, engineering, grounded realism, musical mastery, and literary magic realism. **All profiles enforce ZERO text elements.**
+**13 generation profiles**—each a distinct philosophical, epistemological, aesthetic, or literary framework for visualizing concepts. Spanning aesthetics (minimal to maximal), psychology, philosophy, communication styles, engineering, grounded realism, musical mastery, and literary magic realism. **All profiles enforce ZERO text elements.** Each profile includes **composition guidance** that shapes *how* elements are spatially arranged.
 
-| Profile | Aesthetic | Palette | Max Elements | Shapes | Use Case |
-| --- | --- | --- | --- | --- | --- |
-| **sagan** | Voyager Golden Record | Gold + Silver | 48 | Fundamental only | Cosmic, profound, archival |
-| **picasso** | Single-line drawings | B/W | 20 | Fundamental only | Sophisticated, minimal, elegant |
-| **contento** | Rich, dense, layered | 256-color | 80 | All shapes + effects | Visual abundance, complexity |
-| **dictionary** | Vocabulary & icons | 256-color | 60 | All shapes + effects | Semantic visual library |
-| **freud** | Layers of the psyche | Grayscale + sepia | 50–70 | Shapes + groups | Unconscious drives, dream logic |
-| **jung** | Archetypal symbols | 256-color | 50 | Shapes + groups | Psychological/symbolic depth |
-| **nietzsche** | Genealogy of concepts | 256-color | 40–100 | Shapes + arrows | Philosophical/conceptual mapping |
+| Profile | Aesthetic | Palette | Max Elements | Shapes | Composition | Use Case |
+| --- | --- | --- | --- | --- | --- | --- |
+| **sagan** | Voyager Golden Record | Gold + Silver | 48 | Fundamental only | Radial/technical diagram | Cosmic, profound, archival |
+| **picasso** | Single-line drawings | B/W | 20 | Fundamental only | Continuous flowing line | Sophisticated, minimal, elegant |
+| **contento** | Rich, dense, layered | 256-color | 80 | All shapes + effects | Layered density, 60-80% fill | Visual abundance, complexity |
+| **dictionary** | Vocabulary & icons | 256-color | 60 | All shapes + effects | Grid/cluster lexicon | Semantic visual library |
+| **freud** | Layers of the psyche | Grayscale + sepia | 50–70 | Shapes + groups | *(pending)* | Unconscious drives, dream logic |
+| **jung** | Archetypal symbols | 256-color | 50 | Shapes + groups | *(pending)* | Psychological/symbolic depth |
+| **nietzsche** | Genealogy of concepts | 256-color | 40–100 | Shapes + arrows | *(pending)* | Philosophical/conceptual mapping |
 
 ## Per-Profile Details
 
@@ -26,6 +26,8 @@ Voyager record plate aesthetic: technical, minimal, profound. The canonical refe
 
 **Prompt tone:** Archival, scientific, timeless. Imagine a diagram on a phonograph record that's traveled 50 years through space.
 
+**Composition:** Radial/technical diagram — central focal point with radiating elements, radial symmetry, primary shape 30-50% of canvas center.
+
 ### picasso (implemented)
 
 **Aesthetic:** Elegant, sophisticated lines. Minimal shapes. Single-line drawing style.
@@ -36,6 +38,8 @@ Voyager record plate aesthetic: technical, minimal, profound. The canonical refe
 
 **Prompt tone:** Minimalist, sophisticated, single-stroke. Think Picasso's line drawings — economical and perfect.
 
+**Composition:** Continuous flowing line — single path suggests entire form, economy of marks, balanced negative space, golden ratio proportions.
+
 ### contento (implemented)
 
 **Aesthetic:** Less restrained. Rich complexity, 80+ elements, all shapes allowed. Dense, layered, visually abundant.
@@ -45,6 +49,8 @@ Voyager record plate aesthetic: technical, minimal, profound. The canonical refe
 **Max elements:** 80.
 
 **Prompt tone:** Visual abundance. All SVG shapes permitted: paths, polygons, circles, groups, gradients, patterns, effects.
+
+**Composition:** Layered density — overlapping elements create depth, fill 60-80% of canvas, foreground/midground/background layers, clear focal point amid complexity.
 
 **Use case:** When you want to showcase the full range of visual possibility.
 
@@ -57,6 +63,8 @@ Voyager record plate aesthetic: technical, minimal, profound. The canonical refe
 **Max elements:** 60.
 
 **Prompt tone:** Vocabulary-centric. Compose scenes from reusable semantic primitives. See [[design/02-Dictionary Profile]] for the full vision.
+
+**Composition:** Visual lexicon — arrange semantic primitives in grid or cluster formation, consistent spacing, visual rhythm through repetition and variation.
 
 ### freud (defined)
 
@@ -196,10 +204,12 @@ The **depth layer** (freud/jung/nietzsche) gives caratulai its philosophical pow
 
 ### Implementation Notes
 
-- All 7 profiles enforce the same hard [[02-Principles|aesthetic constraints]] (no text, valid SVG, etc.)
-- But each has distinct **color palettes**, **element limits**, and **prompt tone**
-- The prompt builder [[04-Stack|shapes the prompt]] to each profile's philosophy
-- Testing with real models (M1) will reveal which profiles LLMs find easiest/hardest
+- All 13 profiles enforce the same hard [[02-Principles|aesthetic constraints]] (no text, valid SVG, etc.)
+- Each has distinct **color palettes**, **element limits**, **prompt tone**, and **composition guidance**
+- The prompt builder [[04-Stack|shapes the prompt]] to each profile's philosophy, injecting composition after tone and before strict rules
+- The 4 implemented profiles (sagan, picasso, contento, dictionary) have composition guidance wired in
+- The 9 remaining profiles will get composition when implemented
+- Visual samples can be generated with `pnpm samples:live` (requires LLM provider)
 
 See: [[design/04-Profile Comparison Examples]] for concrete visual differences.
 

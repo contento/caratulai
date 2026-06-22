@@ -16,6 +16,9 @@ pnpm typecheck    # type-check without emitting
 # run the CLI
 node packages/cli/dist/index.js palettes
 node packages/cli/dist/index.js generate star water travel --palette sepia --out out/idea.svg
+
+# generate visual samples for all profiles (requires LLM provider)
+pnpm samples:live
 ```
 
 ## Project layout
@@ -32,6 +35,9 @@ node packages/cli/dist/index.js generate star water travel --palette sepia --out
 - **Code:** ESM TypeScript, `@caratulai/<name>` scope. Match the surrounding style.
 - **Aesthetic:** any change to generation must keep output passing the validator — fundamental
   palettes only, simple primitives, little/no text. See the guardrails in [CLAUDE.md](CLAUDE.md).
+- **Composition:** each profile's `composition` field in `profiles.ts` shapes spatial arrangement.
+  When adding or tuning a profile, include composition guidance that matches its aesthetic philosophy.
+  Test with `pnpm samples:live` to verify visual output.
 - **Decisions:** record non-obvious choices as short ADRs in `docs/decisions/`.
 
 ## Pull requests

@@ -48,6 +48,20 @@ describe("buildPrompt", () => {
   it("is deterministic", () => {
     expect(buildPrompt(req())).toBe(buildPrompt(req()));
   });
+  it("includes composition guidance for sagan profile", () => {
+    const p = buildPrompt(req());
+    expect(p).toContain("COMPOSITION:");
+    expect(p).toContain("central focal point");
+  });
+
+  it("includes composition principles", () => {
+    expect(SYSTEM_PROMPT).toContain("COMPOSITION PRINCIPLES:");
+    expect(SYSTEM_PROMPT).toContain("focal point");
+  });
+  it("omits composition section when profile has no composition field", () => {
+    const p = buildPrompt(req({ profile: "freud" }));
+    expect(p).not.toContain("COMPOSITION:");
+  });
 });
 
 describe("SYSTEM_PROMPT", () => {

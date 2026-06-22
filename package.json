@@ -11,6 +11,8 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "samples": "npx tsx scripts/generate-samples.ts",
+    "samples:live": "npx tsx scripts/generate-samples.ts --provider=openrouter",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck"
   },

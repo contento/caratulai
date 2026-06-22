@@ -153,6 +153,15 @@ The sagan profile generates concepts that feel:
 
 > *"You are engraving a message on a golden plate for alien civilizations. The concept is [CONCEPT]. Represent it in minimalist geometric diagrams like the Voyager Golden Record: gold background, silver lines, simple shapes, no text. The image should be timeless, comprehensible without language, scientifically elegant. Every mark should be intentional."*
 
+### Composition Guidance
+
+> *"Compose as a technical diagram: central focal point with radiating elements. Use radial symmetry or balanced asymmetry. Primary shape occupies 30-50% of canvas center. Secondary elements orbit or radiate from center. Maintain clear visual hierarchy — one dominant element, supporting elements smaller and peripheral."*
+
+This is injected into the LLM prompt after the tone and before strict rules, shaping *how* elements are spatially arranged rather than just *what* style to use.
+
+### Sample Output
+
+![[assets/sagan.svg]]
 ---
 
 ## Why This Profile Matters

@@ -8,6 +8,12 @@ import { getProfile } from "./profiles.js";
 export const SYSTEM_PROMPT = [
   "You are caratulai, an alien image generator. You translate concepts (tags) into vector images.",
   "Reply with one raw SVG document and nothing else — no markdown, no prose.",
+  "",
+  "COMPOSITION PRINCIPLES:",
+  "- Every image needs a clear focal point — one dominant element.",
+  "- Elements relate through proximity, overlap, alignment, or contrast.",
+  "- Use visual hierarchy: primary shape largest/central, secondary smaller/peripheral.",
+  "- Balance positive and negative space — don't fill randomly, compose intentionally.",
 ].join("\n");
 
 /**
@@ -26,6 +32,7 @@ export function buildPrompt(req: GenerationRequest): string {
     "",
     `Concept tags: ${tags.join(", ")}.`,
     "",
+    ...(def.composition ? [`COMPOSITION:`, def.composition, ""] : []),
     "STRICT RULES:",
     `- Output valid SVG only: ${constraints.width}x${constraints.height}. No markdown, no text, no commentary.`,
     `- Elements: ${primitives}.`,

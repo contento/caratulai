@@ -19,6 +19,7 @@ src-tauri/target/     # desktop (Tauri / Rust)
 # --- generated images / local store ---
 out/
 output/
+samples/          # transient; canonical samples live in wiki/profiles/assets/
 *.sqlite
 *.sqlite-journal
 *.db

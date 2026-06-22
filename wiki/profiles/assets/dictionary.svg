@@ -1,0 +1,30 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      
+      
+    </linearGradient>
+  </defs>
+  <g>
+    <circle cx="256" cy="256" r="100" fill="url(#grad1)" ></circle>
+    <polygon points="256,180 270,220 230,220" fill="#f5e6aa" ></polygon>
+    <polygon points="256,180 230,220 256,220" fill="#d4af37" ></polygon>
+    <polygon points="256,180 270,220 256,220" fill="#b8960c" ></polygon>
+    <polygon points="256,220 240,260 272,260" fill="#8a6d3b" ></polygon>
+    <polygon points="240,260 256,300 272,260" fill="#7a5c2f" ></polygon>
+    <ellipse cx="256" cy="300" rx="30" ry="10" fill="#d4d4d4" ></ellipse>
+    <ellipse cx="256" cy="300" rx="20" ry="5" fill="#e0e0e0" ></ellipse>
+    <path d="M256 100 Q220 150 256 200 Q292 150 256 100" fill="#1a1a1a" ></path>
+    <path d="M256 100 Q240 130 256 160 Q272 130 256 100" fill="#3a3a3a" ></path>
+    <path d="M50 400 Q60 370 75 400 T100 400" fill="#2c2c2c" ></path>
+    <path d="M100 400 Q110 370 125 400 T150 400" fill="#505050" ></path>
+    <path d="M400 400 Q410 370 425 400 T450 400" fill="#3a3a3a" ></path>
+    <path d="M450 400 Q460 370 475 400 T500 400" fill="#696969" ></path>
+    <circle cx="40" cy="470" r="15" fill="#b0b0b0" ></circle>
+    <circle cx="470" cy="470" r="15" fill="#b0b0b0" ></circle>
+    <circle cx="80" cy="470" r="10" fill="#c0c0c0" ></circle>
+    <circle cx="420" cy="470" r="10" fill="#c0c0c0" ></circle>
+    <circle cx="320" cy="470" r="5" fill="#e8e8e8" ></circle>
+    <circle cx="200" cy="470" r="5" fill="#e8e8e8" ></circle>
+  </g>
+</svg>

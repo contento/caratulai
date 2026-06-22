@@ -12,6 +12,8 @@ export interface ProfileDef {
   allowAllShapes: boolean;
   /** Profile-specific opening tone for buildPrompt(). */
   promptTone: string;
+  /** Spatial/compositional guidance for arranging elements. */
+  composition?: string;
 }
 
 export const PROFILES: Record<ProfileId, ProfileDef> = {
@@ -28,6 +30,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "Like a message from Earth engraved in metal for a civilization a thousand years from now.",
       "Technical, profound, archival.",
     ].join(" "),
+    composition: "Compose as a technical diagram: central focal point with radiating elements. Use radial symmetry or balanced asymmetry. Primary shape occupies 30-50% of canvas center. Secondary elements orbit or radiate from center. Maintain clear visual hierarchy — one dominant element, supporting elements smaller and peripheral.",
   },
 
   picasso: {
@@ -42,6 +45,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "One flowing stroke suggests the entire form. Minimal, sophisticated, expressive.",
       "A sketch that reveals the essence, not the detail. Pure line, no fill.",
     ].join(" "),
+    composition: "Compose as a continuous flowing line: single path suggests the entire form. Use economy of marks — every element essential. Balanced negative space. No element isolated; all connected through line flow. Proportions follow golden ratio or rule of thirds.",
   },
 
   contento: {
@@ -57,6 +61,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "Layer and overlap. No restrictions. Maximalist but coherent — abundance, not chaos.",
       "CRITICAL: ZERO TEXT. No <text> elements at all. Meaning comes from pure visual structure.",
     ].join(" "),
+    composition: "Compose with layered density: multiple overlapping elements create depth. Use visual abundance — fill 60-80% of canvas. Create foreground/midground/background layers. Balance complexity with clear focal point. Elements relate through proximity, overlap, and alignment.",
   },
 
   dictionary: {
@@ -71,6 +76,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "Each concept maps to a recognizable visual primitive. Combine icons into a coherent",
       "pictographic composition. Clear, referential, encyclopedic.",
     ].join(" "),
+    composition: "Compose as a visual lexicon: arrange semantic primitives in grid or cluster formation. Each element distinct but related. Use consistent spacing between elements. Create visual rhythm through repetition and variation. Balance density with readability.",
   },
 
   freud: {

@@ -144,6 +144,14 @@ The **contento** palette uses the full 256-color spectrum:
 
 > *"Generate a visually abundant, joyful representation of [CONCEPT]. Use the full 256-color palette. Include 80+ elements: circles, paths, polygons, gradients, layered shapes. Build complexity and density. Think colors singing together, patterns dancing, visual richness everywhere. Every part of the canvas should celebrate the concept. No text, but maximum visual abundance otherwise. Make it joyful, complex, and alive."*
 
+### Composition Guidance
+
+> *"Compose with layered density: multiple overlapping elements create depth. Use visual abundance — fill 60-80% of canvas. Create foreground/midground/background layers. Balance complexity with clear focal point. Elements relate through proximity, overlap, and alignment."*
+
+### Sample Output
+
+![[assets/contento.svg]]
+
 ---
 
 ## Why This Profile Matters

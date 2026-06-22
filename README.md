@@ -25,6 +25,7 @@ Full documentation lives in the wiki — open [wiki/](wiki/) as an Obsidian vaul
 - **[Vision](wiki/01-Vision.md)** — why this exists, the founding prompt, the musical analogy
 - **[Getting Started](wiki/09-Getting%20Started.md)** — install, run, first generation
 - **[Profiles](wiki/03-Profiles.md)** — aesthetic styles (sagan · picasso · contento · dictionary · ...)
+- **[Profile Gallery](wiki/profiles/00-gallery.md)** — visual samples for all 13 profiles
 - **[LLM Providers](wiki/11-LLM%20Providers.md)** — local (Ollama · LM Studio) and remote (OpenRouter)
 - **[Roadmap](wiki/17-Roadmap.md)** — M0–M10 milestones
 - **[Contributing](wiki/13-Contributing.md)** — dev setup, conventions, PRs

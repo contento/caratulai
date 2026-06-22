@@ -158,6 +158,14 @@ The picasso profile generates concepts that feel:
 
 > *"Draw [CONCEPT] as a sophisticated single-line drawing, like Picasso. Use only black lines on white. Capture the essence in minimal marks—every line is intentional. The result should feel elegant, gestural, like a sketch from a master artist's notebook. No fills, no text. Maximum 20 elements."*
 
+### Composition Guidance
+
+> *"Compose as a continuous flowing line: single path suggests the entire form. Use economy of marks — every element essential. Balanced negative space. No element isolated; all connected through line flow. Proportions follow golden ratio or rule of thirds."*
+
+### Sample Output
+
+![[assets/picasso.svg]]
+
 ---
 
 ## Why This Profile Matters
