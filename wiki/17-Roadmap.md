@@ -15,7 +15,6 @@ Legend: ✅ done · 🟡 in progress · ⬜ not started · ⭐ new
 - [x] Monorepo scaffold (pnpm + Turborepo + tsconfig base)
 - [x] `core` engine: types, palettes (+ color-snap), prompt builder, validator, providers, generate
 - [x] `cli`: `palettes` + `generate` commands (runs end to end with Echo placeholder)
-- [x] graphify knowledge graph (`graphify-out/`)
 - [x] Public GitHub repo: MIT, CI, tag-driven release, Dependabot, issue/PR templates, topics
 
 ---
@@ -92,7 +91,7 @@ Legend: ✅ done · 🟡 in progress · ⬜ not started · ⭐ new
 - [ ] Seed a first concept domain ([[Open Questions|question #4]])
 - [ ] Concept/tag model + relations (taxonomy)
 - [ ] Tag resolution: input → canonical concepts → prompt (use extracted tags + M3 taxonomy)
-- [ ] Optional RDF/Turtle export (could feed graphify)
+- [ ] Optional RDF/Turtle export
 
 ---
 

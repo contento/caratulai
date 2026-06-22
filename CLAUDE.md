@@ -9,14 +9,6 @@ Project: **caratulai** — an alien image generator. Concepts (tags/ontology) �
 - Keep [[wiki/Open Questions]] current — resolve items as decisions land.
 - Track outstanding work in [[wiki/Roadmap]].
 
-## graphify
-
-This project has a knowledge graph at `graphify-out/`.
-
-- For codebase questions, run `graphify query "<question>"` (scoped subgraph, smaller than GRAPH_REPORT.md or grep).
-- Use `graphify path "A" "B"` for relationships, `graphify explain "X"` for one concept.
-- After changing code, run `graphify update .` (AST-only, no API cost) to keep the graph current.
-- Read `graphify-out/GRAPH_REPORT.md` only for broad architecture review.
 
 ## Input pipeline: ontology at the root
 

@@ -23,8 +23,6 @@ output/
 *.sqlite-journal
 *.db
 
-# --- graphify knowledge graph (regenerated from source via `graphify update .`) ---
-graphify-out/
 
 # --- env & secrets ---
 .env

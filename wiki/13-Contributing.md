@@ -21,7 +21,6 @@ node packages/cli/dist/index.js generate star water travel --palette sepia --out
 - `packages/core` — the engine (ontology, palettes, prompt builder, providers, SVG validator). Stays I/O-agnostic: no direct DB/filesystem here.
 - `packages/cli` — command-line interface over the engine.
 
-There is a knowledge graph in `graphify-out/` (regenerated, not committed). After changing code, run `graphify update .` if you have graphify installed.
 
 ## Conventions
 
