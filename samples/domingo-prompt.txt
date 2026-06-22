@@ -1,0 +1,12 @@
+Visualize as a piece of music sung by a master tenor-baritone (Plácido Domingo style). Show range: high and low registers integrated without contradiction. Use flowing curves suggesting melodic phrases. Colors: gold (warmth), deep blue (profundity), amber (richness). The form should shift while maintaining core identity—versatile but unified. Warm, integrated, beautiful.
+
+Concept tags: star, water.
+
+STRICT RULES:
+- Output valid SVG only: 512x512. No markdown, no text, no commentary.
+- Elements: path, line, polyline, polygon, circle, ellipse, rect, g, symbol, defs, use, text, tspan, textPath, image, a, linearGradient, radialGradient, pattern, mask, clipPath, marker, filter, feGaussianBlur, feOffset, feBlend, svg, title, desc, metadata.
+- Colors ONLY: #ffd700, #00008b, #ffbf00, #ffffff, #a9a9a9, #dc143c, #fffdd0, #1a1a1a, #ffa500, #00008b, #8b4513, #c0c0c0. Exact hex values. No deviations.
+- Maximum 80 elements. Use them meaningfully.
+- ZERO text. Meaning comes from visual structure alone.
+
+Generate the SVG now:

@@ -1,0 +1,21 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      
+      
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      
+      
+    </linearGradient>
+  </defs>
+  <g>
+    <path d="M256 256 C 300 200, 400 200, 450 300 S 400 400, 300 400 C 250 350, 200 350, 150 400 S 100 300, 150 200 C 200 150, 250 150, 256 256" fill="url(#grad1)" ></path>
+    <ellipse cx="256" cy="256" rx="180" ry="60" fill="url(#grad2)" opacity="0.7" ></ellipse>
+    <path d="M150 200 C 100 150, 200 100, 250 150 C 300 200, 400 150, 450 200" stroke="#ffd700" stroke-width="8" fill="none" ></path>
+    <circle cx="256" cy="256" r="20" fill="#ffbf00" ></circle>
+    <path d="M256 256 Q 200 300, 256 300 Q 312 300, 256 256" fill="#dc143c" ></path>
+    <polygon points="150,400 170,450 130,450" fill="#fffdd0" ></polygon>
+    <polygon points="400,300 420,350 380,350" fill="#c0c0c0" ></polygon>
+  </g>
+</svg>

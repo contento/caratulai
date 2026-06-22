@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" fill="#c0c0c0"></rect>
+  <circle cx="256" cy="150" r="50" fill="#808080"></circle>
+  <polygon points="240,150 256,90 272,150" fill="#000000"></polygon>
+  <line x1="256" y1="200" x2="256" y2="400" stroke="#4a3318" stroke-width="5"></line>
+  <line x1="256" y1="400" x2="200" y2="470" stroke="#8b4513" stroke-width="5"></line>
+  <line x1="256" y1="400" x2="312" y2="470" stroke="#8b4513" stroke-width="5"></line>
+  <polyline points="256,200 200,300 256,400" stroke="#696969" stroke-width="5" fill="none"></polyline>
+  <polyline points="256,200 312,300 256,400" stroke="#696969" stroke-width="5" fill="none"></polyline>
+  <ellipse cx="256" cy="450" rx="60" ry="15" fill="#1a1a1a"></ellipse>
+  <line x1="256" y1="450" x2="256" y2="465" stroke="#000000" stroke-width="5"></line>
+  <line x1="256" y1="450" x2="220" y2="455" stroke="#3a3a3a" stroke-width="5"></line>
+  <line x1="256" y1="450" x2="292" y2="455" stroke="#3a3a3a" stroke-width="5"></line>
+  <path d="M256 90 Q200 130 256 150" stroke="#2e2113" stroke-width="5" fill="none"></path>
+  <path d="M256 90 Q312 130 256 150" stroke="#2e2113" stroke-width="5" fill="none"></path>
+  <line x1="256" y1="150" x2="200" y2="250" stroke="#666666" stroke-width="5"></line>
+  <line x1="256" y1="150" x2="312" y2="250" stroke="#666666" stroke-width="5"></line>
+  <line x1="200" y1="250" x2="312" y2="250" stroke="#8b4513" stroke-width="5"></line>
+  <line x1="200" y1="250" x2="256" y2="300" stroke="#808080" stroke-width="5"></line>
+  <line x1="312" y1="250" x2="256" y2="300" stroke="#808080" stroke-width="5"></line>
+</svg>

@@ -1,0 +1,15 @@
+Create an engraved technical diagram in the style of the Voyager Golden Record plate. Gold background, silver lines and marks. Precise, scientific, timeless. Like a message from Earth engraved in metal for a civilization a thousand years from now. Technical, profound, archival.
+
+Concept tags: star, water.
+
+COMPOSITION:
+Compose as a technical diagram: central focal point with radiating elements. Use radial symmetry or balanced asymmetry. Primary shape occupies 30-50% of canvas center. Secondary elements orbit or radiate from center. Maintain clear visual hierarchy — one dominant element, supporting elements smaller and peripheral.
+
+STRICT RULES:
+- Output valid SVG only: 512x512. No markdown, no text, no commentary.
+- Elements: path, line, polyline, polygon, circle, ellipse, rect, g.
+- Colors ONLY: #d4af37, #c0c0c0, #b8960c, #e8d5a3, #f5e6aa, #a8a8a8, #808080, #f0f0f0, #2c2c2c, #1a1a1a. Exact hex values. No deviations.
+- Maximum 48 elements. Use them meaningfully.
+- ZERO text. Meaning comes from visual structure alone.
+
+Generate the SVG now:

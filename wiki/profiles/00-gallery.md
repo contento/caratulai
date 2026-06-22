@@ -7,15 +7,15 @@ Visual samples for all 13 generation profiles. Each SVG was generated with `open
 ## A. Pure Aesthetics
 
 ### sagan — Voyager Golden Record
-![[assets/sagan.svg]]
+![sagan sample](assets/sagan.svg)
 *Radial symmetry, gold background, technical diagram. 48 elements max.*
 
 ### picasso — Single-Line Drawing
-![[assets/picasso.svg]]
+![picasso sample](assets/picasso.svg)
 *Continuous flowing line, black on white, pure economy. 20 elements max.*
 
 ### contento — Rich Complexity
-![[assets/contento.svg]]
+![contento sample](assets/contento.svg)
 *Layered density, gradients, patterns, visual abundance. 80 elements max.*
 
 ---
@@ -23,7 +23,7 @@ Visual samples for all 13 generation profiles. Each SVG was generated with `open
 ## B. Compositional
 
 ### dictionary — Visual Lexicon
-![[assets/dictionary.svg]]
+![dictionary sample](assets/dictionary.svg)
 *Semantic primitives in grid/cluster formation. 60 elements max.*
 
 ---
@@ -31,15 +31,15 @@ Visual samples for all 13 generation profiles. Each SVG was generated with `open
 ## C. Psychological & Philosophical
 
 ### freud — Psychological Layers
-![[assets/freud.svg]]
+![freud sample](assets/freud.svg)
 *Concentric layers: id (warm sepia) → ego (gray) → superego (cool gray). 70 elements max.*
 
 ### jung — Archetypal Symbols
-![[assets/jung.svg]]
+![jung sample](assets/jung.svg)
 *Mandala-like radial symmetry, symbolic animals, sacred geometry. 50 elements max.*
 
 ### nietzsche — Genealogy of Concepts
-![[assets/nietzsche.svg]]
+![nietzsche sample](assets/nietzsche.svg)
 *Apollonian/Dionysian tension, genealogical diagram, eternal recurrence. 100 elements max.*
 
 ---
@@ -47,19 +47,19 @@ Visual samples for all 13 generation profiles. Each SVG was generated with `open
 ## D. Epistemological
 
 ### booch — Engineering Clarity
-![[assets/booch.svg]]
+![booch sample](assets/booch.svg)
 *System diagram, boxes and lines, honest structure. 70 elements max.*
 
 ### carlin — Linguistic Subversion
-![[assets/carlin.svg]]
+![carlin sample](assets/carlin.svg)
 *Rough, crude, energetic. Expose contradictions. 80 elements max.*
 
 ### trumpa — Sacred Paradox
-![[assets/trumpa.svg]]
+![trumpa sample](assets/trumpa.svg)
 *Crazy wisdom, paradox, sacred/profane held together. 70 elements max.*
 
 ### rosina — Grounded Realism
-![[assets/rosina.svg]]
+![rosina sample](assets/rosina.svg)
 *Stark, direct, unglamorous. Italian neorealist cinema style. 50 elements max.*
 
 ---
@@ -67,11 +67,11 @@ Visual samples for all 13 generation profiles. Each SVG was generated with `open
 ## E. Musical & Literary
 
 ### domingo — Musical Range
-![[assets/domingo.svg]]
+![domingo sample](assets/domingo.svg)
 *Flowing curves, warm/cool integration, versatile mastery. 80 elements max.*
 
 ### gabriel — Magic Realism
-![[assets/gabriel.svg]]
+![gabriel sample](assets/gabriel.svg)
 *Elaborate, warm, mythic yet real. García Márquez style. 120 elements max.*
 
 ---

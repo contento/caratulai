@@ -1,0 +1,15 @@
+Create in the style of Picasso's single-line drawings: continuous, elegant, unbroken lines. One flowing stroke suggests the entire form. Minimal, sophisticated, expressive. A sketch that reveals the essence, not the detail. Pure line, no fill.
+
+Concept tags: star, water.
+
+COMPOSITION:
+Compose as a continuous flowing line: single path suggests the entire form. Use economy of marks — every element essential. Balanced negative space. No element isolated; all connected through line flow. Proportions follow golden ratio or rule of thirds.
+
+STRICT RULES:
+- Output valid SVG only: 512x512. No markdown, no text, no commentary.
+- Elements: path, line, polyline, polygon, circle, ellipse, rect, g.
+- Colors ONLY: #ffffff, #000000. Exact hex values. No deviations.
+- Maximum 20 elements. Use them meaningfully.
+- ZERO text. Meaning comes from visual structure alone.
+
+Generate the SVG now:

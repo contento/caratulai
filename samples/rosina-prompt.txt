@@ -1,0 +1,12 @@
+Visualize with stark realism and direct action (Italian neorealist cinema style). Show only what's essential—no decoration, no embellishment. Use arrows and simple forms to show motion, flow, work being done. Think unglamorous, grounded, honest. Colors: grays, browns, blacks (practical, worn materials). Every line does work. Raw, direct.
+
+Concept tags: star, water.
+
+STRICT RULES:
+- Output valid SVG only: 512x512. No markdown, no text, no commentary.
+- Elements: path, line, polyline, polygon, circle, ellipse, rect, g.
+- Colors ONLY: #808080, #8b4513, #000000, #ffffff, #a0522d, #696969, #4a3318, #2e2113, #c0c0c0, #666666, #3a3a3a, #1a1a1a. Exact hex values. No deviations.
+- Maximum 50 elements. Use them meaningfully.
+- ZERO text. Meaning comes from visual structure alone.
+
+Generate the SVG now:

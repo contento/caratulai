@@ -164,7 +164,7 @@ The picasso profile generates concepts that feel:
 
 ### Sample Output
 
-![[assets/picasso.svg]]
+![picasso sample](assets/picasso.svg)
 
 ---
 

@@ -150,7 +150,7 @@ The **contento** palette uses the full 256-color spectrum:
 
 ### Sample Output
 
-![[assets/contento.svg]]
+![contento sample](assets/contento.svg)
 
 ---
 

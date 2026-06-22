@@ -193,7 +193,7 @@ primitives:
 
 ### Sample Output
 
-![[assets/dictionary.svg]]
+![dictionary sample](assets/dictionary.svg)
 
 ---
 

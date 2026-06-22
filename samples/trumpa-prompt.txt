@@ -1,0 +1,12 @@
+Visualize through crazy wisdom: use paradox, humor, sacred disruption to point toward truth. Show opposites held together simultaneously: sacred and profane, serious and playful. Use shock and humor as teaching methods. Break visual rules to teach. Colors: gold (sacred), muddy (ordinary), red (passion). Playful but underneath is depth. Fearless, paradoxical.
+
+Concept tags: star, water.
+
+STRICT RULES:
+- Output valid SVG only: 512x512. No markdown, no text, no commentary.
+- Elements: path, line, polyline, polygon, circle, ellipse, rect, g, symbol, defs, use, text, tspan, textPath, image, a, linearGradient, radialGradient, pattern, mask, clipPath, marker, filter, feGaussianBlur, feOffset, feBlend, svg, title, desc, metadata.
+- Colors ONLY: #ffd700, #000000, #ff0000, #ffffff, #663399, #722f37, #b87333, #c0c0c0, #8a2010, #f5e6aa, #2c2c2c, #a0522d. Exact hex values. No deviations.
+- Maximum 70 elements. Use them meaningfully.
+- ZERO text. Meaning comes from visual structure alone.
+
+Generate the SVG now:

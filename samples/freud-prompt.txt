@@ -1,0 +1,12 @@
+Visualize this concept as a Freudian psychological structure with concentric layers: Outermost (cool gray) = Superego (rules, judgment). Middle (gray-sepia) = Ego (mediator). Innermost (warm sepia) = Id (primal drives). Use nested circles, spirals, fading edges. No text. Colors shift from warm inside to cool outside. Introspective, mysterious.
+
+Concept tags: star, water.
+
+STRICT RULES:
+- Output valid SVG only: 512x512. No markdown, no text, no commentary.
+- Elements: path, line, polyline, polygon, circle, ellipse, rect, g.
+- Colors ONLY: #ffffff, #f5f5f5, #d8c3a0, #c0c0c0, #a8a8a8, #8a6d3b, #808080, #696969, #5c4326, #4a4a4a, #3a3a3a, #2c2c2c, #1a1a1a, #000000. Exact hex values. No deviations.
+- Maximum 70 elements. Use them meaningfully.
+- ZERO text. Meaning comes from visual structure alone.
+
+Generate the SVG now:

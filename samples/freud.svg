@@ -1,0 +1,14 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  
+  <g>
+    <circle cx="256" cy="256" r="180" fill="url(#grad1)" ></circle>
+    <circle cx="256" cy="256" r="140" fill="#d8c3a0" ></circle>
+    <circle cx="256" cy="256" r="100" fill="#c0c0c0" ></circle>
+    <circle cx="256" cy="256" r="60" fill="#a8a8a8" ></circle>
+    <circle cx="256" cy="256" r="20" fill="#808080" ></circle>
+  </g>
+  <path d="M 256 256 Q 300 200 256 180 Q 212 200 256 256 Z" fill="#5c4326" ></path>
+  <path d="M 256 256 Q 300 300 256 320 Q 212 300 256 256 Z" fill="#4a4a4a" ></path>
+  <path d="M 256 256 Q 200 300 180 256 Q 200 212 256 256 Z" fill="#3a3a3a" ></path>
+  <ellipse cx="256" cy="256" rx="180" ry="90" fill="none" stroke="#1a1a1a" stroke-width="2" ></ellipse>
+</svg>

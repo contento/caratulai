@@ -161,7 +161,7 @@ This is injected into the LLM prompt after the tone and before strict rules, sha
 
 ### Sample Output
 
-![[assets/sagan.svg]]
+![sagan sample](assets/sagan.svg)
 ---
 
 ## Why This Profile Matters

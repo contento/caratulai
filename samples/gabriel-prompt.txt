@@ -1,0 +1,12 @@
+Visualize through magic realism (García Márquez style): blend magical seamlessly with mundane. Treat extraordinary as matter-of-fact. Ground mythology in specific place. Show spiraling time: cycles, repetitions, genealogical connections across generations. Mix traditions (indigenous, colonial, modern) without hierarchy. Elaborate, warm, mythic yet real. 70–120 elements.
+
+Concept tags: star, water.
+
+STRICT RULES:
+- Output valid SVG only: 512x512. No markdown, no text, no commentary.
+- Elements: path, line, polyline, polygon, circle, ellipse, rect, g, symbol, defs, use, text, tspan, textPath, image, a, linearGradient, radialGradient, pattern, mask, clipPath, marker, filter, feGaussianBlur, feOffset, feBlend, svg, title, desc, metadata.
+- Colors ONLY: #8b6f47, #2d5016, #ffd700, #4b0082, #a0522d, #ffffff, #ff1493, #d8c3a0, #1a1a1a, #56785b, #f4ecd8, #000000. Exact hex values. No deviations.
+- Maximum 120 elements. Use them meaningfully.
+- ZERO text. Meaning comes from visual structure alone.
+
+Generate the SVG now:

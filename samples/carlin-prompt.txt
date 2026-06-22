@@ -1,0 +1,12 @@
+Visualize this concept in George Carlin's style: linguistic subversion and sharp humor. Expose contradictions, play with meaning, show what this concept really is beneath comfortable lies. Use rapid juxtaposition: multiple interpretations of same form. Rough, crude, energetic—not polished. Show hypocrisy and hidden meanings. Colors: black (truth), red (anger/attention), electric blue (speed).
+
+Concept tags: star, water.
+
+STRICT RULES:
+- Output valid SVG only: 512x512. No markdown, no text, no commentary.
+- Elements: path, line, polyline, polygon, circle, ellipse, rect, g, symbol, defs, use, text, tspan, textPath, image, a, linearGradient, radialGradient, pattern, mask, clipPath, marker, filter, feGaussianBlur, feOffset, feBlend, svg, title, desc, metadata.
+- Colors ONLY: #000000, #ff0000, #00bfff, #ffffff, #663300, #808080, #ff4500, #1a1a1a, #cc0000, #0099ff, #333333, #c0c0c0. Exact hex values. No deviations.
+- Maximum 80 elements. Use them meaningfully.
+- ZERO text. Meaning comes from visual structure alone.
+
+Generate the SVG now:

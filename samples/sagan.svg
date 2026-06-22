@@ -1,0 +1,24 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:serif="http://www.serif.com/" style="background-color:#d4af37;">
+  <g transform="translate(256,256)">
+    <circle r="100" fill="#c0c0c0" ></circle>
+    <path d="M0,-100 L10,-90 L-10,-90 Z" fill="#b8960c" transform="rotate(0)" ></path>
+    <path d="M0,-100 L10,-90 L-10,-90 Z" fill="#b8960c" transform="rotate(45)" ></path>
+    <path d="M0,-100 L10,-90 L-10,-90 Z" fill="#b8960c" transform="rotate(90)" ></path>
+    <path d="M0,-100 L10,-90 L-10,-90 Z" fill="#b8960c" transform="rotate(135)" ></path>
+    <path d="M0,-100 L10,-90 L-10,-90 Z" fill="#b8960c" transform="rotate(180)" ></path>
+    <path d="M0,-100 L10,-90 L-10,-90 Z" fill="#b8960c" transform="rotate(225)" ></path>
+    <path d="M0,-100 L10,-90 L-10,-90 Z" fill="#b8960c" transform="rotate(270)" ></path>
+    <path d="M0,-100 L10,-90 L-10,-90 Z" fill="#b8960c" transform="rotate(315)" ></path>
+    <circle r="50" fill="#c0c0c0" ></circle>
+    <ellipse cx="0" cy="-50" rx="20" ry="10" fill="#f0f0f0" ></ellipse>
+    <ellipse cx="0" cy="50" rx="20" ry="10" fill="#f0f0f0" ></ellipse>
+    <ellipse cx="-50" cy="0" rx="10" ry="20" fill="#f0f0f0" ></ellipse>
+    <ellipse cx="50" cy="0" rx="10" ry="20" fill="#f0f0f0" ></ellipse>
+    <line x1="0" y1="-100" x2="0" y2="-110" stroke="#808080" stroke-width="2" ></line>
+    <line x1="0" y1="100" x2="0" y2="110" stroke="#808080" stroke-width="2" ></line>
+    <line x1="-100" y1="0" x2="-110" y2="0" stroke="#808080" stroke-width="2" ></line>
+    <line x1="100" y1="0" x2="110" y2="0" stroke="#808080" stroke-width="2" ></line>
+    <path d="M-20,-20 L20,20 M20,-20 L-20,20" stroke="#a8a8a8" stroke-width="2" ></path>
+    <path d="M-20,20 L20,-20 M20,20 L-20,-20" stroke="#a8a8a8" stroke-width="2" ></path>
+  </g>
+</svg>

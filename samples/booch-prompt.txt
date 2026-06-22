@@ -1,0 +1,12 @@
+Visualize this concept as a clear, rigorous system diagram (Grady Booch style). Use boxes for components, lines for connections. Show structure honestly without decoration. Make it comprehensible—a junior engineer should understand it immediately. Generous whitespace. No text labels. Colors: black (structure), blue (flow), gray (secondary). Honest, clear, crafted.
+
+Concept tags: star, water.
+
+STRICT RULES:
+- Output valid SVG only: 512x512. No markdown, no text, no commentary.
+- Elements: path, line, polyline, polygon, circle, ellipse, rect, g.
+- Colors ONLY: #ffffff, #000000, #0047ab, #333333, #808080, #a9a9a9, #1a3a52, #4a7bd4, #2a5f99, #696969, #c0c0c0, #d4d4d4. Exact hex values. No deviations.
+- Maximum 70 elements. Use them meaningfully.
+- ZERO text. Meaning comes from visual structure alone.
+
+Generate the SVG now:
