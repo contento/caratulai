@@ -265,8 +265,8 @@ program
         throw new Error(`Unknown profile "${profileId}". Available: sagan, picasso, contento, dictionary, freud, jung, nietzsche, booch, carlin, trumpa, rosina, domingo, gabriel`);
       }
 
-    // Resolve config: CLI flags > CARATULAI_* env vars > profile defaults
-    const paletteId = resolveOpt(opts.palette, "CARATULAI_PALETTE", profileDef.paletteId);
+      // Resolve config: CLI flags > CARATULAI_* env vars > profile defaults
+      const paletteId = resolveOpt(opts.palette, "CARATULAI_PALETTE", profileDef.paletteId);
 
     // Resolve canvas dimensions: --width/--height > --ratio > CARATULAI_RATIO env > default
     let width = 512, height = 512;
