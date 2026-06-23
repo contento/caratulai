@@ -2,6 +2,48 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import yaml from "js-yaml";
 
+/** Type-safe YAML config structure */
+export interface CaratulaiConfig {
+  cli?: {
+    default_tags?: string;
+    seed?: number;
+  };
+  generation?: {
+    ratio?: string;
+    allow_all_shapes?: boolean;
+    profile?: string;
+  };
+  models?: {
+    text?: { provider?: string; model?: string; api_key_env?: string };
+    svg?: { provider?: string; model?: string; api_key_env?: string };
+    image?: { provider?: string; model?: string; api_key_env?: string };
+  };
+  output?: {
+    auto_save_dir?: string;
+  };
+  palette?: {
+    default?: string;
+  };
+  profiles?: Record<string, unknown>;
+}
+
+/** Safely get a nested property from a config object */
+export function getConfigValue<T>(
+  config: CaratulaiConfig,
+  path: string,
+  defaultValue: T
+): T {
+  const keys = path.split(".");
+  let current: unknown = config;
+  for (const key of keys) {
+    if (current === null || current === undefined || typeof current !== "object") {
+      return defaultValue;
+    }
+    current = (current as Record<string, unknown>)[key];
+  }
+  return (current as T) ?? defaultValue;
+}
+
 /**
  * Load .env file from the given directory (or cwd) and set process.env variables.
  * Skips comments and blank lines. Existing env vars are never overridden.
@@ -69,9 +111,9 @@ export function resolveOpt<T>(
 
 /**
  * Load caratulai.config.yaml from the given directory (or cwd).
- * Returns the parsed YAML as a plain object, or empty object if file doesn't exist.
+ * Returns the parsed YAML as a typed config object, or empty object if file doesn't exist.
  */
-export async function loadYamlConfig(dir: string = process.cwd()): Promise<Record<string, unknown>> {
+export async function loadYamlConfig(dir: string = process.cwd()): Promise<CaratulaiConfig> {
   const filePath = join(dir, "caratulai.config.yaml");
   let content: string;
   try {
@@ -82,7 +124,7 @@ export async function loadYamlConfig(dir: string = process.cwd()): Promise<Recor
   }
 
   try {
-    return (yaml.load(content) as Record<string, unknown>) ?? {};
+    return (yaml.load(content) as CaratulaiConfig) ?? {};
   } catch {
     // Invalid YAML; return empty
     return {};

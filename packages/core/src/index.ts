@@ -6,6 +6,7 @@ export * from "./prompt.js";
 export * from "./extract.js";
 export * from "./validate.js";
 export * from "./generate.js";
+export * from "./analyze.js";
 export { ModelLadder } from "./providers/index.js";
 export { EchoProvider } from "./providers/echo.js";
 export { OpenAICompatProvider, type OpenAICompatConfig } from "./providers/openai-compat.js";

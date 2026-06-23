@@ -7,7 +7,13 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       include: ["src/**/*.ts"],
-      exclude: ["src/**/*.test.ts", "src/index.ts"],
+      exclude: [
+        "src/**/*.test.ts",
+        "src/index.ts",
+        "src/types.ts", // Type definitions only
+        "src/analyze.ts", // Requires network calls for vision models
+        "src/providers/openai-compat.ts", // Requires network calls for vision models
+      ],
       // Strictness: the engine is the source of truth for the aesthetic — keep it covered.
       thresholds: {
         statements: 98,

@@ -1,5 +1,6 @@
 import type { GenerationParams, LLMProvider } from "../types.js";
 import { SYSTEM_PROMPT } from "../prompt.js";
+import { IMAGE_ANALYSIS_SYSTEM_PROMPT } from "../analyze.js";
 
 /**
  * Configuration for any OpenAI chat-completions-compatible backend.
@@ -51,6 +52,66 @@ export class OpenAICompatProvider implements LLMProvider {
           messages: [
             { role: "system", content: SYSTEM_PROMPT },
             { role: "user", content: prompt },
+          ],
+          temperature: params.temperature,
+          ...(params.seed !== undefined ? { seed: params.seed } : {}),
+          max_tokens: maxTokens,
+          stream: false,
+        }),
+        signal: controller.signal,
+      });
+
+      if (!res.ok) {
+        const body = await res.text().catch(() => "");
+        throw new Error(`${this.name} HTTP ${res.status}: ${body.slice(0, 300)}`);
+      }
+
+      const data = (await res.json()) as ChatCompletionResponse;
+      const content = data.choices?.[0]?.message?.content;
+      if (!content) {
+        throw new Error(`${this.name}: empty response${data.error?.message ? ` (${data.error.message})` : ""}`);
+      }
+      return content;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  async generateWithImage(
+    prompt: string,
+    imageData: string,
+    mimeType: string,
+    params: GenerationParams
+  ): Promise<string> {
+    const { baseUrl, model, apiKey, headers, maxTokens = 4096, timeoutMs = 120_000 } = this.config;
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(`${baseUrl.replace(/\/+$/, "")}/chat/completions`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          ...(apiKey ? { authorization: `Bearer ${apiKey}` } : {}),
+          ...headers,
+        },
+        body: JSON.stringify({
+          model,
+          messages: [
+            { role: "system", content: IMAGE_ANALYSIS_SYSTEM_PROMPT },
+            {
+              role: "user",
+              content: [
+                { type: "text", text: prompt },
+                {
+                  type: "image_url",
+                  image_url: {
+                    url: `data:${mimeType};base64,${imageData}`,
+                    detail: "low",
+                  },
+                },
+              ],
+            },
           ],
           temperature: params.temperature,
           ...(params.seed !== undefined ? { seed: params.seed } : {}),

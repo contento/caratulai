@@ -107,4 +107,24 @@ export interface LLMProvider {
   readonly models: string[];
   /** Generate raw SVG text for a built prompt. */
   generateSvg(prompt: string, params: GenerationParams): Promise<string>;
+  /** Generate text from a prompt with optional image content (for vision models). */
+  generateWithImage?(prompt: string, imageData: string, mimeType: string, params: GenerationParams): Promise<string>;
+}
+
+/** Request for image analysis. */
+export interface ImageAnalysisRequest {
+  /** Local file path or HTTP(S) URL */
+  source: string;
+  /** Model parameters */
+  params?: Partial<GenerationParams>;
+}
+
+/** Result of image analysis. */
+export interface ImageAnalysisResult {
+  /** Extracted narrative description */
+  narrative: string;
+  /** Derived concept tags */
+  tags: string[];
+  /** Source path/URL */
+  source: string;
 }
