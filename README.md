@@ -15,7 +15,40 @@ Requires Node ≥ 20 and pnpm (`corepack enable pnpm`).
 
 ```sh
 pnpm install && pnpm build
-node packages/cli/dist/index.js generate star water travel --palette sepia --out out/idea.svg
+```
+
+## Usage
+
+### From tags
+```sh
+node packages/cli/dist/index.js generate star water travel --profile sagan --out out/idea.svg
+```
+
+### From narrative text
+```sh
+node packages/cli/dist/index.js generate --from-text "A dark journey across an ancient ocean" --profile picasso
+```
+
+### From an image (vision model required)
+```sh
+node packages/cli/dist/index.js generate --from-image ./photo.jpg --image-model openai/gpt-4o --profile contento
+node packages/cli/dist/index.js generate --from-image https://example.com/art.png --profile sagan
+```
+
+### Helper scripts
+```sh
+# Linux/macOS
+./caratulai.sh generate star water travel --profile sagan
+./caratulai.sh generate --from-image ./photo.jpg --profile contento
+
+# PowerShell
+.\caratulai.ps1 generate star water travel --profile sagan
+.\caratulai.ps1 generate --from-image .\photo.jpg --profile contento
+```
+
+### List palettes
+```sh
+node packages/cli/dist/index.js palettes
 ```
 
 ## Documentation

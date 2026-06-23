@@ -1,6 +1,8 @@
 #!/bin/bash
 # caratulai — convenient CLI wrapper for the alien image generator
-# Usage: ./caratulai.sh generate --from-text "A starry ocean"
+# Usage: ./caratulai.sh generate star water travel --profile sagan
+#        ./caratulai.sh generate --from-text "A starry ocean"
+#        ./caratulai.sh generate --from-image ./photo.jpg --profile contento
 #        ./caratulai.sh palettes
 #        ./caratulai.sh --build generate star water travel
 

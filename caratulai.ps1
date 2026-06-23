@@ -1,8 +1,9 @@
 # caratulai — convenient CLI wrapper for the alien image generator
-# Usage: .\caratulai.ps1 generate --from-text "A starry ocean"
+# Usage: .\caratulai.ps1 generate star water travel --profile sagan
+#        .\caratulai.ps1 generate --from-text "A starry ocean"
+#        .\caratulai.ps1 generate --from-image .\photo.jpg --profile contento
 #        .\caratulai.ps1 palettes
 #        .\caratulai.ps1 --build generate star water travel
-
 param(
     [switch]$Build = $false,
     [Parameter(ValueFromRemainingArguments=$true)]
