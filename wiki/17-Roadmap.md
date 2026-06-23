@@ -31,9 +31,9 @@ Legend: ✅ done · 🟡 in progress · ⬜ not started · ⭐ new
 - [x] Provider docs ([[11-LLM Providers]]) + `.env.example`
 - [x] **Test suite** (Vitest): 69 tests across validator, palettes, prompt, generate, providers, model ladder, HTTP provider (mocked fetch), factories — coverage thresholds enforced (≥98%)
 - [x] Re-enable the CI `test` step (now runs with coverage gating)
-- [x] **Image generation profiles** (aesthetic styles — 7 of 7 defined, 4 of 7 implemented):
+- [x] **Image generation profiles** (aesthetic styles — 13 of 13 defined, all 13 implemented):
   - [x] sagan — Voyager Golden Record (gold + silver)
-  - [x] picasso — elegant lines, minimal (single-line B/W, 20 elements)
+  - [x] picasso — elegant lines, minimal (single-line B/W, 3 elements, one continuous stroke)
   - [x] contento — less restrained, 80+ shapes, dense composition
   - [x] dictionary — vocabulary-based patterns (256-color, 60 elements)
   - [x] **freud** — layers of the psyche (grayscale + sepia, concentric structures)
@@ -116,30 +116,30 @@ Legend: ✅ done · 🟡 in progress · ⬜ not started · ⭐ new
 
 ---
 
-## M6 — Caratulize (image input) ⭐
+## M6 — Caratulize (image input) 🟡
 
 > Goal: upload an image (with restrictions) and **caratulize** it (ES: *caratulizar*) — reduce it to a simple vector caratulai in a fundamental palette. The image→caratulai byproduct of the LLM-SVG pipeline: a vision model reads the image and emits constrained SVG, which then runs through the same validator/sanitizer.
 
-### Image input
+### Image input ✅
 
-- [ ] `--from-image <path>`: accept local image file, extract visual concepts
-- [ ] `--from-image-url <url>`: fetch remote image, extract visual concepts
-- [ ] Vision provider interface (multimodal: `extractConceptsFromImage(image, provider)`)
+- [x] `--from-image <path>`: accept local image file, extract visual concepts
+- [x] `--from-image-url <url>`: fetch remote image, extract visual concepts
+- [x] Vision provider interface (multimodal: `extractConceptsFromImage(image, provider)`)
 
-### Image extraction (ontology from image)
+### Image extraction (ontology from image) ✅
 
-- [ ] Vision provider interface (multimodal: `extractConceptsFromImage(image, provider)`)
-- [ ] `core/extract.ts`: vision extraction — image → tags (reuse extraction layer from M3)
-- [ ] Test extraction: verify that a photo → visual concepts
+- [x] Vision provider interface (multimodal: `extractConceptsFromImage(image, provider)`)
+- [x] `core/analyze.ts`: vision extraction — image → tags (reuse extraction layer from M3)
+- [x] Test extraction: verify that a photo → visual concepts
 
-### Caratulize command
+### Caratulize refinements (in progress)
 
 - [ ] Input restrictions: allowed formats (PNG/JPEG/WebP), max dimensions, max file size
 - [ ] `caratulai caratulize <image>` command (alias: `caratulizar`)
 - [ ] Reuse the validator pipeline (palette-snap, allowed primitives, complexity cap, no text)
 - [ ] Safety/content checks on uploads (reject unsupported or disallowed content)
 - [ ] Tune the "simplify, don't reproduce" prompt so output is a caratulai, not a tracing
-- Depends on: M1 (a real provider) + M3 extraction layer. Feasible to pull earlier once one vision model is wired.
+- Depends on: M1 (a real provider) ✅ + M3 extraction layer ✅. Core pipeline complete; refinements pending.
 
 ---
 
