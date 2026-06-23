@@ -10,6 +10,7 @@ export interface ProviderOptions {
   provider: string;
   model?: string;
   baseUrl?: string;
+  modelType?: "text" | "svg" | "image";
 }
 
 /**
@@ -27,14 +28,23 @@ export function buildProvider(
       return createOllamaProvider({ model: opts.model, baseUrl: opts.baseUrl });
     case "lmstudio":
       return createLMStudioProvider({ model: opts.model, baseUrl: opts.baseUrl });
-    case "openrouter":
+    case "openrouter": {
+      let apiKey = "";
+      if (opts.modelType) {
+        const keyName = `${opts.modelType.toUpperCase()}_MODEL_API_KEY`;
+        apiKey = env[keyName] ?? "";
+      }
+      if (!apiKey) {
+        apiKey = env.OPENROUTER_API_KEY ?? "";
+      }
       return createOpenRouterProvider({
         model: opts.model,
         baseUrl: opts.baseUrl,
-        apiKey: env.OPENROUTER_API_KEY ?? "",
+        apiKey,
         referer: "https://github.com/contento/caratulai",
         title: "caratulai",
       });
+    }
     default:
       throw new Error(
         `Unknown provider "${opts.provider}". Use: echo | ollama | lmstudio | openrouter.`

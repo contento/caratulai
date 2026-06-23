@@ -40,10 +40,12 @@ node packages/cli/dist/index.js generate --from-image https://example.com/art.pn
 # Linux/macOS
 ./caratulai.sh generate star water travel --profile sagan
 ./caratulai.sh generate --from-image ./photo.jpg --profile contento
+./caratulai.sh generate --from-image https://conten.to/images/post/healthy.png --profile contento
 
 # PowerShell
 .\caratulai.ps1 generate star water travel --profile sagan
 .\caratulai.ps1 generate --from-image .\photo.jpg --profile contento
+.\caratulai.ps1 generate --from-image https://conten.to/images/post/healthy.png --profile contento
 ```
 
 ### List palettes

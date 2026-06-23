@@ -146,7 +146,7 @@ program
 
     let svgProvider: LLMProvider;
     try {
-      svgProvider = buildProvider({ ...opts, provider: svgProviderName, model: svgModelId, temperature });
+      svgProvider = buildProvider({ ...opts, provider: svgProviderName, model: svgModelId, modelType: "svg", temperature });
     } catch (err) {
       console.error(err instanceof Error ? err.message : String(err));
       process.exitCode = 1;
@@ -264,12 +264,12 @@ program
     const temperature = resolveOpt(opts.temperature, "CARATULAI_TEMPERATURE", 0.7, parseFloat);
 
     // Text model (extraction from narrative text)
-    const textProviderName = resolveOpt(opts.textProvider, "CARATULAI_TEXT_PROVIDER", "echo");
-    const textModelId = resolveOpt(opts.textModel, "CARATULAI_TEXT_MODEL", undefined);
+    const textProviderName = opts.textProvider ?? process.env.CARATULAI_TEXT_PROVIDER ?? getConfigValue<string>(yamlConfig, "models.text.provider", "echo");
+    const textModelId = opts.textModel ?? process.env.CARATULAI_TEXT_MODEL ?? getConfigValue<string | undefined>(yamlConfig, "models.text.model", undefined);
 
     // SVG model (generation from tags)
-    const svgProviderName = resolveOpt(opts.svgProvider, "CARATULAI_SVG_PROVIDER", "echo");
-    const svgModelId = resolveOpt(opts.svgModel, "CARATULAI_SVG_MODEL", undefined);
+    const svgProviderName = opts.svgProvider ?? process.env.CARATULAI_SVG_PROVIDER ?? getConfigValue<string>(yamlConfig, "models.svg.provider", "echo");
+    const svgModelId = opts.svgModel ?? process.env.CARATULAI_SVG_MODEL ?? getConfigValue<string | undefined>(yamlConfig, "models.svg.model", undefined);
 
     console.error(`[DEBUG] TEXT: ${textProviderName}/${textModelId || "(default)"}  SVG: ${svgProviderName}/${svgModelId || "(default)"}  Profile: ${profileId}`);
 
@@ -291,7 +291,7 @@ program
     // Build SVG generation provider
     let svgProvider: LLMProvider;
     try {
-      svgProvider = buildProvider({ ...opts, provider: svgProviderName, model: svgModelId, temperature });
+      svgProvider = buildProvider({ ...opts, provider: svgProviderName, model: svgModelId, modelType: "svg", temperature });
     } catch (err) {
       console.error(err instanceof Error ? err.message : String(err));
       process.exitCode = 1;
@@ -308,6 +308,7 @@ program
           ...opts,
           provider: textProviderName,
           model: textModelId,
+          modelType: "text",
           temperature,
         });
       } catch (err) {
@@ -329,6 +330,7 @@ program
           ...opts,
           provider: imageProviderName,
           model: imageModelId,
+          modelType: "image",
           temperature,
         });
       } catch (err) {

@@ -34,16 +34,16 @@ models:
     api_key_env: "TEXT_MODEL_API_KEY"
 
   # SVG generation (tags → SVG)
-  # Better models: x-ai/grok-2-1212 (technical), meta-llama/llama-3.1-70b-instruct (capable)
+  # Better models: meta-llama/llama-3.1-70b-instruct (capable), openai/gpt-4o
   svg:
     provider: "openrouter"
-    model: "x-ai/grok-2-1212"
+    model: "meta-llama/llama-3.1-70b-instruct"
     api_key_env: "SVG_MODEL_API_KEY"
 
   # Image reading (extract visual concepts) [Future: M6]
   image:
     provider: "openrouter"
-    model: "gpt-4-vision"
+    model: "openai/gpt-4o"
     api_key_env: "IMAGE_MODEL_API_KEY"
 
 output:
