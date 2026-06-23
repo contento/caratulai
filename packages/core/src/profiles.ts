@@ -10,6 +10,8 @@ export interface ProfileDef {
   maxElements: number;
   maxTextElements: number;
   allowAllShapes: boolean;
+  /** Background color (hex). If not specified, transparent. */
+  backgroundColor?: string;
   /** Profile-specific opening tone for buildPrompt(). */
   promptTone: string;
   /** Spatial/compositional guidance for arranging elements. */
@@ -24,6 +26,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 48,
     maxTextElements: 0,
     allowAllShapes: false,
+    backgroundColor: "#d4af37",
     promptTone: [
       "Create an engraved technical diagram in the style of the Voyager Golden Record plate.",
       "Gold background, silver lines and marks. Precise, scientific, timeless.",
@@ -37,15 +40,16 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     id: "picasso",
     label: "Picasso Single Line",
     paletteId: "bw",
-    maxElements: 20,
+    maxElements: 3,
     maxTextElements: 0,
     allowAllShapes: false,
+    backgroundColor: "#ffffff",
     promptTone: [
-      "Create in the style of Picasso's single-line drawings: continuous, elegant, unbroken lines.",
-      "One flowing stroke suggests the entire form. Minimal, sophisticated, expressive.",
-      "A sketch that reveals the essence, not the detail. Pure line, no fill.",
+      "Create in the style of Picasso's single-line drawings: ONE continuous, elegant, unbroken line.",
+      "A single flowing stroke that suggests the entire form. Minimal, sophisticated, expressive.",
+      "A sketch that reveals the essence, not the detail. Pure line, no fill, no shapes — only flowing curves.",
     ].join(" "),
-    composition: "Compose as a continuous flowing line: single path suggests the entire form. Use economy of marks — every element essential. Balanced negative space. No element isolated; all connected through line flow. Proportions follow golden ratio or rule of thirds.",
+    composition: "Compose as ONE continuous flowing line: a single curved path that suggests the entire form through its flow and direction. The line itself is the art. No disconnected elements. No circles, rects, or shapes — only line. Proportions follow golden ratio or rule of thirds.",
   },
 
   contento: {
@@ -55,6 +59,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 80,
     maxTextElements: 0,
     allowAllShapes: true,
+    backgroundColor: "#f5f5f5",
     promptTone: [
       "Create a rich, dense, layered composition with maximum visual complexity.",
       "Use all available SVG shapes, gradients, patterns, effects. Fill the canvas.",
@@ -71,6 +76,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 60,
     maxTextElements: 0,
     allowAllShapes: true,
+    backgroundColor: "#ffffff",
     promptTone: [
       "Create using a visual dictionary of archetypal symbols and icons.",
       "Each concept maps to a recognizable visual primitive. Combine icons into a coherent",
@@ -86,6 +92,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 70,
     maxTextElements: 0,
     allowAllShapes: false,
+    backgroundColor: "#e8e8e8",
     promptTone: [
       "Visualize this concept as a Freudian psychological structure with concentric layers:",
       "Outermost (cool gray) = Superego (rules, judgment). Middle (gray-sepia) = Ego (mediator).",
@@ -98,9 +105,10 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     id: "jung",
     label: "Archetypal Symbols",
     paletteId: "palette-256",
-    maxElements: 50,
+    maxElements: 60,
     maxTextElements: 0,
     allowAllShapes: true,
+    backgroundColor: "#fffaf0",
     promptTone: [
       "Create a mandala-like archetypal vision. Radially symmetric composition with luminous",
       "gold center (the Self, wholeness). Concentric rings for psyche layers. Include symbolic",
@@ -116,6 +124,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 100,
     maxTextElements: 0,
     allowAllShapes: true,
+    backgroundColor: "#ffffff",
     promptTone: [
       "Create a genealogical, philosophical diagram showing concept becoming: origin, then split",
       "into Apollonian (gold/white/structured order) vs Dionysian (black/red/organic chaos) branches.",
@@ -131,6 +140,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 70,
     maxTextElements: 0,
     allowAllShapes: false,
+    backgroundColor: "#ffffff",
     promptTone: [
       "Visualize this concept as a clear, rigorous system diagram (Grady Booch style).",
       "Use boxes for components, lines for connections. Show structure honestly without decoration.",
@@ -146,6 +156,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 80,
     maxTextElements: 0,
     allowAllShapes: true,
+    backgroundColor: "#1a1a1a",
     promptTone: [
       "Visualize this concept in George Carlin's style: linguistic subversion and sharp humor.",
       "Expose contradictions, play with meaning, show what this concept really is beneath comfortable lies.",
@@ -161,6 +172,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 70,
     maxTextElements: 0,
     allowAllShapes: true,
+    backgroundColor: "#f5e6d3",
     promptTone: [
       "Visualize through crazy wisdom: use paradox, humor, sacred disruption to point toward truth.",
       "Show opposites held together simultaneously: sacred and profane, serious and playful.",
@@ -173,9 +185,10 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     id: "rosina",
     label: "Grounded Realism",
     paletteId: "rosina",
-    maxElements: 50,
+    maxElements: 60,
     maxTextElements: 0,
     allowAllShapes: false,
+    backgroundColor: "#d3d3d3",
     promptTone: [
       "Visualize with stark realism and direct action (Italian neorealist cinema style).",
       "Show only what's essential—no decoration, no embellishment. Use arrows and simple forms",
@@ -191,6 +204,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 80,
     maxTextElements: 0,
     allowAllShapes: true,
+    backgroundColor: "#fef9f3",
     promptTone: [
       "Visualize as a piece of music sung by a master tenor-baritone (Plácido Domingo style).",
       "Show range: high and low registers integrated without contradiction. Use flowing curves suggesting",
@@ -206,6 +220,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 120,
     maxTextElements: 0,
     allowAllShapes: true,
+    backgroundColor: "#fffef5",
     promptTone: [
       "Visualize through magic realism (García Márquez style): blend magical seamlessly with mundane.",
       "Treat extraordinary as matter-of-fact. Ground mythology in specific place. Show spiraling time:",
