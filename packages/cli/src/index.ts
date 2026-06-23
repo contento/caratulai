@@ -96,6 +96,7 @@ program
   .option("--width <n>", "canvas width (overrides --ratio)", (v) => parseInt(v, 10))
   .option("--height <n>", "canvas height (overrides --ratio)", (v) => parseInt(v, 10))
   .action(async (tags: string[], opts) => {
+    try {
     // Resolve tags: CLI args > env var > YAML config > error
     let finalTags = tags && tags.length > 0 ? tags : [];
     if (finalTags.length === 0) {
@@ -220,6 +221,15 @@ ${result.report.issues.length > 0 ? result.report.issues.map(i => `  [${i.rule}]
     } else {
       process.stdout.write(result.svg + "\n");
     }
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      console.error(`\n❌ Error: ${errorMsg}`);
+      if (process.env.DEBUG) {
+        console.error("\nFull stack trace:");
+        console.error(err);
+      }
+      process.exitCode = 1;
+    }
   });
 
 program
@@ -245,9 +255,15 @@ program
   .option("--from-url <url>", "fetch text from a URL and extract concept tags from it")
   .option("--from-image <path-or-url>", "extract concepts from an image file or URL (requires vision model)")
   .action(async (tags: string[], opts) => {
-    // Resolve profile: CLI flag > env > YAML config > default
-    const profileId = (opts.profile ?? process.env.CARATULAI_PROFILE ?? getConfigValue<string>(yamlConfig, "generation.profile", "sagan")) as ProfileId;
-    const profileDef = getProfile(profileId);
+    try {
+      // Resolve profile: CLI flag > env > YAML config > default
+      const profileId = (opts.profile ?? process.env.CARATULAI_PROFILE ?? getConfigValue<string>(yamlConfig, "generation.profile", "sagan")) as ProfileId;
+      const profileDef = getProfile(profileId);
+
+      // Validate profile exists
+      if (!profileDef) {
+        throw new Error(`Unknown profile "${profileId}". Available: sagan, picasso, contento, dictionary, freud, jung, nietzsche, booch, carlin, trumpa, rosina, domingo, gabriel`);
+      }
 
     // Resolve config: CLI flags > CARATULAI_* env vars > profile defaults
     const paletteId = resolveOpt(opts.palette, "CARATULAI_PALETTE", profileDef.paletteId);
@@ -462,9 +478,46 @@ ${result.report.issues.length > 0 ? result.report.issues.map(i => `  [${i.rule}]
     } else {
       process.stdout.write(result.svg + "\n");
     }
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : String(err);
+      console.error(`\n❌ Error: ${errorMsg}`);
+      if (process.env.DEBUG) {
+        console.error("\nFull stack trace:");
+        console.error(err);
+      }
+      process.exitCode = 1;
+    }
   });
 
 program.parseAsync().catch((err) => {
-  console.error(err);
+  if (err instanceof Error) {
+    // User-friendly error messages for common issues
+    if (err.message.includes("Unknown profile")) {
+      console.error(`\n❌ Error: ${err.message}`);
+      console.error(`\nValid profiles: ${Object.keys(BUILTIN_PALETTES).join(", ")}`);
+    } else if (err.message.includes("API key")) {
+      console.error(`\n❌ API Configuration Error: ${err.message}`);
+      console.error("\nSet up your .env file with required API keys:");
+      console.error("  TEXT_MODEL_API_KEY=sk-or-v1-...");
+      console.error("  SVG_MODEL_API_KEY=sk-or-v1-...");
+      console.error("  IMAGE_MODEL_API_KEY=sk-or-v1-...");
+    } else if (err.message.includes("HTTP")) {
+      console.error(`\n❌ LLM Provider Error: ${err.message}`);
+      console.error("\nCheck: API key valid? Rate limited? Model exists?");
+    } else if (err.message.includes("ENOENT")) {
+      console.error(`\n❌ File Error: ${err.message}`);
+      console.error("Check that the file path is correct and accessible.");
+    } else {
+      console.error(`\n❌ Error: ${err.message}`);
+      if (process.env.DEBUG) {
+        console.error("\nFull stack trace:");
+        console.error(err.stack);
+      } else {
+        console.error("\nFor detailed error trace, set DEBUG=1 and try again.");
+      }
+    }
+  } else {
+    console.error(`\n❌ Unexpected error:`, err);
+  }
   process.exitCode = 1;
 });
