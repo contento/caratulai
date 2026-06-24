@@ -15,7 +15,7 @@ export interface ProfileDef {
   /** Profile-specific opening tone for buildPrompt(). */
   promptTone: string;
   /** Spatial/compositional guidance for arranging elements. */
-  composition?: string;
+  composition: string;
 }
 
 export const PROFILES: Record<ProfileId, ProfileDef> = {
@@ -99,6 +99,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "Innermost (warm sepia) = Id (primal drives). Use nested circles, spirals, fading edges.",
       "No text. Colors shift from warm inside to cool outside. Introspective, mysterious.",
     ].join(" "),
+    composition: "Compose as a strict concentric psyche diagram: warm organic core in the center, a mediating middle ring, and a cooler restrictive outer ring. Let one inner form press outward against its boundaries to suggest repression or conflict. Keep all major elements nested, layered, and inward-facing rather than scattered across the canvas.",
   },
 
   jung: {
@@ -115,6 +116,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "animals: lion=Hero (red), serpent=Shadow (purple), owl=Wise (blue), dove=Anima (pink).",
       "Sacred geometry holds opposites together. No text. 50 elements max.",
     ].join(" "),
+    composition: "Compose as a mandala with a luminous central Self occupying the exact center. Build 3-4 concentric rings around it, and place archetypal symbols in balanced radial positions or quadrants so opposites face and complete each other. Preserve strong symmetry, sacred spacing, and a clear movement from outer differentiation toward inner wholeness.",
   },
 
   nietzsche: {
@@ -131,6 +133,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "Show opposition via arrows and flows. Include spirals for eternal recurrence. Ascend toward",
       "synthesis (Übermensch, gold+red integrated). 40–100 elements based on complexity.",
     ].join(" "),
+    composition: "Compose as a vertical genealogy: a primal origin low or central, then a split into two clearly opposed branches. Make the Apollonian side geometric and ascending, the Dionysian side organic and turbulent, then let both converge toward a higher synthesis. Use arrows, branching paths, and one recurring spiral motif to show becoming rather than static balance.",
   },
 
   booch: {
@@ -147,6 +150,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "Make it comprehensible—a junior engineer should understand it immediately. Generous whitespace.",
       "No text labels. Colors: black (structure), blue (flow), gray (secondary). Honest, clear, crafted.",
     ].join(" "),
+    composition: "Compose as an engineering diagram with one primary subsystem centered or slightly offset, supported by a small number of clearly separated secondary components. Use orthogonal alignment, even spacing, and direct connection lines so data or control flow reads left-to-right or top-to-bottom at a glance. Favor clarity, grouping, and whitespace over density.",
   },
 
   carlin: {
@@ -163,6 +167,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "Use rapid juxtaposition: multiple interpretations of same form. Rough, crude, energetic—not polished.",
       "Show hypocrisy and hidden meanings. Colors: black (truth), red (anger/attention), electric blue (speed).",
     ].join(" "),
+    composition: "Compose as a collision of competing readings: one dominant form in the center, then two or more distorted echoes, cutaways, or confrontational side-forms that expose contradiction. Keep the layout tense and punchy, with abrupt directional shifts and visual interruptions rather than smooth harmony. The eye should move quickly between a public surface and its harsher subtext.",
   },
 
   trumpa: {
@@ -179,6 +184,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "Use shock and humor as teaching methods. Break visual rules to teach. Colors: gold (sacred),",
       "muddy (ordinary), red (passion). Playful but underneath is depth. Fearless, paradoxical.",
     ].join(" "),
+    composition: "Compose around a central paradox where a dignified sacred structure is interrupted by playful, unruly, or earthy counter-forms. Keep the overall image balanced enough to feel intentional, but let one or two surprising asymmetries break the expected order. Place opposites close together so tension feels simultaneous rather than sequential.",
   },
 
   rosina: {
@@ -195,6 +201,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "to show motion, flow, work being done. Think unglamorous, grounded, honest.",
       "Colors: grays, browns, blacks (practical, worn materials). Every line does work. Raw, direct.",
     ].join(" "),
+    composition: "Compose as a plain working scene or mechanism stripped to essentials: one active task or force line dominates, with only a few supporting forms showing constraint, effort, or movement. Keep the layout grounded and weighty, favoring horizontal or diagonal force over ornamental symmetry. Empty space should feel like austerity, not elegance.",
   },
 
   domingo: {
@@ -211,6 +218,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "melodic phrases. Colors: gold (warmth), deep blue (profundity), amber (richness).",
       "The form should shift while maintaining core identity—versatile but unified. Warm, integrated, beautiful.",
     ].join(" "),
+    composition: "Compose as an integrated musical phrase: a strong central motif anchors the image while sweeping curves rise and fall around it like linked vocal lines. Let upper and lower regions answer each other across the canvas, showing range without fragmentation. Preserve rhythmic continuity so the whole composition reads as one sustained performance.",
   },
 
   gabriel: {
@@ -227,6 +235,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
       "cycles, repetitions, genealogical connections across generations. Mix traditions (indigenous,",
       "colonial, modern) without hierarchy. Elaborate, warm, mythic yet real. 70–120 elements.",
     ].join(" "),
+    composition: "Compose as a layered village-memory tableau: a grounded everyday setting anchors the image while extraordinary forms spiral through and around it as if they belong there naturally. Use looping paths, repeated motifs, and linked clusters to suggest generations, recurrence, and stories folding into one another. Keep the scene dense and atmospheric, but organized around one inhabited center of gravity.",
   },
 };
 

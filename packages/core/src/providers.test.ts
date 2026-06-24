@@ -6,6 +6,7 @@ import { createOllamaProvider } from "./providers/ollama.js";
 import { createLMStudioProvider } from "./providers/lmstudio.js";
 import { createOpenRouterProvider } from "./providers/openrouter.js";
 import { SYSTEM_PROMPT } from "./prompt.js";
+import { IMAGE_ANALYSIS_SYSTEM_PROMPT } from "./analyze.js";
 import type { GenerationParams, LLMProvider } from "./types.js";
 
 const PARAMS: GenerationParams = { model: "m", temperature: 0.7, seed: 1 };
@@ -76,6 +77,29 @@ describe("OpenAICompatProvider — request shaping", () => {
     vi.stubGlobal("fetch", vi.fn(async () => okResponse("<svg><circle/></svg>")));
     const p = new OpenAICompatProvider({ name: "x", baseUrl: "http://h/v1", model: "m" });
     expect(await p.generateSvg("P", PARAMS)).toBe("<svg><circle/></svg>");
+  });
+
+  it("sends remote image URLs directly for vision requests", async () => {
+    const fetchMock = vi.fn(async () => okResponse("image description"));
+    vi.stubGlobal("fetch", fetchMock);
+    const p = new OpenAICompatProvider({ name: "x", baseUrl: "http://h/v1", model: "m" });
+
+    await p.generateWithImage("PROMPT", "https://example.com/image.png", "url", PARAMS);
+
+    const body = JSON.parse(fetchMock.mock.calls[0]![1]!.body);
+    expect(body.messages[0].content).toBe(IMAGE_ANALYSIS_SYSTEM_PROMPT);
+    expect(body.messages[1].content[1].image_url.url).toBe("https://example.com/image.png");
+  });
+
+  it("encodes local images as data URLs for vision requests", async () => {
+    const fetchMock = vi.fn(async () => okResponse("image description"));
+    vi.stubGlobal("fetch", fetchMock);
+    const p = new OpenAICompatProvider({ name: "x", baseUrl: "http://h/v1", model: "m" });
+
+    await p.generateWithImage("PROMPT", "YWJj", "image/png", PARAMS);
+
+    const body = JSON.parse(fetchMock.mock.calls[0]![1]!.body);
+    expect(body.messages[1].content[1].image_url.url).toBe("data:image/png;base64,YWJj");
   });
 });
 

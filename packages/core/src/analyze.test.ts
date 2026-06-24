@@ -154,12 +154,35 @@ describe("analyzeImage", () => {
         )
       ).rejects.toThrow("Failed to fetch image");
     });
+
+    it("passes remote URLs directly to vision-capable providers", async () => {
+      const mockVisionProvider: LLMProvider = {
+        name: "mock-vision",
+        models: ["vision-model"],
+        generateSvg: vi.fn().mockResolvedValue("fallback description"),
+        generateWithImage: vi.fn().mockResolvedValue("cat, dog, tree"),
+      };
+
+      const result = await analyzeImage(
+        { source: "https://example.com/image.png" },
+        mockVisionProvider
+      );
+
+      expect(mockVisionProvider.generateWithImage).toHaveBeenCalled();
+      const callArgs = (mockVisionProvider.generateWithImage as ReturnType<typeof vi.fn>).mock.calls[0];
+      expect(callArgs?.[1]).toBe("https://example.com/image.png");
+      expect(callArgs?.[2]).toBe("url");
+      expect(fetchSpy).not.toHaveBeenCalled();
+      expect(result.narrative).toBe("cat, dog, tree");
+      expect(result.tags).toEqual(["description"]);
+    });
   });
 
   describe("provider vision support", () => {
     it("analyzeImage uses generateWithImage if provider supports vision", async () => {
       const mockVisionProvider: LLMProvider = {
         name: "mock-vision",
+        models: ["vision-model"],
         generateSvg: vi.fn().mockResolvedValue("fallback description"),
         generateWithImage: vi.fn().mockResolvedValue("cat, dog, tree"),
       };
@@ -207,6 +230,7 @@ describe("analyzeImage", () => {
     it("analyzeImage respects custom temperature and model params", async () => {
       const mockProvider: LLMProvider = {
         name: "mock-params",
+        models: ["vision-model"],
         generateSvg: vi.fn().mockResolvedValue("description"),
         generateWithImage: vi.fn().mockResolvedValue("vision description"),
       };

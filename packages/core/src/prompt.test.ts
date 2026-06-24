@@ -58,9 +58,10 @@ describe("buildPrompt", () => {
     expect(SYSTEM_PROMPT).toContain("COMPOSITION PRINCIPLES:");
     expect(SYSTEM_PROMPT).toContain("focal point");
   });
-  it("omits composition section when profile has no composition field", () => {
+  it("includes composition section for freud profile", () => {
     const p = buildPrompt(req({ profile: "freud" }));
-    expect(p).not.toContain("COMPOSITION:");
+    expect(p).toContain("COMPOSITION:");
+    expect(p).toContain("concentric psyche diagram");
   });
 });
 

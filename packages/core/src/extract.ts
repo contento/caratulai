@@ -1,6 +1,71 @@
 import type { LLMProvider, GenerationParams } from "./types.js";
 import { ModelLadder } from "./providers/index.js";
 
+const TAG_REWRITES: Record<string, string> = {
+  abstract: "",
+  beyond: "",
+  becoming: "spiral",
+  colorful: "",
+  crossing: "path",
+  distributed: "",
+  emergence: "",
+  feedback: "",
+  formless: "",
+  language: "",
+  multicolored: "",
+  opposition: "split",
+  story: "",
+  starry: "star",
+  threshold: "gate",
+  translucent: "",
+  transparent: "",
+  ancient: "",
+  small: "",
+  white: "",
+  red: "",
+  blue: "",
+  green: "",
+  vertical: "",
+};
+
+const NON_VISUAL_TAGS = new Set([
+  "ambiguity",
+  "certainty",
+  "emotion",
+  "emotions",
+  "fear",
+  "grief",
+  "hope",
+  "ineffable",
+  "joy",
+  "mystery",
+  "renewal",
+  "silence",
+  "story",
+  "time",
+  "transcendence",
+  "transformation",
+  "uncertainty",
+  "void",
+]);
+
+function normalizeTag(raw: string): string | null {
+  const cleaned = raw.trim().toLowerCase().replace(/^[^a-z0-9]+|[^a-z0-9\s-]+$/g, "");
+  if (!cleaned) return null;
+
+  const tokens = cleaned
+    .split(/[\s-]+/)
+    .map((token) => TAG_REWRITES[token] ?? token)
+    .filter((token) => token.length > 0);
+
+  if (tokens.length === 0) return null;
+
+  const visualTokens = tokens.filter((token) => !NON_VISUAL_TAGS.has(token));
+  if (visualTokens.length === 0) return null;
+
+  return visualTokens[visualTokens.length - 1]!;
+}
+
 /**
  * System prompt for ontology extraction: ask the LLM to reduce narrative text
  * to a minimal set of visual concepts (tags). Emphasize simplicity and visual-only concepts.
@@ -17,8 +82,14 @@ export const EXTRACTION_SYSTEM_PROMPT = [
  */
 export function buildExtractionPrompt(text: string): string {
   return [
-    "You are caratulai's ontology extractor. Extract the core visual concepts from this text.",
-    "Return ONLY a comma-separated list of tags (4–8 words). No explanation, no markdown.",
+    EXTRACTION_SYSTEM_PROMPT,
+    "",
+    "Translate the text into 4-8 simple visual nouns or drawable forms.",
+    "Prefer single concrete words like star, water, boat, path, gate, mountain, shadow, flame, circle, spiral.",
+    "If the text is abstract or emotional, convert it into visible proxies instead of repeating the abstraction.",
+    "Example: grief, fear, hope crossing time -> shadow, light, path, horizon.",
+    "Example: ineffable emergence beyond language -> mist, horizon, glow, gate.",
+    "Return ONLY a comma-separated list of tags. No explanation, no markdown.",
     "",
     `Text: "${text}"`,
     "",
@@ -51,13 +122,16 @@ export async function extractTags(
   // Try comma first, fall back to newline.
   let tags: string[];
   if (raw.includes(",")) {
-    tags = raw.split(",").map((t) => t.trim().toLowerCase()).filter((t) => t.length > 0);
+    tags = raw
+      .split(",")
+      .map(normalizeTag)
+      .filter((t): t is string => t !== null);
   } else {
     tags = raw
       .split("\n")
-      .map((t) => t.trim().toLowerCase())
-      .filter((t) => t.length > 0);
+      .map(normalizeTag)
+      .filter((t): t is string => t !== null);
   }
 
-  return tags;
+  return [...new Set(tags)];
 }

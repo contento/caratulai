@@ -43,7 +43,7 @@ export function buildImageAnalysisPrompt(): string {
 
 /**
  * Analyze an image and extract concept tags.
- * 
+ *
  * Pipeline:
  * 1. Load image (local file or URL)
  * 2. Send to vision model for description
@@ -55,12 +55,17 @@ export async function analyzeImage(
   provider: LLMProvider | ModelLadder,
   params?: Partial<GenerationParams>
 ): Promise<ImageAnalysisResult> {
-  // Load and encode the image
-  let imageData: string;
+  const isRemoteSource = request.source.startsWith("http://") || request.source.startsWith("https://");
+
+  // Load and encode the image only when needed. Vision-capable providers can consume
+  // remote URLs directly, which avoids provider-specific issues with inline data URLs.
+  let imageRef: string;
   let mimeType: string;
 
-  if (request.source.startsWith("http://") || request.source.startsWith("https://")) {
-    // Load from URL
+  if (isRemoteSource && "generateWithImage" in provider && typeof provider.generateWithImage === "function") {
+    imageRef = request.source;
+    mimeType = "url";
+  } else if (isRemoteSource) {
     const response = await fetch(request.source);
     if (!response.ok) {
       throw new Error(`Failed to fetch image from ${request.source}: ${response.status} ${response.statusText}`);
@@ -70,13 +75,12 @@ export async function analyzeImage(
     mimeType = contentType?.split(";")[0]?.trim() || "image/jpeg";
 
     const buffer = Buffer.from(await response.arrayBuffer());
-    imageData = buffer.toString("base64");
+    imageRef = buffer.toString("base64");
   } else {
-    // Load from local file
     const buffer = await readFile(request.source);
     const ext = extname(request.source).toLowerCase();
     mimeType = EXTENSION_TO_MIME[ext] || "image/jpeg";
-    imageData = buffer.toString("base64");
+    imageRef = buffer.toString("base64");
   }
 
   // Build the analysis prompt
@@ -91,12 +95,12 @@ export async function analyzeImage(
 
   // Get narrative description from vision model
   let narrative: string;
-  
+
   // Check if provider supports vision
   if ("generateWithImage" in provider && typeof provider.generateWithImage === "function") {
     narrative = await provider.generateWithImage(
       prompt,
-      imageData,
+      imageRef,
       mimeType,
       analysisParams
     );

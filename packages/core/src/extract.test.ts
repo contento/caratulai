@@ -23,6 +23,12 @@ describe("extract", () => {
       expect(prompt).toContain("A starry ocean voyage");
     });
 
+    it("embeds the extraction system instructions in the sent prompt", () => {
+      const prompt = buildExtractionPrompt("test");
+      expect(prompt).toContain(EXTRACTION_SYSTEM_PROMPT);
+      expect(prompt).toContain("convert it into visible proxies");
+    });
+
     it("instructs the model to return comma-separated tags", () => {
       const prompt = buildExtractionPrompt("test");
       expect(prompt).toContain("comma-separated");
@@ -78,6 +84,60 @@ describe("extract", () => {
       const tags = await extractTags("test input", provider, { model: "test" });
 
       expect(tags).toEqual(["star", "water"]);
+    });
+
+    it("normalizes obvious modifiers to drawable core nouns", async () => {
+      const provider = new RecordingProvider();
+      provider.response = "starry, ancient ocean, small boat, white dots, vertical stripes";
+
+      const tags = await extractTags("test input", provider, { model: "test" });
+
+      expect(tags).toEqual(["star", "ocean", "boat", "dots", "stripes"]);
+    });
+
+    it("filters abstract and emotional tags that are not directly drawable", async () => {
+      const provider = new RecordingProvider();
+      provider.response = "grief, joy, fear, hope, transcendence, horizon";
+
+      const tags = await extractTags("test input", provider, { model: "test" });
+
+      expect(tags).toEqual(["horizon"]);
+    });
+
+    it("rewrites remaining abstract process words into drawable proxies", async () => {
+      const provider = new RecordingProvider();
+      provider.response = "becoming, opposition, crossing, threshold, emergence";
+
+      const tags = await extractTags("test input", provider, { model: "test" });
+
+      expect(tags).toEqual(["spiral", "split", "path", "gate"]);
+    });
+
+    it("deduplicates rewritten tags", async () => {
+      const provider = new RecordingProvider();
+      provider.response = "transparent dice, red dice, blue dice, green dice";
+
+      const tags = await extractTags("test input", provider, { model: "test" });
+
+      expect(tags).toEqual(["dice"]);
+    });
+
+    it("drops tags that normalize to only removed modifiers", async () => {
+      const provider = new RecordingProvider();
+      provider.response = "transparent, vertical, colorful";
+
+      const tags = await extractTags("test input", provider, { model: "test" });
+
+      expect(tags).toEqual([]);
+    });
+
+    it("drops punctuation-only entries after cleanup", async () => {
+      const provider = new RecordingProvider();
+      provider.response = "..., star, ---";
+
+      const tags = await extractTags("test input", provider, { model: "test" });
+
+      expect(tags).toEqual(["star"]);
     });
 
     it("handles a single tag", async () => {

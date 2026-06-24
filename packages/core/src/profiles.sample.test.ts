@@ -7,7 +7,7 @@ import type { GenerationRequest, ProfileId } from "./types.js";
 
 /**
  * Prompt snapshot tests: verify that every profile emits the correct composition
- * guidance (or omits it when undefined). These are deterministic — no LLM needed.
+ * guidance. These are deterministic — no LLM needed.
  */
 
 const TAGS = ["star", "water"];
@@ -45,28 +45,21 @@ describe("profile prompt snapshots", () => {
       expect(prompt).toContain("Generate the SVG now:");
     });
 
-    if (def.composition) {
-      it(`${id}: prompt includes COMPOSITION section`, () => {
-        const prompt = buildPrompt(reqFor(id));
-        expect(prompt).toContain("COMPOSITION:");
-        // First 40 chars of composition text should appear
-        expect(prompt).toContain(def.composition!.slice(0, 40));
-      });
+    it(`${id}: prompt includes COMPOSITION section`, () => {
+      expect(def.composition).toBeTruthy();
+      const prompt = buildPrompt(reqFor(id));
+      expect(prompt).toContain("COMPOSITION:");
+      expect(prompt).toContain(def.composition!.slice(0, 40));
+    });
 
-      it(`${id}: COMPOSITION appears before STRICT RULES`, () => {
-        const prompt = buildPrompt(reqFor(id));
-        const compIdx = prompt.indexOf("COMPOSITION:");
-        const rulesIdx = prompt.indexOf("STRICT RULES:");
-        expect(compIdx).toBeGreaterThan(-1);
-        expect(rulesIdx).toBeGreaterThan(-1);
-        expect(compIdx).toBeLessThan(rulesIdx);
-      });
-    } else {
-      it(`${id}: prompt omits COMPOSITION section (no composition defined)`, () => {
-        const prompt = buildPrompt(reqFor(id));
-        expect(prompt).not.toContain("COMPOSITION:");
-      });
-    }
+    it(`${id}: COMPOSITION appears before STRICT RULES`, () => {
+      const prompt = buildPrompt(reqFor(id));
+      const compIdx = prompt.indexOf("COMPOSITION:");
+      const rulesIdx = prompt.indexOf("STRICT RULES:");
+      expect(compIdx).toBeGreaterThan(-1);
+      expect(rulesIdx).toBeGreaterThan(-1);
+      expect(compIdx).toBeLessThan(rulesIdx);
+    });
   }
 });
 

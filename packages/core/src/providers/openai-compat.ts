@@ -88,6 +88,10 @@ export class OpenAICompatProvider implements LLMProvider {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
+      const imageUrl = imageData.startsWith("http://") || imageData.startsWith("https://")
+        ? imageData
+        : `data:${mimeType};base64,${imageData}`;
+
       const res = await fetch(`${baseUrl.replace(/\/+$/, "")}/chat/completions`, {
         method: "POST",
         headers: {
@@ -106,7 +110,7 @@ export class OpenAICompatProvider implements LLMProvider {
                 {
                   type: "image_url",
                   image_url: {
-                    url: `data:${mimeType};base64,${imageData}`,
+                    url: imageUrl,
                     detail: "low",
                   },
                 },
