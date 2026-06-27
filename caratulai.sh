@@ -30,7 +30,8 @@ fi
 if [[ "$NEEDS_BUILD" == "true" ]]; then
   echo "Building caratulai..." >&2
   cd "$SCRIPT_DIR"
-  pnpm build > /dev/null 2>&1
+  "$SCRIPT_DIR/packages/core/node_modules/.bin/tsc" -p "$SCRIPT_DIR/packages/core/tsconfig.json" \
+    && "$SCRIPT_DIR/packages/cli/node_modules/.bin/tsc" -p "$SCRIPT_DIR/packages/cli/tsconfig.json"
 fi
 
 # Run the CLI
