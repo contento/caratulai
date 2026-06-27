@@ -18,8 +18,16 @@ if [[ "$1" == "--build" ]]; then
   shift
 fi
 
-# Build if flag is set or if dist doesn't exist
-if [[ "$BUILD" == "true" ]] || [[ ! -d "$SCRIPT_DIR/packages/cli/dist" ]]; then
+# Build if flag is set, if dist doesn't exist, or if any source is newer than the dist
+DIST_INDEX="$SCRIPT_DIR/packages/cli/dist/index.js"
+NEEDS_BUILD=false
+if [[ "$BUILD" == "true" ]] || [[ ! -f "$DIST_INDEX" ]]; then
+  NEEDS_BUILD=true
+elif find "$SCRIPT_DIR/packages" -name "*.ts" -newer "$DIST_INDEX" | grep -q .; then
+  NEEDS_BUILD=true
+fi
+
+if [[ "$NEEDS_BUILD" == "true" ]]; then
   echo "Building caratulai..." >&2
   cd "$SCRIPT_DIR"
   pnpm build > /dev/null 2>&1
