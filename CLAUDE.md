@@ -9,7 +9,6 @@ Project: **caratulai** — an alien image generator. Concepts (tags/ontology) �
 - Keep [[wiki/Open Questions]] current — resolve items as decisions land.
 - Track outstanding work in [[wiki/Roadmap]].
 
-
 ## Input pipeline: ontology at the root
 
 - **Ontology is the core contract.** All input sources (direct tags, images, narrative text) must be converted to an ontology (a set of simple concept tags) before image generation.
@@ -19,6 +18,7 @@ Project: **caratulai** — an alien image generator. Concepts (tags/ontology) �
 - The generated image is **always driven by the final ontology**, never by the original narrative or image. This ensures predictable, tag-focused output that respects [[wiki/Principles|aesthetic constraints]].
 
 ## Profiles: 10 Philosophical Frameworks
+## Aesthetic guardrails (these are requirements, not taste)
 
 Caratulai offers **10 generation profiles**—each a distinct philosophical framework for visualizing concepts. Profiles range from aesthetics (minimalist to maximalist) to epistemology (scientific engineering to linguistic subversion to sacred paradox).
 

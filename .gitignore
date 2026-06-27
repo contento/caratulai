@@ -24,7 +24,6 @@ samples/          # transient; canonical samples live in wiki/profiles/assets/
 *.sqlite-journal
 *.db
 
-
 # --- env & secrets ---
 .env
 .env.*
@@ -34,13 +33,4 @@ samples/          # transient; canonical samples live in wiki/profiles/assets/
 *.log
 npm-debug.log*
 pnpm-debug.log*
-yarn-debug.log*
-
-# --- editor / OS ---
-.DS_Store
-Thumbs.db
-*.swp
-.idea/
-.vscode/*
-!.vscode/extensions.json
 !.vscode/settings.json

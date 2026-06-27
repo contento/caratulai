@@ -26,8 +26,6 @@ pnpm samples:live
 - `packages/core` — the engine (ontology, palettes, prompt builder, providers, SVG validator).
   Stays I/O-agnostic: no direct DB/filesystem here.
 - `packages/cli` — command-line interface over the engine.
-
-
 ## Conventions
 
 - **Commits:** [Conventional Commits](https://www.conventionalcommits.org/) — `feat:`, `fix:`,
