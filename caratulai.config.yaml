@@ -31,25 +31,23 @@ generation:
 
 models:
   # Select which model set the CLI should use by default.
-  active_set: "lmstudio"
+  active_set: "openrouter"
 
   # Named model sets. CLI flags and env vars still override these values.
   sets:
+
     openrouter:
-      # Text extraction (narrative → concept tags)
+      # Recommended remote default: cheap text, strong SVG, reliable vision
       text:
         provider: "openrouter"
         model: "deepseek/deepseek-v4-flash"
         api_key_env: "TEXT_MODEL_API_KEY"
 
-      # SVG generation (tags → SVG)
-      # Better models: meta-llama/llama-3.1-70b-instruct (capable), openai/gpt-4o
       svg:
         provider: "openrouter"
-        model: "meta-llama/llama-3.1-70b-instruct"
+        model: "anthropic/claude-sonnet-4-6"
         api_key_env: "SVG_MODEL_API_KEY"
 
-      # Image reading (extract visual concepts) [Future: M6]
       image:
         provider: "openrouter"
         model: "openai/gpt-4o"
@@ -59,7 +57,7 @@ models:
       # Local model set for LM Studio. Use a model that LM Studio can serve at :1234/v1.
       text:
         provider: "lmstudio"
-        model: "qwen/qwen3.5-9b"
+        model: "svgthinker-7b"
         base_url: "http://localhost:1234/v1"
 
       svg:

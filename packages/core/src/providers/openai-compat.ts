@@ -20,7 +20,7 @@ export interface OpenAICompatConfig {
 }
 
 interface ChatCompletionResponse {
-  choices?: { message?: { content?: string } }[];
+  choices?: { message?: { content?: string; reasoning_content?: string } }[];
   error?: { message?: string };
 }
 
@@ -67,11 +67,17 @@ export class OpenAICompatProvider implements LLMProvider {
       }
 
       const data = (await res.json()) as ChatCompletionResponse;
-      const content = data.choices?.[0]?.message?.content;
+      const msg = data.choices?.[0]?.message;
+      const content = msg?.content || msg?.reasoning_content;
       if (!content) {
         throw new Error(`${this.name}: empty response${data.error?.message ? ` (${data.error.message})` : ""}`);
       }
       return content;
+    } catch (err) {
+      if (err instanceof Error && err.name === "AbortError") {
+        throw new Error(`${this.name}: request timed out after ${this.config.timeoutMs ?? 120_000}ms — is the model loaded and responding?`);
+      }
+      throw err;
     } finally {
       clearTimeout(timer);
     }
@@ -131,11 +137,17 @@ export class OpenAICompatProvider implements LLMProvider {
       }
 
       const data = (await res.json()) as ChatCompletionResponse;
-      const content = data.choices?.[0]?.message?.content;
+      const msg = data.choices?.[0]?.message;
+      const content = msg?.content || msg?.reasoning_content;
       if (!content) {
         throw new Error(`${this.name}: empty response${data.error?.message ? ` (${data.error.message})` : ""}`);
       }
       return content;
+    } catch (err) {
+      if (err instanceof Error && err.name === "AbortError") {
+        throw new Error(`${this.name}: request timed out after ${this.config.timeoutMs ?? 120_000}ms — is the model loaded and responding?`);
+      }
+      throw err;
     } finally {
       clearTimeout(timer);
     }

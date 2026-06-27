@@ -34,3 +34,4 @@ samples/          # transient; canonical samples live in wiki/profiles/assets/
 npm-debug.log*
 pnpm-debug.log*
 !.vscode/settings.json
+.DS_Store
