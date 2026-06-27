@@ -21,18 +21,26 @@ pnpm install && pnpm build
 
 ### From tags
 ```sh
+# explicit output path
 node packages/cli/dist/index.js generate star water travel --profile sagan --out out/idea.svg
+
+# auto-save to output/ with timestamped filename (sagan_20260627143022.svg)
+node packages/cli/dist/index.js generate star water travel --profile sagan
+
+# add a name prefix (dawn_sagan_20260627143022.svg)
+node packages/cli/dist/index.js generate star water travel --profile sagan --name dawn
 ```
 
 ### From narrative text
 ```sh
 node packages/cli/dist/index.js generate --from-text "A dark journey across an ancient ocean" --profile picasso
+node packages/cli/dist/index.js generate --from-text "A dark journey across an ancient ocean" --profile picasso --name voyage
 ```
 
 ### From an image (vision model required)
 ```sh
 node packages/cli/dist/index.js generate --from-image ./photo.jpg --image-model openai/gpt-4o --profile contento
-node packages/cli/dist/index.js generate --from-image https://example.com/art.png --profile sagan
+node packages/cli/dist/index.js generate --from-image https://example.com/art.png --profile sagan --name art
 ```
 
 ### Switch model sets
@@ -45,15 +53,15 @@ node packages/cli/dist/index.js generate star water travel --model-set openroute
 ```sh
 # Linux/macOS
 ./caratulai.sh generate star water travel --profile sagan
+./caratulai.sh generate star water travel --profile sagan --name dawn
 ./caratulai.sh generate star water travel --model-set lmstudio --profile sagan
-./caratulai.sh generate --from-image ./photo.jpg --profile contento
-./caratulai.sh generate --from-image https://conten.to/images/post/healthy.png --profile contento
+./caratulai.sh generate --from-image ./photo.jpg --profile contento --name photo
 
 # PowerShell
 .\caratulai.ps1 generate star water travel --profile sagan
+.\caratulai.ps1 generate star water travel --profile sagan --name dawn
 .\caratulai.ps1 generate star water travel --model-set lmstudio --profile sagan
-.\caratulai.ps1 generate --from-image .\photo.jpg --profile contento
-.\caratulai.ps1 generate --from-image https://conten.to/images/post/healthy.png --profile contento
+.\caratulai.ps1 generate --from-image .\photo.jpg --profile contento --name photo
 ```
 
 ### List palettes
