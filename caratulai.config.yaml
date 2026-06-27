@@ -75,7 +75,8 @@ models:
 
 output:
   # Auto-save directory for generated SVGs (with timestamp filenames)
-  # Leave empty to disable. Format: {yyyy/MM/dd/HHmmss}.svg
+  # Leave empty to disable. Format: {name_}{profile_}yyyyMMddHHmmss.svg
+  # --name <label> adds an optional prefix; omit it to get profile_timestamp only.
   auto_save_dir: "./output"
 
 palette:

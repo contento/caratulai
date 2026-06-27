@@ -23,8 +23,8 @@ import { loadDotEnv, loadYamlConfig, resolveOpt, getConfigValue, getModelSurface
 await loadDotEnv();
 const yamlConfig: CaratulaiConfig = await loadYamlConfig();
 
-/** Generate timestamped filename: yyyy/MM/dd/HHmmss.svg */
-function generateTimestampFilename(dir: string): string {
+/** Generate filename: {name_}{profile_}yyyyMMddHHmmss.svg (name/profile omitted if falsy) */
+function generateTimestampFilename(dir: string, profileId?: string, name?: string): string {
   const now = new Date();
   const yyyy = now.getFullYear();
   const MM = String(now.getMonth() + 1).padStart(2, "0");
@@ -32,8 +32,8 @@ function generateTimestampFilename(dir: string): string {
   const HH = String(now.getHours()).padStart(2, "0");
   const mm = String(now.getMinutes()).padStart(2, "0");
   const ss = String(now.getSeconds()).padStart(2, "0");
-  const filename = `${HH}${mm}${ss}.svg`;
-  return `${dir}/${yyyy}/${MM}/${dd}/${filename}`;
+  const filename = [name, profileId, `${yyyy}${MM}${dd}${HH}${mm}${ss}`].filter(Boolean).join("_") + ".svg";
+  return `${dir}/${filename}`;
 }
 
 /** Aspect ratio presets. */
@@ -91,6 +91,7 @@ program
   .option("--svg-model <model>", "model for SVG generation (must be good at code generation)")
   .option("--base-url <url>", "override the provider base URL")
   .option("-o, --out <file>", "write SVG to this path instead of stdout")
+  .option("--name <label>", "filename prefix for auto-saved output (e.g. 'dawn' → dawn_sagan_20260627143022.svg)")
   .option("-s, --seed <n>", "seed for variation", (v) => parseInt(v, 10), parseInt(process.env.CARATULAI_SEED || "16384", 10))
   .option("-t, --temperature <n>", "sampling temperature", (v) => parseFloat(v))
   .option("--ratio <preset>", "aspect ratio preset: square, 16:9, 4:3, 21:9, 9:16, 3:4, or custom like 16:9")
@@ -188,7 +189,7 @@ program
     }
 
     const autoSaveDir = opts.out ? null : (process.env.CARATULAI_AUTO_SAVE_DIR || getConfigValue<string | undefined>(yamlConfig, "output.auto_save_dir", undefined));
-    const outPath = opts.out || (autoSaveDir ? generateTimestampFilename(autoSaveDir) : null);
+    const outPath = opts.out || (autoSaveDir ? generateTimestampFilename(autoSaveDir, profileId, opts.name) : null);
 
     if (outPath) {
       await mkdir(dirname(outPath), { recursive: true });
@@ -247,6 +248,7 @@ program
   .option("--image-model <model>", "model for image reading (e.g. openai/gpt-4o, llava:13b)")
   .option("--base-url <url>", "override the provider base URL")
   .option("-o, --out <file>", "write SVG to this path instead of stdout")
+  .option("--name <label>", "filename prefix for auto-saved output (e.g. 'dawn' → dawn_sagan_20260627143022.svg)")
   .option("-s, --seed <n>", "seed for variation", (v) => parseInt(v, 10), parseInt(process.env.CARATULAI_SEED || "16384", 10))
   .option("-t, --temperature <n>", "sampling temperature", (v) => parseFloat(v))
   .option("--ratio <preset>", "aspect ratio preset: square, 16:9, 4:3, 21:9, 9:16, 3:4, or custom like 16:9")
@@ -435,7 +437,7 @@ program
     }
 
     const autoSaveDir = opts.out ? null : (process.env.CARATULAI_AUTO_SAVE_DIR || getConfigValue<string | undefined>(yamlConfig, "output.auto_save_dir", undefined));
-    const outPath = opts.out || (autoSaveDir ? generateTimestampFilename(autoSaveDir) : null);
+    const outPath = opts.out || (autoSaveDir ? generateTimestampFilename(autoSaveDir, profileId, opts.name) : null);
 
     if (outPath) {
       await mkdir(dirname(outPath), { recursive: true });
