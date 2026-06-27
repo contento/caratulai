@@ -8,6 +8,8 @@ Project: **caratulai** — an alien image generator. Concepts (tags/ontology) �
 - Record non-obvious decisions as short ADRs in `wiki/decisions/`.
 - Keep [[wiki/Open Questions]] current — resolve items as decisions land.
 - Track outstanding work in [[wiki/Roadmap]].
+- Use `./caratulai.sh` as the quick local automation wrapper; it can build `packages/cli/dist` on demand and then forwards arguments to the CLI.
+- Use `./caratulai.ps1` for the same automation flow on PowerShell.
 
 ## Input pipeline: ontology at the root
 

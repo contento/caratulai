@@ -27,28 +27,52 @@ generation:
   profile: "sagan"
 
 models:
-  # Text extraction (narrative → concept tags)
-  text:
-    provider: "openrouter"
-    model: "deepseek/deepseek-v4-flash"
-    api_key_env: "TEXT_MODEL_API_KEY"
+  # Select which model set the CLI should use by default.
+  active_set: "lmstudio"
 
-  # SVG generation (tags → SVG)
-  # Better models: meta-llama/llama-3.1-70b-instruct (capable), openai/gpt-4o
-  svg:
-    provider: "openrouter"
-    model: "meta-llama/llama-3.1-70b-instruct"
-    api_key_env: "SVG_MODEL_API_KEY"
+  # Named model sets. CLI flags and env vars still override these values.
+  sets:
+    openrouter:
+      # Text extraction (narrative → concept tags)
+      text:
+        provider: "openrouter"
+        model: "deepseek/deepseek-v4-flash"
+        api_key_env: "TEXT_MODEL_API_KEY"
 
-  # Image reading (extract visual concepts) [Future: M6]
-  image:
-    provider: "openrouter"
-    model: "openai/gpt-4o"
-    api_key_env: "IMAGE_MODEL_API_KEY"
+      # SVG generation (tags → SVG)
+      # Better models: meta-llama/llama-3.1-70b-instruct (capable), openai/gpt-4o
+      svg:
+        provider: "openrouter"
+        model: "meta-llama/llama-3.1-70b-instruct"
+        api_key_env: "SVG_MODEL_API_KEY"
+
+      # Image reading (extract visual concepts) [Future: M6]
+      image:
+        provider: "openrouter"
+        model: "openai/gpt-4o"
+        api_key_env: "IMAGE_MODEL_API_KEY"
+
+    lmstudio:
+      # Local model set for LM Studio. Use a model that LM Studio can serve at :1234/v1.
+      text:
+        provider: "lmstudio"
+        model: "qwen2.5-coder"
+        base_url: "http://localhost:1234/v1"
+
+      svg:
+        provider: "lmstudio"
+        model: "qwen2.5-coder"
+        base_url: "http://localhost:1234/v1"
+
+      # Replace this with a vision-capable LM Studio model if you test --from-image locally.
+      image:
+        provider: "lmstudio"
+        model: "llava-v1.6"
+        base_url: "http://localhost:1234/v1"
 
 output:
   # Auto-save directory for generated SVGs (with timestamp filenames)
-  # Leave empty to disable. Format: {yyyyMMdd_HHmmssSSS}.svg
+  # Leave empty to disable. Format: {yyyy/MM/dd/HHmmss}.svg
   auto_save_dir: "./output"
 
 palette:

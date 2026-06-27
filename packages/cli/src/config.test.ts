@@ -3,7 +3,7 @@ import { writeFile } from "node:fs/promises";
 import { mkdtemp } from "node:fs/promises";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import { loadDotEnv, resolveOpt } from "./config.js";
+import { getModelSurfaceConfig, loadDotEnv, resolveOpt } from "./config.js";
 
 describe("config", () => {
   describe("loadDotEnv", () => {
@@ -111,6 +111,64 @@ describe("config", () => {
       process.env.TEST_KEY = "env-value";
       const result = resolveOpt("cli-value", "TEST_KEY", "fallback");
       expect(result).toBe("cli-value");
+    });
+  });
+
+  describe("getModelSurfaceConfig", () => {
+    it("returns the active set surface when present", () => {
+      const config = {
+        models: {
+          active_set: "lmstudio",
+          sets: {
+            openrouter: {
+              svg: { provider: "openrouter", model: "openrouter-model" },
+            },
+            lmstudio: {
+              svg: { provider: "lmstudio", model: "local-model", base_url: "http://localhost:1234/v1" },
+            },
+          },
+        },
+      };
+
+      expect(getModelSurfaceConfig(config, "svg")).toEqual({
+        provider: "lmstudio",
+        model: "local-model",
+        base_url: "http://localhost:1234/v1",
+      });
+    });
+
+    it("uses an explicit model set override when provided", () => {
+      const config = {
+        models: {
+          active_set: "openrouter",
+          sets: {
+            openrouter: {
+              svg: { provider: "openrouter", model: "openrouter-model" },
+            },
+            lmstudio: {
+              svg: { provider: "lmstudio", model: "local-model" },
+            },
+          },
+        },
+      };
+
+      expect(getModelSurfaceConfig(config, "svg", "lmstudio")).toEqual({
+        provider: "lmstudio",
+        model: "local-model",
+      });
+    });
+
+    it("falls back to legacy top-level surface config", () => {
+      const config = {
+        models: {
+          svg: { provider: "openrouter", model: "legacy-model" },
+        },
+      };
+
+      expect(getModelSurfaceConfig(config, "svg")).toEqual({
+        provider: "openrouter",
+        model: "legacy-model",
+      });
     });
   });
 });

@@ -3,6 +3,19 @@ import { join } from "node:path";
 import yaml from "js-yaml";
 
 /** Type-safe YAML config structure */
+export interface ModelSurfaceConfig {
+  provider?: string;
+  model?: string;
+  api_key_env?: string;
+  base_url?: string;
+}
+
+export interface ModelSetConfig {
+  text?: ModelSurfaceConfig;
+  svg?: ModelSurfaceConfig;
+  image?: ModelSurfaceConfig;
+}
+
 export interface CaratulaiConfig {
   cli?: {
     default_tags?: string;
@@ -14,9 +27,11 @@ export interface CaratulaiConfig {
     profile?: string;
   };
   models?: {
-    text?: { provider?: string; model?: string; api_key_env?: string };
-    svg?: { provider?: string; model?: string; api_key_env?: string };
-    image?: { provider?: string; model?: string; api_key_env?: string };
+    active_set?: string;
+    sets?: Record<string, ModelSetConfig>;
+    text?: ModelSurfaceConfig;
+    svg?: ModelSurfaceConfig;
+    image?: ModelSurfaceConfig;
   };
   output?: {
     auto_save_dir?: string;
@@ -107,6 +122,27 @@ export function resolveOpt<T>(
   }
 
   return fallback;
+}
+
+/** Resolve a model surface from the active set, falling back to legacy top-level config. */
+export function getModelSurfaceConfig(
+  config: CaratulaiConfig,
+  surface: keyof Pick<NonNullable<CaratulaiConfig["models"]>, "text" | "svg" | "image">,
+  activeSetName?: string
+): ModelSurfaceConfig | undefined {
+  const models = config.models;
+  if (!models) {
+    return undefined;
+  }
+
+  const resolvedSetName = activeSetName ?? models.active_set;
+  const activeSet = resolvedSetName ? models.sets?.[resolvedSetName] : undefined;
+  const activeSurface = activeSet?.[surface];
+  if (activeSurface) {
+    return activeSurface;
+  }
+
+  return models[surface];
 }
 
 /**

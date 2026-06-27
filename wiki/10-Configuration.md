@@ -15,11 +15,17 @@ caratulai uses two configuration files with a clear separation of concerns:
 ```yaml
 # Models & LLM settings
 models:
-  svg:
-    provider: "ollama"        # or "lmstudio", "openrouter", "echo"
-    model: "qwen2.5-coder"    # local model name
-    temperature: 0.7
-    seed: 42
+  active_set: "openrouter"     # switch to "lmstudio" for local testing
+  sets:
+    openrouter:
+      svg:
+        provider: "openrouter"
+        model: "meta-llama/llama-3.1-70b-instruct"
+    lmstudio:
+      svg:
+        provider: "lmstudio"
+        model: "qwen2.5-coder"
+        base_url: "http://localhost:1234/v1"
 
 # Generation settings
 generation:

@@ -17,13 +17,13 @@ import {
 } from "@caratulai/core";
 import { buildProvider } from "./provider-factory.js";
 import { fetchTextFromUrl } from "./fetch.js";
-import { loadDotEnv, loadYamlConfig, resolveOpt, getConfigValue, type CaratulaiConfig } from "./config.js";
+import { loadDotEnv, loadYamlConfig, resolveOpt, getConfigValue, getModelSurfaceConfig, type CaratulaiConfig } from "./config.js";
 
 // Load .env variables and YAML config before parsing CLI flags
 await loadDotEnv();
 const yamlConfig: CaratulaiConfig = await loadYamlConfig();
 
-/** Generate timestamped filename: yyyyMMdd_HHmmssSSS.svg */
+/** Generate timestamped filename: yyyy/MM/dd/HHmmss.svg */
 function generateTimestampFilename(dir: string): string {
   const now = new Date();
   const yyyy = now.getFullYear();
@@ -32,9 +32,8 @@ function generateTimestampFilename(dir: string): string {
   const HH = String(now.getHours()).padStart(2, "0");
   const mm = String(now.getMinutes()).padStart(2, "0");
   const ss = String(now.getSeconds()).padStart(2, "0");
-  const SSS = String(now.getMilliseconds()).padStart(3, "0");
-  const filename = `${yyyy}${MM}${dd}_${HH}${mm}${ss}${SSS}.svg`;
-  return `${dir}/${filename}`;
+  const filename = `${HH}${mm}${ss}.svg`;
+  return `${dir}/${yyyy}/${MM}/${dd}/${filename}`;
 }
 
 /** Aspect ratio presets. */
@@ -70,6 +69,8 @@ program
   .name("caratulai")
   .description("Alien image generator — concepts to simple vector images in fundamental palettes")
   .version("0.0.0");
+
+program.option("--model-set <name>", "named model set from caratulai.config.yaml", process.env.CARATULAI_MODEL_SET);
 
 program
   .command("palettes")
@@ -267,6 +268,7 @@ program
 
       // Resolve config: CLI flags > CARATULAI_* env vars > profile defaults
       const paletteId = resolveOpt(opts.palette, "CARATULAI_PALETTE", profileDef.paletteId);
+      const modelSetName = opts.modelSet ?? process.env.CARATULAI_MODEL_SET ?? getConfigValue<string | undefined>(yamlConfig, "models.active_set", undefined);
 
     // Resolve canvas dimensions: --width/--height > --ratio > CARATULAI_RATIO env > default
     let width = 512, height = 512;
@@ -279,13 +281,19 @@ program
     }
     const temperature = resolveOpt(opts.temperature, "CARATULAI_TEMPERATURE", 0.7, parseFloat);
 
+    const textConfig = getModelSurfaceConfig(yamlConfig, "text", modelSetName);
+    const svgConfig = getModelSurfaceConfig(yamlConfig, "svg", modelSetName);
+    const imageConfig = getModelSurfaceConfig(yamlConfig, "image", modelSetName);
+
     // Text model (extraction from narrative text)
-    const textProviderName = opts.textProvider ?? process.env.CARATULAI_TEXT_PROVIDER ?? getConfigValue<string>(yamlConfig, "models.text.provider", "echo");
-    const textModelId = opts.textModel ?? process.env.CARATULAI_TEXT_MODEL ?? getConfigValue<string | undefined>(yamlConfig, "models.text.model", undefined);
+    const textProviderName = opts.textProvider ?? process.env.CARATULAI_TEXT_PROVIDER ?? textConfig?.provider ?? "echo";
+    const textModelId = opts.textModel ?? process.env.CARATULAI_TEXT_MODEL ?? textConfig?.model;
+    const textBaseUrl = textConfig?.base_url;
 
     // SVG model (generation from tags)
-    const svgProviderName = opts.svgProvider ?? process.env.CARATULAI_SVG_PROVIDER ?? getConfigValue<string>(yamlConfig, "models.svg.provider", "echo");
-    const svgModelId = opts.svgModel ?? process.env.CARATULAI_SVG_MODEL ?? getConfigValue<string | undefined>(yamlConfig, "models.svg.model", undefined);
+    const svgProviderName = opts.svgProvider ?? process.env.CARATULAI_SVG_PROVIDER ?? svgConfig?.provider ?? "echo";
+    const svgModelId = opts.svgModel ?? process.env.CARATULAI_SVG_MODEL ?? svgConfig?.model;
+    const svgBaseUrl = svgConfig?.base_url;
 
     console.error(`[DEBUG] TEXT: ${textProviderName}/${textModelId || "(default)"}  SVG: ${svgProviderName}/${svgModelId || "(default)"}  Profile: ${profileId}`);
 
@@ -307,7 +315,7 @@ program
     // Build SVG generation provider
     let svgProvider: LLMProvider;
     try {
-      svgProvider = buildProvider({ ...opts, provider: svgProviderName, model: svgModelId, modelType: "svg", temperature });
+      svgProvider = buildProvider({ ...opts, provider: svgProviderName, model: svgModelId, baseUrl: opts.baseUrl ?? svgBaseUrl, modelType: "svg", temperature });
     } catch (err) {
       console.error(err instanceof Error ? err.message : String(err));
       process.exitCode = 1;
@@ -320,13 +328,7 @@ program
       textProvider = svgProvider;
     } else {
       try {
-        textProvider = buildProvider({
-          ...opts,
-          provider: textProviderName,
-          model: textModelId,
-          modelType: "text",
-          temperature,
-        });
+        textProvider = buildProvider({ ...opts, provider: textProviderName, model: textModelId, baseUrl: opts.baseUrl ?? textBaseUrl, modelType: "text", temperature });
       } catch (err) {
         console.error(err instanceof Error ? err.message : String(err));
         process.exitCode = 1;
@@ -336,19 +338,14 @@ program
 
     // Image provider (for vision models)
     let imageProvider: LLMProvider;
-    const imageProviderName = opts.imageProvider ?? getConfigValue<string>(yamlConfig, "models.image.provider", "openrouter");
-    const imageModelId = opts.imageModel ?? getConfigValue<string>(yamlConfig, "models.image.model", "openai/gpt-4o");
+    const imageProviderName = opts.imageProvider ?? imageConfig?.provider ?? "openrouter";
+    const imageModelId = opts.imageModel ?? imageConfig?.model ?? "openai/gpt-4o";
+    const imageBaseUrl = imageConfig?.base_url;
     if (imageProviderName === svgProviderName && imageModelId === svgModelId) {
       imageProvider = svgProvider;
     } else {
       try {
-        imageProvider = buildProvider({
-          ...opts,
-          provider: imageProviderName,
-          model: imageModelId,
-          modelType: "image",
-          temperature,
-        });
+        imageProvider = buildProvider({ ...opts, provider: imageProviderName, model: imageModelId, baseUrl: opts.baseUrl ?? imageBaseUrl, modelType: "image", temperature });
       } catch (err) {
         console.error(`Failed to build image provider: ${err instanceof Error ? err.message : String(err)}`);
         process.exitCode = 1;

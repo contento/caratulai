@@ -118,9 +118,13 @@ node packages/cli/dist/index.js generate star --provider openrouter --model x-ai
 Edit `caratulai.config.yaml`:
 ```yaml
 models:
-  svg:
-    provider: "lmstudio"        # or "ollama", "openrouter"
-    model: "mistral"            # or "llama2", "qwen2.5-coder", etc.
+  active_set: "lmstudio"
+  sets:
+    lmstudio:
+      svg:
+        provider: "lmstudio"
+        model: "qwen2.5-coder"
+        base_url: "http://localhost:1234/v1"
 ```
 
 ---
