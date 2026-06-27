@@ -59,18 +59,18 @@ models:
       # Local model set for LM Studio. Use a model that LM Studio can serve at :1234/v1.
       text:
         provider: "lmstudio"
-        model: "qwen2.5-coder"
+        model: "qwen/qwen3.5-9b"
         base_url: "http://localhost:1234/v1"
 
       svg:
         provider: "lmstudio"
-        model: "qwen2.5-coder"
+        model: "svgthinker-7b"
         base_url: "http://localhost:1234/v1"
 
       # Replace this with a vision-capable LM Studio model if you test --from-image locally.
       image:
         provider: "lmstudio"
-        model: "llava-v1.6"
+        model: "google/gemma-4-12b-qat"
         base_url: "http://localhost:1234/v1"
 
 output:
