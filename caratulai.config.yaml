@@ -19,11 +19,14 @@ generation:
   # false = restrict to fundamental shapes only
   allow_all_shapes: true
 
-  # Image profile/style: sagan | picasso | contento | dictionary
-  # - sagan: Voyager Golden Record (gold background, silver text/lines)
-  # - picasso: Picasso-inspired (elegant lines, minimal)
-  # - contento: Less restrained, rich complexity, many shapes
-  # - dictionary: Dictionary-based (uses image vocabulary/patterns)
+  # Image profile/style. Available profiles:
+  # Pure aesthetics:   sagan | picasso | contento
+  # Compositional:     dictionary
+  # Psychological:     freud | jung | nietzsche
+  # Epistemological:   booch | carlin | trumpa
+  # Grounded:          rosina
+  # Musical:           domingo
+  # Literary:          gabriel
   profile: "sagan"
 
 models:
@@ -81,27 +84,115 @@ palette:
   # temperature: 0.7  # Optional: uncomment to override default
 
 # Image generation profiles (styles)
+# These mirror profiles.ts — the code is the source of truth.
 profiles:
+  # --- Pure aesthetics ---
   sagan:
     name: "Voyager Golden Record"
-    description: "Gold background, silver/white text and lines. Like the actual Voyager record plate."
-    palette: "palette-256"
-    background_color: "#d4af37"  # Gold
-    foreground_color: "#c0c0c0"  # Silver
+    description: "Gold background, silver marks. Engraved technical diagram, cosmic and archival."
+    palette: "sagan"
+    background_color: "#d4af37"
+    max_elements: 48
+    allow_all_shapes: false
 
   picasso:
-    name: "Picasso"
-    description: "Elegant lines, minimal shapes, sophisticated. TBD: define aesthetic."
-    palette: "palette-256"
+    name: "Picasso Single Line"
+    description: "One continuous flowing line suggests the entire form. Minimal, sophisticated."
+    palette: "bw"
+    background_color: "#ffffff"
+    max_elements: 3
+    allow_all_shapes: false
 
   contento:
-    name: "Contento"
-    description: "Less restrained, more shapes, visual complexity. Rich and dense composition."
+    name: "Rich Complexity"
+    description: "Maximalist layered composition. Fill the canvas — abundance, not chaos."
     palette: "palette-256"
+    background_color: "#f5f5f5"
     max_elements: 80
     allow_all_shapes: true
 
+  # --- Compositional ---
   dictionary:
-    name: "Dictionary"
-    description: "Dictionary-based image generation. Uses vocabulary of visual patterns and icons. TBD."
+    name: "Visual Dictionary"
+    description: "Archetypal symbols and icons arranged as a pictographic lexicon."
     palette: "palette-256"
+    background_color: "#ffffff"
+    max_elements: 60
+    allow_all_shapes: true
+
+  # --- Psychological & philosophical ---
+  freud:
+    name: "Psychological Layers"
+    description: "Concentric psyche diagram: Id (warm core) / Ego (middle) / Superego (cool outer)."
+    palette: "grayscale-sepia"
+    background_color: "#e8e8e8"
+    max_elements: 70
+    allow_all_shapes: false
+
+  jung:
+    name: "Archetypal Symbols"
+    description: "Mandala with luminous Self at center, archetypal animals in radial symmetry."
+    palette: "palette-256"
+    background_color: "#fffaf0"
+    max_elements: 60
+    allow_all_shapes: true
+
+  nietzsche:
+    name: "Genealogy of Concepts"
+    description: "Vertical genealogy: origin → Apollonian vs Dionysian branches → synthesis."
+    palette: "palette-256"
+    background_color: "#ffffff"
+    max_elements: 100
+    allow_all_shapes: true
+
+  # --- Epistemological ---
+  booch:
+    name: "Engineering Clarity"
+    description: "Rigorous system diagram (Booch style): components, connections, honest structure."
+    palette: "booch"
+    background_color: "#ffffff"
+    max_elements: 70
+    allow_all_shapes: false
+
+  carlin:
+    name: "Linguistic Subversion"
+    description: "Sharp Carlin-style juxtaposition — expose contradictions, cut through comfortable lies."
+    palette: "carlin"
+    background_color: "#1a1a1a"
+    max_elements: 80
+    allow_all_shapes: true
+
+  trumpa:
+    name: "Sacred Paradox"
+    description: "Crazy wisdom (Trungpa style): sacred and profane held together, playful depth."
+    palette: "trumpa"
+    background_color: "#f5e6d3"
+    max_elements: 70
+    allow_all_shapes: true
+
+  # --- Grounded ---
+  rosina:
+    name: "Grounded Realism"
+    description: "Italian neorealist: stark, unglamorous, essential — every line does work."
+    palette: "rosina"
+    background_color: "#d3d3d3"
+    max_elements: 60
+    allow_all_shapes: false
+
+  # --- Musical & integrated ---
+  domingo:
+    name: "Musical Range"
+    description: "Master tenor-baritone style: sweeping curves, high/low registers integrated."
+    palette: "domingo"
+    background_color: "#fef9f3"
+    max_elements: 80
+    allow_all_shapes: true
+
+  # --- Literary & mythic ---
+  gabriel:
+    name: "Magic Realism"
+    description: "García Márquez style: magical woven into mundane, warm, elaborate, mythic."
+    palette: "gabriel"
+    background_color: "#fffef5"
+    max_elements: 120
+    allow_all_shapes: true
