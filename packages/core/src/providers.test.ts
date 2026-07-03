@@ -45,6 +45,15 @@ describe("OpenAICompatProvider — request shaping", () => {
     expect(body.stream).toBe(false);
   });
 
+  it("honors a systemPrompt override in params", async () => {
+    const fetchMock = vi.fn(async () => okResponse("<svg/>"));
+    vi.stubGlobal("fetch", fetchMock);
+    const p = new OpenAICompatProvider({ name: "x", baseUrl: "http://h/v1", model: "m" });
+    await p.generateSvg("PROMPT", { ...PARAMS, systemPrompt: "CUSTOM SYSTEM" });
+    const body = JSON.parse(fetchMock.mock.calls[0]![1]!.body);
+    expect(body.messages[0]).toEqual({ role: "system", content: "CUSTOM SYSTEM" });
+  });
+
   it("omits seed when undefined", async () => {
     const fetchMock = vi.fn(async () => okResponse("<svg/>"));
     vi.stubGlobal("fetch", fetchMock);

@@ -114,6 +114,7 @@ export async function extractTags(
     model: params?.model || "default",
     temperature: params?.temperature ?? 0.2,
     seed: params?.seed,
+    systemPrompt: EXTRACTION_SYSTEM_PROMPT,
   };
 
   const raw = await provider.generateSvg(prompt, extractParams);

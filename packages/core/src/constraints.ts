@@ -16,7 +16,7 @@ export const UNRESTRICTED_PRIMITIVES = [
   // Links
   "a",
   // Effects & styling
-  "linearGradient", "radialGradient", "pattern", "mask", "clipPath",
+  "linearGradient", "radialGradient", "stop", "pattern", "mask", "clipPath",
   "marker", "filter", "feGaussianBlur", "feOffset", "feBlend",
   // Structural
   "svg", "title", "desc", "metadata"

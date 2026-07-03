@@ -27,7 +27,7 @@ export async function fetchTextFromUrl(url: string): Promise<string> {
   // Fetch the URL
   let response: Response;
   try {
-    response = await fetch(url);
+    response = await fetch(url, { signal: AbortSignal.timeout(30_000) });
   } catch (err) {
     throw new Error(`Failed to fetch URL: ${err instanceof Error ? err.message : String(err)}`);
   }

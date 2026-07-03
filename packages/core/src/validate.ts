@@ -9,8 +9,23 @@ export function extractSvg(raw: string): string {
 }
 
 // Matches both CSS (`fill:#fff`) and attribute (`fill="#fff"`) forms, capturing the separator
-// and optional quote so they can be preserved on replacement.
-const FILL_STROKE = /(fill|stroke)(\s*[:=]\s*)(["']?)(#[0-9a-fA-F]{3,6})/g;
+// and optional quote so they can be preserved on replacement. The value branch also captures
+// bare keywords so named CSS colors get snapped; non-color keywords (none, url, …) pass through.
+const COLOR_PROP = /(fill|stroke|stop-color)(\s*[:=]\s*)(["']?)(#[0-9a-fA-F]{3,8}|[a-zA-Z]+)/g;
+
+/** Named CSS colors LLMs commonly emit despite the exact-hex instruction. */
+const NAMED_COLORS: Record<string, string> = {
+  black: "#000000", white: "#ffffff", red: "#ff0000", green: "#008000", lime: "#00ff00",
+  blue: "#0000ff", navy: "#000080", yellow: "#ffff00", orange: "#ffa500", purple: "#800080",
+  gray: "#808080", grey: "#808080", silver: "#c0c0c0", gold: "#ffd700", brown: "#a52a2a",
+  pink: "#ffc0cb", cyan: "#00ffff", magenta: "#ff00ff", crimson: "#dc143c", indigo: "#4b0082",
+  violet: "#ee82ee", teal: "#008080", maroon: "#800000", olive: "#808000", beige: "#f5f5dc",
+  tan: "#d2b48c", ivory: "#fffff0", khaki: "#f0e68c", salmon: "#fa8072", coral: "#ff7f50",
+  turquoise: "#40e0d0", lavender: "#e6e6fa", plum: "#dda0dd", orchid: "#da70d6",
+  skyblue: "#87ceeb", steelblue: "#4682b4", darkblue: "#00008b", darkred: "#8b0000",
+  darkgreen: "#006400", darkgray: "#a9a9a9", darkgrey: "#a9a9a9", lightgray: "#d3d3d3",
+  lightgrey: "#d3d3d3", lightblue: "#add8e6", lightgreen: "#90ee90",
+};
 
 /**
  * Enforce the aesthetic on a generated SVG: snap colors to the palette, drop disallowed
@@ -26,8 +41,10 @@ export function sanitizeSvg(
   let svg = extractSvg(raw);
 
   // 1) Snap every color to the nearest fundamental palette color.
-  svg = svg.replace(FILL_STROKE, (_m, prop: string, sep: string, quote: string, color: string) => {
-    const snapped = snapToPalette(normalizeHex(color), palette);
+  svg = svg.replace(COLOR_PROP, (m, prop: string, sep: string, quote: string, color: string) => {
+    const hex = color.startsWith("#") ? normalizeHex(color) : NAMED_COLORS[color.toLowerCase()];
+    if (!hex) return m; // none / url(...) / currentColor — nothing to snap
+    const snapped = snapToPalette(hex, palette);
     if (snapped.toLowerCase() !== color.toLowerCase()) {
       issues.push({ rule: "palette", message: `${color} → ${snapped}`, fixed: true });
     }
@@ -86,7 +103,10 @@ export function sanitizeSvg(
 }
 
 function normalizeHex(hex: string): string {
-  const h = hex.replace("#", "");
+  let h = hex.replace("#", "");
+  // Drop the alpha channel from #rgba / #rrggbbaa forms.
+  if (h.length === 4) h = h.slice(0, 3);
+  if (h.length === 8) h = h.slice(0, 6);
   if (h.length === 3) {
     return `#${h[0]}${h[0]}${h[1]}${h[1]}${h[2]}${h[2]}`;
   }

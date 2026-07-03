@@ -241,6 +241,13 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
 
 export const DEFAULT_PROFILE: ProfileId = "sagan";
 
+export const PROFILE_IDS = Object.keys(PROFILES) as ProfileId[];
+
 export function getProfile(id?: ProfileId): ProfileDef {
-  return PROFILES[id ?? DEFAULT_PROFILE];
+  const key = id ?? DEFAULT_PROFILE;
+  const profile = PROFILES[key];
+  if (!profile) {
+    throw new Error(`Unknown profile "${key}". Available: ${PROFILE_IDS.join(", ")}`);
+  }
+  return profile;
 }

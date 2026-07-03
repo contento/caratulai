@@ -53,6 +53,11 @@ describe("profiles", () => {
     expect(getProfile(undefined)).toBe(PROFILES.sagan);
   });
 
+  it("getProfile throws a helpful error for unknown ids", () => {
+    expect(() => getProfile("bogus" as never)).toThrow(/Unknown profile "bogus"/);
+    expect(() => getProfile("bogus" as never)).toThrow(/sagan/);
+  });
+
   it("sagan has minimal elements and restricted shapes", () => {
     const sagan = PROFILES.sagan;
     expect(sagan.allowAllShapes).toBe(false);

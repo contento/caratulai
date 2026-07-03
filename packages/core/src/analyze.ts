@@ -66,7 +66,7 @@ export async function analyzeImage(
     imageRef = request.source;
     mimeType = "url";
   } else if (isRemoteSource) {
-    const response = await fetch(request.source);
+    const response = await fetch(request.source, { signal: AbortSignal.timeout(30_000) });
     if (!response.ok) {
       throw new Error(`Failed to fetch image from ${request.source}: ${response.status} ${response.statusText}`);
     }
@@ -91,6 +91,7 @@ export async function analyzeImage(
     model: params?.model || request.params?.model || "default",
     temperature: params?.temperature ?? request.params?.temperature ?? 0.3,
     seed: params?.seed ?? request.params?.seed,
+    systemPrompt: IMAGE_ANALYSIS_SYSTEM_PROMPT,
   };
 
   // Get narrative description from vision model
@@ -115,7 +116,7 @@ export async function analyzeImage(
   }
 
   // Extract concept tags from the narrative
-  const tags = await extractTags(narrative, provider, params);
+  const tags = await extractTags(narrative, provider, { ...request.params, ...params });
 
   return {
     narrative: narrative.trim(),

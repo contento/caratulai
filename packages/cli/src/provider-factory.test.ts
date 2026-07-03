@@ -20,6 +20,12 @@ describe("buildProvider", () => {
     expect(buildProvider({ provider: "openrouter" }, { OPENROUTER_API_KEY: "k" }).name).toBe("openrouter");
   });
 
+  it("resolves the OpenRouter key via api_key_env, then the modelType key", () => {
+    expect(buildProvider({ provider: "openrouter", apiKeyEnv: "MY_KEY" }, { MY_KEY: "k1" }).name).toBe("openrouter");
+    expect(buildProvider({ provider: "openrouter", modelType: "svg" }, { SVG_MODEL_API_KEY: "k2" }).name).toBe("openrouter");
+    expect(() => buildProvider({ provider: "openrouter", apiKeyEnv: "MY_KEY", modelType: "svg" }, {})).toThrow(/API key/);
+  });
+
   it("rejects an unknown provider with a helpful message", () => {
     expect(() => buildProvider({ provider: "dalle" })).toThrow(/Unknown provider "dalle"/);
   });

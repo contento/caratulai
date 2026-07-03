@@ -69,6 +69,8 @@ export interface GenerationParams {
   model: string;
   temperature: number;
   seed?: number;
+  /** Override the provider's default system message (extraction and analysis set their own). */
+  systemPrompt?: string;
 }
 
 /** A single generation request. */

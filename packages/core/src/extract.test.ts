@@ -186,6 +186,15 @@ describe("extract", () => {
 
       expect(provider.calls[0].params.seed).toBe(42);
     });
+
+    it("sends the extraction system prompt so providers do not fall back to the SVG one", async () => {
+      const provider = new RecordingProvider();
+      provider.response = "star";
+
+      await extractTags("test input", provider, { model: "test" });
+
+      expect(provider.calls[0].params.systemPrompt).toBe(EXTRACTION_SYSTEM_PROMPT);
+    });
   });
 
   describe("EXTRACTION_SYSTEM_PROMPT", () => {

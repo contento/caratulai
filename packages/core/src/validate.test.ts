@@ -56,6 +56,34 @@ describe("sanitizeSvg — palette snapping", () => {
     expect(colors.length).toBeGreaterThan(0);
     for (const c of colors) expect(SEPIA.colors).toContain(c.toLowerCase());
   });
+
+  it("snaps named CSS colors to the palette", () => {
+    const { svg, report } = sanitizeSvg('<svg><rect fill="gold" stroke="red"/></svg>', BW, C());
+    expect(svg).toContain('fill="#ffffff"');
+    expect(svg).toContain('stroke="#000000"');
+    expect(report.issues.filter((i) => i.rule === "palette")).toHaveLength(2);
+  });
+
+  it("leaves non-color keywords (none, url refs) untouched", () => {
+    const { svg } = sanitizeSvg('<svg><rect fill="none" stroke="url(#g)"/></svg>', BW, C());
+    expect(svg).toContain('fill="none"');
+    expect(svg).toContain('stroke="url(#g)"');
+  });
+
+  it("drops the alpha channel from 4- and 8-digit hex before snapping", () => {
+    const { svg } = sanitizeSvg('<svg><rect fill="#fffc" stroke="#000000cc"/></svg>', BW, C());
+    expect(svg).toContain('fill="#ffffff"');
+    expect(svg).toContain('stroke="#000000"');
+  });
+
+  it("snaps gradient stop-color values and keeps <stop> elements", () => {
+    const raw = '<svg><linearGradient id="g"><stop stop-color="#00ff88"/></linearGradient></svg>';
+    const { svg } = sanitizeSvg(raw, SEPIA, C());
+    expect(svg).toContain("<stop");
+    for (const c of svg.match(/#[0-9a-f]{6}/gi) ?? []) {
+      expect(SEPIA.colors).toContain(c.toLowerCase());
+    }
+  });
 });
 
 describe("sanitizeSvg — structure & primitives", () => {

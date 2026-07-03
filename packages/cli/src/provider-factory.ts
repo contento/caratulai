@@ -11,11 +11,13 @@ export interface ProviderOptions {
   model?: string;
   baseUrl?: string;
   modelType?: "text" | "svg" | "image";
+  /** Env var name holding the API key (from `api_key_env` in caratulai.config.yaml). */
+  apiKeyEnv?: string;
 }
 
 /**
  * Construct an LLM provider from CLI options. Env is injectable for testing; keys are read here
- * in the surface, never in `@caratulai/core`. See docs/providers.md.
+ * in the surface, never in `@caratulai/core`. See wiki/11-LLM Providers.
  */
 export function buildProvider(
   opts: ProviderOptions,
@@ -30,7 +32,10 @@ export function buildProvider(
       return createLMStudioProvider({ model: opts.model, baseUrl: opts.baseUrl });
     case "openrouter": {
       let apiKey = "";
-      if (opts.modelType) {
+      if (opts.apiKeyEnv) {
+        apiKey = env[opts.apiKeyEnv] ?? "";
+      }
+      if (!apiKey && opts.modelType) {
         const keyName = `${opts.modelType.toUpperCase()}_MODEL_API_KEY`;
         apiKey = env[keyName] ?? "";
       }

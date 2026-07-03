@@ -34,10 +34,7 @@ function injectBackground(svg: string, backgroundColor: string, constraints: { w
 
   // Create background rect as first child
   const bgRect = `<rect width="${constraints.width}" height="${constraints.height}" fill="${backgroundColor}" />`;
-  const bgEl = parse(bgRect).firstChild;
-  if (bgEl) {
-    svgEl.insertAdjacentHTML("afterbegin", bgRect);
-  }
+  svgEl.insertAdjacentHTML("afterbegin", bgRect);
   return root.toString();
 }
 
