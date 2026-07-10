@@ -8,6 +8,41 @@ Open the wiki by reading [wiki/00-Home.md](wiki/00-Home.md) or opening [wiki/](w
 
 ---
 
+## conten.to integration — per-post caratula seal 🟡 ⭐
+
+> Goal: every conten.to blog post ends with a caratula — an SVG seal generated
+> from the post's ontology (wiki concept mapping + frontmatter keywords).
+> First consumer of caratulai as a library/CLI.
+
+- [x] `scripts/generate_caratula.py` in conten.to: ontology extraction
+      (wiki/sources/index.md concepts + post keywords → 4–6 tags) → caratulai CLI
+- [x] Sample run: 5 posts × 3 profiles
+- [x] **Decision: profile is dynamic per post** — the post's dominant (first)
+      wiki concept picks the profile via the `CONCEPT_PROFILE` map in
+      `generate_caratula.py` (attention→picasso, mythology→jung,
+      narrative→gabriel, power→carlin, intelligence→sagan, …);
+      `--profile` still forces one; fallback `contento`
+- [ ] 🟡 Backfill all dated EN posts (~90 SVGs → `static/images/caratula/YYYY/MM/DD.svg`,
+      one per post date, shared across EN/ES/FR) — 10/90 done; blocked on
+      OpenRouter daily key limit; resume: `uv run scripts/generate_caratula.py --all`
+- [x] Tag backfilled posts `before-caratulai` (marks posts published before the
+      caratulai era / seals added retroactively) — 90 posts × EN/ES/FR
+- [x] Hugo partial `layouts/partials/caratula.html`: seal rendered at end of post
+      (after content, before tags footer), **accompanied by a short paragraph
+      explaining the seal with a link to <https://caratul.ai>**; EN/ES/FR copy
+- [x] Wire into ship pipeline: run alongside `generate_cover.py` when a seed ships
+      (documented in conten.to CLAUDE.md)
+- [x] Update conten.to CLAUDE.md (pipeline step + "things not to break")
+- [ ] **Bug found during sample run:** the validator passes malformed SVG —
+      truncated output ("premature end of data") and leaked `<thinking>` tags
+      reach the written file (6/15 failures, clustered in dense profiles
+      contento/sagan). The validator should XML-parse the final document and
+      fail/retry, not just regex-fix palette/text. conten.to's
+      `generate_caratula.py` works around it with xmllint-style validation +
+      retry, but the fix belongs in core.
+
+---
+
 ## Open questions (see [SPEC.md](SPEC.md))
 
 - [ ] Web framework: SvelteKit vs React
