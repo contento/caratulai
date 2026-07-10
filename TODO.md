@@ -22,9 +22,8 @@ Open the wiki by reading [wiki/00-Home.md](wiki/00-Home.md) or opening [wiki/](w
       `generate_caratula.py` (attention→picasso, mythology→jung,
       narrative→gabriel, power→carlin, intelligence→sagan, …);
       `--profile` still forces one; fallback `contento`
-- [ ] 🟡 Backfill all dated EN posts (~90 SVGs → `static/images/caratula/YYYY/MM/DD.svg`,
-      one per post date, shared across EN/ES/FR) — 10/90 done; blocked on
-      OpenRouter daily key limit; resume: `uv run scripts/generate_caratula.py --all`
+- [x] Backfill all dated EN posts (90/90 SVGs → `static/images/caratula/YYYY/MM/DD.svg`,
+      one per post date, shared across EN/ES/FR)
 - [x] Tag backfilled posts `before-caratulai` (marks posts published before the
       caratulai era / seals added retroactively) — 90 posts × EN/ES/FR
 - [x] Hugo partial `layouts/partials/caratula.html`: seal rendered at end of post
