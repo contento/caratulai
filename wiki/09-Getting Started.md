@@ -14,26 +14,52 @@ pnpm typecheck
 
 ## Running the CLI
 
-The CLI is ready to use. It currently uses the `echo` provider (deterministic placeholder) so you can test without setting up an LLM.
+Use the wrapper scripts (`./caratulai.sh` on macOS/Linux or `.\caratulai.ps1` on Windows) — they build the CLI on demand.
+
+The CLI currently defaults to the `echo` provider (deterministic placeholder) so you can test without setting up an LLM.
 
 ### List available palettes
 
 ```sh
-node packages/cli/dist/index.js palettes
+./caratulai.sh palettes
 ```
 
-### Generate a simple image
+### Generate a simple image from tags
 
 ```sh
-node packages/cli/dist/index.js generate star water travel --palette sepia --out out/idea.svg
+./caratulai.sh generate star water travel --out out/idea.svg
 ```
 
 This will:
 1. Parse the tags: `star`, `water`, `travel`
-2. Build a prompt from the tags, palette, and profile
-3. Call the echo provider (placeholder)
-4. Validate the SVG output
-5. Save to `out/idea.svg`
+2. Build a prompt from the tags, palette (default: sagan), and profile
+3. Call the echo provider (placeholder LLM)
+4. Validate and optimize the SVG output
+5. Save to `out/idea.svg` and a `.log` file with reproduction info
+
+### Generate with a specific profile and palette
+
+```sh
+./caratulai.sh generate star water travel --profile picasso --palette gold --out out/idea.svg
+
+# Auto-save with timestamp (sagan_20260701143022.svg)
+./caratulai.sh generate star water travel --name mytag
+
+# Auto-save with custom name prefix (mytag_sagan_20260701143022.svg)
+./caratulai.sh generate star water travel --name mytag
+```
+
+### Generate from narrative text
+
+```sh
+./caratulai.sh generate --from-text "A dark journey through an ancient ocean" --profile picasso --out out/journey.svg
+```
+
+### Generate from an image (vision model required)
+
+```sh
+./caratulai.sh generate --from-image ./photo.jpg --profile contento --out out/photo.svg
+```
 
 ### View the output
 
@@ -54,8 +80,15 @@ To use a real LLM, set up a local backend (LM Studio or Ollama) and configure ca
 4. Generate with caratulai:
 
 ```sh
-node packages/cli/dist/index.js generate star water --palette sepia \
-  --provider lmstudio --model mistral-7b-instruct --out out/idea.svg
+./caratulai.sh generate star water \
+  --svg-provider lmstudio --svg-model mistral-7b-instruct \
+  --out out/idea.svg
+```
+
+Or reference a model set from your config:
+
+```sh
+./caratulai.sh --model-set lmstudio generate star water --out out/idea.svg
 ```
 
 ### Ollama (production, CLI-friendly)
@@ -76,8 +109,15 @@ ollama serve
 4. Generate with caratulai:
 
 ```sh
-node packages/cli/dist/index.js generate star water --palette sepia \
-  --provider ollama --model qwen2.5-coder --out out/idea.svg
+./caratulai.sh generate star water \
+  --svg-provider ollama --svg-model qwen2.5-coder \
+  --out out/idea.svg
+```
+
+Or use a named model set:
+
+```sh
+./caratulai.sh --model-set ollama generate star water --out out/idea.svg
 ```
 
 ## Configuration

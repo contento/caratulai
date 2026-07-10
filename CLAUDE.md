@@ -1,50 +1,21 @@
-# CLAUDE.md — AI working instructions
+# CLAUDE.md — See AGENTS.md
 
-Project: **caratulai** — an alien image generator. Concepts (tags/ontology) → simple **vector** images in fundamental palettes. **Full wiki:** [[wiki/00-Home]]
+> This document's content has been consolidated into [AGENTS.md](AGENTS.md), the canonical source for agent guidelines.
 
-## Working agreement
+**All working instructions are now unified in:**
+- **[AGENTS.md](AGENTS.md)** — Project guidelines, conventions, architecture, build commands
 
-- Early-stage project. Prefer small, reversible steps over big upfront structure.
-- Record non-obvious decisions as short ADRs in `wiki/decisions/`.
-- Keep [[wiki/Open Questions]] current — resolve items as decisions land.
-- Track outstanding work in [[wiki/Roadmap]].
-- Use `./caratulai.sh` as the quick local automation wrapper; it can build `packages/cli/dist` on demand and then forwards arguments to the CLI.
-- Use `./caratulai.ps1` for the same automation flow on PowerShell.
+**For reference:**
+- **[wiki/00-Home.md](wiki/00-Home.md)** — Full wiki index (open `wiki/` as Obsidian vault)
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — Developer setup & PR process
+- **[SPEC.md](SPEC.md)** — Links to detailed documentation in wiki
 
-## Input pipeline: ontology at the root
+## Quick Links
 
-- **Ontology is the core contract.** All input sources (direct tags, images, narrative text) must be converted to an ontology (a set of simple concept tags) before image generation.
-- **Image input** → extract visual concepts → ontology tags.
-- **Narrative text** → extract core concepts → ontology tags.
-- **Direct tags** → validate and pass through as ontology.
-- The generated image is **always driven by the final ontology**, never by the original narrative or image. This ensures predictable, tag-focused output that respects [[wiki/Principles|aesthetic constraints]].
+- **Vision & Goal:** [wiki/01-Vision.md](wiki/01-Vision.md)
+- **Aesthetic Constraints:** [wiki/02-Principles.md](wiki/02-Principles.md)
+- **All 13 Profiles:** [wiki/03-Profiles.md](wiki/03-Profiles.md)
+- **Architecture & Stack:** [wiki/04-Stack.md](wiki/04-Stack.md)
+- **Roadmap:** [wiki/17-Roadmap.md](wiki/17-Roadmap.md)
+- **Decisions:** [wiki/decisions/00-ADR Index.md](wiki/decisions/00-ADR%20Index.md)
 
-## Profiles: 10 Philosophical Frameworks
-## Aesthetic guardrails (these are requirements, not taste)
-
-Caratulai offers **10 generation profiles**—each a distinct philosophical framework for visualizing concepts. Profiles range from aesthetics (minimalist to maximalist) to epistemology (scientific engineering to linguistic subversion to sacred paradox).
-
-Every profile follows the same contract:
-
-- Clear, documented philosophy and historical grounding
-- Concrete visual language (colors, shapes, constraints)
-- Prompt tone tuned for LLM generation
-- References and deeper reading for understanding
-
-See **[[wiki/profiles/]]** for full documentation of each.
-
-## Conventions
-
-- Workspace packages are ESM TypeScript, `@caratulai/<name>` scope.
-- `core` stays I/O-agnostic — no direct DB/filesystem in the engine; surfaces inject those.
-- Built-in palettes and the SVG sanitizer are the source of truth for [[wiki/Principles|aesthetic constraints]].
-- Every profile respects the same hard aesthetic constraints (no text, valid SVG, concept-driven).
-
-## See Also
-
-- **[[wiki/01-Vision]]** — why it exists, name, musical analogy
-- **[[wiki/02-Principles]]** — the 7 hard aesthetic constraints (required reading)
-- **[[wiki/03-Profiles]]** — generation profiles overview
-- **[[wiki/profiles/]]** — detailed documentation of all 10 profiles
-- **[[wiki/04-Stack]]** — tech stack, monorepo layout, architecture
-- **[[wiki/17-Roadmap]]** — M0–M10 milestones

@@ -15,31 +15,67 @@ caratulai uses two configuration files with a clear separation of concerns:
 ```yaml
 # Models & LLM settings
 models:
-  active_set: "openrouter"     # switch to "lmstudio" for local testing
+  active_set: "openrouter"     # switch to "lmstudio" or "ollama" for local testing
   sets:
     openrouter:
+      text:
+        provider: "openrouter"
+        model: "meta-llama/llama-3.1-8b-instruct"  # for concept extraction
+        api_key_env: "OPENROUTER_API_KEY"
       svg:
         provider: "openrouter"
-        model: "meta-llama/llama-3.1-70b-instruct"
+        model: "meta-llama/llama-3.1-70b-instruct"  # for SVG generation
+        api_key_env: "OPENROUTER_API_KEY"
+      image:
+        provider: "openrouter"
+        model: "openai/gpt-4o"  # for vision/image analysis
+        api_key_env: "OPENROUTER_API_KEY"
+    
     lmstudio:
+      text:
+        provider: "lmstudio"
+        model: "mistral-7b-instruct"
+        base_url: "http://localhost:1234/v1"
       svg:
         provider: "lmstudio"
-        model: "qwen2.5-coder"
+        model: "mistral-7b-instruct"
         base_url: "http://localhost:1234/v1"
+      image:
+        provider: "lmstudio"
+        model: "llava:13b"
+        base_url: "http://localhost:1234/v1"
+    
+    ollama:
+      text:
+        provider: "ollama"
+        model: "qwen2.5:7b"
+      svg:
+        provider: "ollama"
+        model: "qwen2.5-coder:14b"
+      image:
+        provider: "ollama"
+        model: "llava:13b"
 
 # Generation settings
 generation:
-  profile: "sagan"            # or "picasso", "contento", "dictionary"
-  palette: "sepia"            # or "bw", "grayscale", "palette-16", "palette-256"
+  profile: "sagan"            # or "picasso", "contento", "dictionary", etc.
+  ratio: "16:9"               # or "square", "4:3", "21:9", or custom "1920:1080"
   seed: null                  # null = random, or a specific number for reproducibility
 
 # Output settings
 output:
-  directory: "./output"       # where to save SVG, PNG, PDF, etc.
-  include_metadata: true      # save generation metadata alongside images
+  auto_save_dir: "./output"   # where to auto-save with timestamp filename
 ```
 
-**Typical workflow:** edit this file to set your default model, palette, and output directory. The CLI uses these defaults but accepts `--flag` overrides.
+**Model types:**
+- **text:** Used for extracting concepts from narrative text or URLs (`--from-text`, `--from-url`)
+- **svg:** Used for generating SVG from concept tags (main generation)
+- **image:** Used for vision models to analyze images (`--from-image`)
+
+**Typical workflow:** 
+1. Edit this file to set your default model set (e.g., `active_set: lmstudio` for local testing)
+2. The CLI uses these defaults but accepts `--flag` overrides (e.g., `--svg-provider ollama --svg-model qwen2.5-coder:14b`)
+3. Use `--model-set <name>` to switch model sets globally (e.g., `./caratulai.sh --model-set ollama generate ...`)
 
 ## .env
 
@@ -58,18 +94,30 @@ output:
 
 2. Fill in your secrets:
    ```bash
-   # OpenRouter (if using remote models)
+   # Remote provider API keys (OpenRouter for multi-model access)
    OPENROUTER_API_KEY=sk-or-...
-
+   
+   # Or use individual provider keys for each model type
+   TEXT_MODEL_API_KEY=sk-or-...      # for text extraction
+   SVG_MODEL_API_KEY=sk-or-...       # for SVG generation
+   IMAGE_MODEL_API_KEY=sk-or-...     # for vision models
+   
+   # Anthropic (Claude with prompt caching)
+   ANTHROPIC_API_KEY=sk-ant-...
+   
    # Custom local server URLs (if not default)
    # LM_STUDIO_URL=http://localhost:1234/v1
    # OLLAMA_URL=http://localhost:11434/v1
    ```
 
+**Priority:** If you define `OPENROUTER_API_KEY`, it's used for all providers unless overridden by type-specific keys (`TEXT_MODEL_API_KEY`, etc.)
+
 **Typical secrets:**
-- `OPENROUTER_API_KEY` — for remote OpenRouter access
-- Custom backend URLs (if your LM Studio or Ollama runs elsewhere)
-- Database credentials (Postgres, SQLite path) — for future web/server surfaces
+- `OPENROUTER_API_KEY` — for remote OpenRouter access (covers all model types)
+- Type-specific keys — optional, override OPENROUTER_API_KEY for specific model uses
+- `ANTHROPIC_API_KEY` — for Claude models
+- Custom backend URLs — for local LM Studio or Ollama instances
+- Database credentials (future: Postgres, SQLite) — for web/server surfaces
 
 ## Separation of Concerns
 

@@ -19,54 +19,79 @@ pnpm install && pnpm build
 
 ## Usage
 
+The main entry point is the `generate` command. Use the wrapper scripts (`./caratulai.sh` or `.\caratulai.ps1`) — they build the CLI on demand.
+
 ### From tags
+
 ```sh
-# explicit output path
-node packages/cli/dist/index.js generate star water travel --profile sagan --out out/idea.svg
+# Explicit output path
+./caratulai.sh generate star water travel --profile sagan --out out/idea.svg
 
-# auto-save to output/ with timestamped filename (sagan_20260627143022.svg)
-node packages/cli/dist/index.js generate star water travel --profile sagan
+# Auto-save with timestamped filename (sagan_20260627143022.svg)
+./caratulai.sh generate star water travel --profile sagan
 
-# add a name prefix (dawn_sagan_20260627143022.svg)
-node packages/cli/dist/index.js generate star water travel --profile sagan --name dawn
+# Add a custom name prefix (dawn_sagan_20260627143022.svg)
+./caratulai.sh generate star water travel --profile sagan --name dawn
 ```
 
 ### From narrative text
+
 ```sh
-node packages/cli/dist/index.js generate --from-text "A dark journey across an ancient ocean" --profile picasso
-node packages/cli/dist/index.js generate --from-text "A dark journey across an ancient ocean" --profile picasso --name voyage
+./caratulai.sh generate --from-text "A dark journey across an ancient ocean" --profile picasso
+./caratulai.sh generate --from-text "A dark journey across an ancient ocean" --profile picasso --name voyage
 ```
 
-### From an image (vision model required)
+### From a URL (text or image)
+
 ```sh
-node packages/cli/dist/index.js generate --from-image ./photo.jpg --image-model openai/gpt-4o --profile contento
-node packages/cli/dist/index.js generate --from-image https://example.com/art.png --profile sagan --name art
+# Fetch text from URL, extract concepts, generate
+./caratulai.sh generate --from-url https://example.com/article.txt --profile sagan
+
+# Analyze image from URL using vision model (requires image-model provider)
+./caratulai.sh generate --from-image https://example.com/art.png --profile contento --name art
 ```
 
-### Switch model sets
-```sh
-node packages/cli/dist/index.js generate star water travel --model-set lmstudio --profile sagan
-node packages/cli/dist/index.js generate star water travel --model-set openrouter --profile sagan
-```
+### From an image file (vision model required)
 
-### Helper scripts
 ```sh
-# Linux/macOS
-./caratulai.sh generate star water travel --profile sagan
-./caratulai.sh generate star water travel --profile sagan --name dawn
-./caratulai.sh generate star water travel --model-set lmstudio --profile sagan
 ./caratulai.sh generate --from-image ./photo.jpg --profile contento --name photo
+```
 
-# PowerShell
+### Use a named model set from config
+
+Model sets group provider + model combinations. Define them in `caratulai.config.yaml`, then reference by name:
+
+```sh
+./caratulai.sh --model-set lmstudio generate star water travel --profile sagan
+./caratulai.sh --model-set openrouter generate star water travel --profile sagan
+```
+
+### Override individual models
+
+```sh
+# Use specific SVG generation model
+./caratulai.sh generate star water travel --svg-provider ollama --svg-model mistral --profile sagan
+
+# Use specific text extraction model
+./caratulai.sh generate --from-text "..." --text-provider ollama --text-model qwen2.5 --profile sagan
+
+# Use specific image analysis model (for vision extraction)
+./caratulai.sh generate --from-image photo.jpg --image-provider openrouter --image-model openai/gpt-4o --profile contento
+```
+
+### PowerShell
+
+Replace `./caratulai.sh` with `.\caratulai.ps1`:
+
+```powershell
 .\caratulai.ps1 generate star water travel --profile sagan
-.\caratulai.ps1 generate star water travel --profile sagan --name dawn
-.\caratulai.ps1 generate star water travel --model-set lmstudio --profile sagan
-.\caratulai.ps1 generate --from-image .\photo.jpg --profile contento --name photo
+.\caratulai.ps1 generate --from-text "A dark ocean" --profile picasso --name voyage
+.\caratulai.ps1 --model-set lmstudio generate star water travel --profile sagan
 ```
 
 ### List palettes
 ```sh
-node packages/cli/dist/index.js palettes
+./caratulai.sh palettes
 ```
 
 ## Documentation

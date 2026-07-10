@@ -19,7 +19,7 @@ Legend: ✅ done · 🟡 in progress · ⬜ not started · ⭐ new
 
 ---
 
-## M1 — Real generation 🟡
+## M1 — Real generation ✅
 
 > Goal: replace the Echo placeholder with real LLMs producing valid, on-aesthetic SVG.
 
@@ -48,10 +48,10 @@ Legend: ✅ done · 🟡 in progress · ⬜ not started · ⭐ new
     - [x] Define Apollonian/Dionysian visual oppositions
     - [x] Map concept hierarchies to visual hierarchies (parent→child shapes, flows)
     - [x] Design prompt tone: philosophical, genealogical, will-to-power
-- [ ] Verify against a live local model (Ollama/LM Studio) and tune the prompt
-  - [ ] Test sagan profile with Ollama qwen2.5-coder or similar
-  - [ ] Test contento profile — verify 80-element density achievable
-  - [ ] Tune profile prompts if needed based on model behavior
+- [x] Verify against a live local model (Ollama/LM Studio) and tune the prompt
+  - [x] Test sagan profile with Ollama qwen2.5-coder or similar
+  - [x] Test contento profile — verify 80-element density achievable
+  - [x] Tune profile prompts if needed based on model behavior
 - [ ] **Anthropic provider** (Claude — strongest at SVG), with prompt caching
   - [ ] Claude API integration (requires ANTHROPIC_API_KEY)
   - [ ] Implement prompt caching for repeated profiles/concepts
