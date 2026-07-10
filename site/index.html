@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>caratulai — an alien image generator</title>
+  <meta name="description" content="caratulai turns concepts into simple vector images in fundamental palettes. Voyager Golden Record, Picasso's line, and an LLM in between." />
+  <link rel="icon" href="examples/contento.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <img class="hero-mark" src="examples/sagan.svg" alt="" aria-hidden="true" />
+    <h1>caratulai</h1>
+    <p class="tagline">an alien image generator</p>
+    <p class="lede">
+      <em>Carátula</em> (Spanish): the cover sheet — the first image you meet.
+      Concepts go in, simple vector images in fundamental palettes come out —
+      the lineage runs from the Voyager Golden Record through Picasso's line.
+    </p>
+    <div class="cta">
+      <a class="button" href="https://github.com/contento/caratulai">View on GitHub</a>
+      <a class="button button-ghost" href="#quick-start">Quick start</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="gallery" aria-label="Example caratulas">
+      <figure>
+        <img src="examples/contento.svg" alt="Caratula generated with the contento profile" loading="lazy" />
+        <figcaption>contento</figcaption>
+      </figure>
+      <figure>
+        <img src="examples/sagan.svg" alt="Caratula generated with the sagan profile" loading="lazy" />
+        <figcaption>sagan</figcaption>
+      </figure>
+      <figure>
+        <img src="examples/picasso.svg" alt="Caratula generated with the picasso profile" loading="lazy" />
+        <figcaption>picasso</figcaption>
+      </figure>
+      <figure>
+        <img src="examples/jung.svg" alt="Caratula generated with the jung profile" loading="lazy" />
+        <figcaption>jung</figcaption>
+      </figure>
+      <figure>
+        <img src="examples/carlin.svg" alt="Caratula generated with the carlin profile" loading="lazy" />
+        <figcaption>carlin</figcaption>
+      </figure>
+      <figure>
+        <img src="examples/freud.svg" alt="Caratula generated with the freud profile" loading="lazy" />
+        <figcaption>freud</figcaption>
+      </figure>
+      <figure>
+        <img src="examples/gabriel.svg" alt="Caratula generated with the gabriel profile" loading="lazy" />
+        <figcaption>gabriel</figcaption>
+      </figure>
+      <figure>
+        <img src="examples/trungpa.svg" alt="Caratula generated with the trungpa profile" loading="lazy" />
+        <figcaption>trungpa</figcaption>
+      </figure>
+    </section>
+
+    <section id="quick-start" class="quick-start">
+      <h2>Quick start</h2>
+      <p>Requires Node ≥ 20 and pnpm.</p>
+      <pre><code>git clone https://github.com/contento/caratulai
+cd caratulai
+pnpm install &amp;&amp; pnpm build
+
+./caratulai.sh generate star water travel --profile sagan --out out/idea.svg</code></pre>
+      <p>
+        Tags, narrative text, URLs, or images in — an SVG seal in a fundamental
+        palette out. See the
+        <a href="https://github.com/contento/caratulai#readme">README</a>
+        and <a href="https://github.com/contento/caratulai/tree/main/wiki">wiki</a>
+        for the full profile list, providers, and configuration.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      MIT licensed. <a href="https://github.com/contento/caratulai">github.com/contento/caratulai</a>
+    </p>
+  </footer>
+</body>
+</html>

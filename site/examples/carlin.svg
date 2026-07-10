@@ -1,0 +1,27 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      
+      
+    </linearGradient>
+  </defs>
+  <g>
+    <polygon points="256,50 286,150 186,150" fill="#000000" ></polygon>
+    <polygon points="226,70 256,180 196,180" fill="#ff4500" ></polygon>
+    <circle cx="256" cy="360" r="80" fill="#00bfff" ></circle>
+    <ellipse cx="256" cy="370" rx="100" ry="40" fill="#000000" ></ellipse>
+    <line x1="256" y1="10" x2="256" y2="60" stroke="#ff0000" stroke-width="5" ></line>
+    <line x1="150" y1="300" x2="362" y2="300" stroke="#ff0000" stroke-width="5" ></line>
+    <polyline points="150,320 256,290 362,320" fill="none" stroke="#663300" stroke-width="4" ></polyline>
+    <rect x="200" y="150" width="60" height="100" fill="#00bfff" ></rect>
+    <polygon points="180,200 200,180 220,200" fill="#ff4500" ></polygon>
+    <polygon points="300,200 320,180 340,200" fill="#ff4500" ></polygon>
+    <circle cx="256" cy="100" r="30" fill="#000000" ></circle>
+    <circle cx="300" cy="400" r="10" fill="#c0c0c0" ></circle>
+    <circle cx="200" cy="400" r="10" fill="#c0c0c0" ></circle>
+    <line x1="200" y1="400" x2="300" y2="400" stroke="#333333" stroke-width="2" ></line>
+    <line x1="256" y1="300" x2="256" y2="400" stroke="#808080" stroke-width="3" ></line>
+    <path d="M150,320 Q256,250 362,320" fill="transparent" stroke="#ff0000" stroke-width="4" ></path>
+    <path d="M150,350 Q256,280 362,350" fill="transparent" stroke="#ff0000" stroke-width="4" ></path>
+  </g>
+</svg>

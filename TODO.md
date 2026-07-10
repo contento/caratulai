@@ -8,6 +8,23 @@ Open the wiki by reading [wiki/00-Home.md](wiki/00-Home.md) or opening [wiki/](w
 
 ---
 
+## caratul.ai marketing site 🟡
+
+> Goal: a minimalistic landing page at caratul.ai — example seals + a link to
+> the GitHub project. Deployed via GitHub Actions to Cloudflare Pages.
+
+- [x] `site/` — static HTML/CSS (no build step), gallery of 8 sample seals
+      from `samples/*.svg`, quick-start snippet, link to the GitHub repo
+- [x] `.github/workflows/deploy-site.yml` — `cloudflare/wrangler-action`
+      deploys `site/` to Cloudflare Pages on push to `main` (path-filtered to
+      `site/**`) or manual dispatch
+- [ ] Create the Cloudflare Pages project (`caratulai`) and add
+      `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` as GitHub repo secrets
+- [ ] Point `caratul.ai` DNS at the Pages project and verify the custom domain
+- [ ] First deploy + smoke test in production
+
+---
+
 ## conten.to integration — per-post caratula seal 🟡 ⭐
 
 > Goal: every conten.to blog post ends with a caratula — an SVG seal generated
@@ -24,8 +41,9 @@ Open the wiki by reading [wiki/00-Home.md](wiki/00-Home.md) or opening [wiki/](w
       `--profile` still forces one; fallback `contento`
 - [x] Backfill all dated EN posts (90/90 SVGs → `static/images/caratula/YYYY/MM/DD.svg`,
       one per post date, shared across EN/ES/FR)
-- [x] Tag backfilled posts `before-caratulai` (marks posts published before the
-      caratulai era / seals added retroactively) — 90 posts × EN/ES/FR
+- [x] Mark the pre-feature state with a `before-caratulai` **git tag** in
+      conten.to (corrected: originally misapplied as a post-taxonomy tag
+      on all 90 posts × EN/ES/FR — reverted)
 - [x] Hugo partial `layouts/partials/caratula.html`: seal rendered at end of post
       (after content, before tags footer), **accompanied by a short paragraph
       explaining the seal with a link to <https://caratul.ai>**; EN/ES/FR copy
