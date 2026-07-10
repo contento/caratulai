@@ -78,7 +78,9 @@ export class OpenAICompatProvider implements LLMProvider {
   }
 
   private async chat(messages: ChatMessage[], params: GenerationParams): Promise<string> {
-    const { baseUrl, model, apiKey, headers, maxTokens = 4096, timeoutMs = 120_000 } = this.config;
+    // Dense profiles (contento, gabriel: 80–120 elements) exceed 4096 output
+    // tokens and arrive truncated mid-tag; 16384 leaves comfortable headroom.
+    const { baseUrl, model, apiKey, headers, maxTokens = 16384, timeoutMs = 120_000 } = this.config;
 
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
