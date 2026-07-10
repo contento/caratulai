@@ -35,7 +35,7 @@
   - **jung** (#fffaf0 cream) - sacred/warm mandalas
   - **nietzsche** (#ffffff white) - philosophical diagrams
   - **carlin** (#1a1a1a dark) - subversive contrast
-  - **trumpa** (#f5e6d3 tan) - sacred warmth
+  - **trungpa** (#f5e6d3 tan) - sacred warmth
   - **rosina** (#d3d3d3 gray) - grounded/worn
   - **domingo** (#fef9f3 cream) - musical warmth
   - **contento** (#f5f5f5 light gray) - complexity on neutral ground

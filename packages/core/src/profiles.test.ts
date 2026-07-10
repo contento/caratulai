@@ -15,7 +15,7 @@ describe("profiles", () => {
     expect(PROFILES.nietzsche).toBeDefined();
     expect(PROFILES.booch).toBeDefined();
     expect(PROFILES.carlin).toBeDefined();
-    expect(PROFILES.trumpa).toBeDefined();
+    expect(PROFILES.trungpa).toBeDefined();
     expect(PROFILES.rosina).toBeDefined();
     expect(PROFILES.domingo).toBeDefined();
     expect(PROFILES.gabriel).toBeDefined();

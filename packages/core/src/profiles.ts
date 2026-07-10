@@ -170,10 +170,10 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     composition: "Compose as a collision of competing readings: one dominant form in the center, then two or more distorted echoes, cutaways, or confrontational side-forms that expose contradiction. Keep the layout tense and punchy, with abrupt directional shifts and visual interruptions rather than smooth harmony. The eye should move quickly between a public surface and its harsher subtext.",
   },
 
-  trumpa: {
-    id: "trumpa",
+  trungpa: {
+    id: "trungpa",
     label: "Sacred Paradox",
-    paletteId: "trumpa",
+    paletteId: "trungpa",
     maxElements: 70,
     maxTextElements: 0,
     allowAllShapes: true,

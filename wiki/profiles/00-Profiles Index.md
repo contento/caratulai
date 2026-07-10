@@ -17,7 +17,7 @@ Complete documentation for caratulai's **13 generation profiles**. Each profile 
 | 7 | [[07-Nietzsche Profile\|Nietzsche]] | Genealogy of becoming | Philosophical dialectics | Nietzschean philosophy | 256-color | 40–100 | *(pending)* |
 | 8 | [[08-Booch Profile\|Booch]] | Engineering clarity | Grounded humanism | Grady Booch, UML, craft | Black + Blue + Gray | 50–70 | *(pending)* |
 | 9 | [[09-Carlin Profile\|Carlin]] | Linguistic subversion | Irreverent humor | George Carlin, comedy | Black + Red + Blue | 60–80 | *(pending)* |
-| 10 | [[10-Trumpa Profile\|Trumpa]] | Sacred paradox | Crazy wisdom | Chögyam Trungpa | Gold + Black + Red | 50–70 | *(pending)* |
+| 10 | [[10-Trungpa Profile\|Trungpa]] | Sacred paradox | Crazy wisdom | Chögyam Trungpa | Gold + Black + Red | 50–70 | *(pending)* |
 | 11 | [[11-Rosina Profile\|Rosina]] | Direct action | Grounded realism | Italian neorealism | Gray + Brown + Black | 30–50 | *(pending)* |
 | 12 | [[12-Domingo Profile\|Domingo]] | Musical range | Flexible mastery | Plácido Domingo | Gold + Blue + Amber | 50–80 | *(pending)* |
 | 13 | [[13-Gabriel Profile\|Gabriel]] | Magic realism | Mythic elaboration | Gabriel García Márquez | Earth + Green + Gold | 70–120 | *(pending)* |
@@ -101,7 +101,7 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - When: hypocrisy, contradiction, bullshit-cutting, truth-telling
 - Feel: Sharp comedy, linguistic acrobatics, wake-up call
 
-**[[10-Trumpa Profile]]** — Sacred paradox, crazy wisdom
+**[[10-Trungpa Profile]]** — Sacred paradox, crazy wisdom
 
 - When: paradoxical truth, sacred/profane, breaking assumptions, shock teaching
 - Feel: Playful seriousness, mysterious, funny but deep
@@ -140,7 +140,7 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - **Philosophical/historical/becoming?** → [[07-Nietzsche Profile|Nietzsche]]
 - **Systems/architecture/clear thinking?** → [[08-Booch Profile|Booch]]
 - **Hypocrisy/contradiction/truth?** → [[09-Carlin Profile|Carlin]]
-- **Paradox/sacred-profane/mystery?** → [[10-Trumpa Profile|Trumpa]]
+- **Paradox/sacred-profane/mystery?** → [[10-Trungpa Profile|Trungpa]]
 - **Work/action/unglamorous truth?** → [[11-Rosina Profile|Rosina]]
 - **Versatility/integration/mastery?** → [[12-Domingo Profile|Domingo]]
 - **Mythology/magic/cultural blend?** → [[13-Gabriel Profile|Gabriel]]
@@ -156,7 +156,7 @@ line"          archive"      psychology"   vocabulary"    all in color"
 - **Dialectical/transformative** → Nietzsche
 - **Clear/crafted/humanistic** → Booch
 - **Irreverent/cutting/subversive** → Carlin
-- **Paradoxical/playful-serious** → Trumpa
+- **Paradoxical/playful-serious** → Trungpa
 - **Direct/raw/honest** → Rosina
 - **Warm/deep/integrated** → Domingo
 - **Magical/grounded/elaborate** → Gabriel
@@ -168,7 +168,7 @@ line"          archive"      psychology"   vocabulary"    all in color"
 | Ultra-minimal | Rosina | 30–50 |
 | Minimal | Picasso | 20 |
 | Restrained | Sagan | 48 |
-| Moderate | Freud, Jung, Booch, Trumpa | 50–70 |
+| Moderate | Freud, Jung, Booch, Trungpa | 50–70 |
 | Compositional | Dictionary | 60 |
 | Musical | Domingo | 50–80 |
 | Chaotic | Carlin | 60–80 |
@@ -194,7 +194,7 @@ The **LLM prompt changes fundamentally** based on the profile, because the *phil
 
 - ✅ **All 13 profiles: Designed & Documented**
 - ✅ **4 profiles: Implemented with composition** (sagan, picasso, contento, dictionary)
-- 🔨 **9 profiles: Ready for prompt engineering** (freud, jung, nietzsche, booch, carlin, trumpa, rosina, domingo, gabriel)
+- 🔨 **9 profiles: Ready for prompt engineering** (freud, jung, nietzsche, booch, carlin, trungpa, rosina, domingo, gabriel)
 
 ### Next Steps (M1)
 

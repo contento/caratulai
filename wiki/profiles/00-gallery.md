@@ -54,8 +54,8 @@ Visual samples for all 13 generation profiles. Each SVG was generated with `open
 ![carlin sample](assets/carlin.svg)
 *Rough, crude, energetic. Expose contradictions. 80 elements max.*
 
-### trumpa — Sacred Paradox
-![trumpa sample](assets/trumpa.svg)
+### trungpa — Sacred Paradox
+![trungpa sample](assets/trungpa.svg)
 *Crazy wisdom, paradox, sacred/profane held together. 70 elements max.*
 
 ### rosina — Grounded Realism

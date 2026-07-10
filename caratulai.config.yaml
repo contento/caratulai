@@ -23,7 +23,7 @@ generation:
   # Pure aesthetics:   sagan | picasso | contento
   # Compositional:     dictionary
   # Psychological:     freud | jung | nietzsche
-  # Epistemological:   booch | carlin | trumpa
+  # Epistemological:   booch | carlin | trungpa
   # Grounded:          rosina
   # Musical:           domingo
   # Literary:          gabriel
@@ -161,10 +161,10 @@ profiles:
     max_elements: 80
     allow_all_shapes: true
 
-  trumpa:
+  trungpa:
     name: "Sacred Paradox"
     description: "Crazy wisdom (Trungpa style): sacred and profane held together, playful depth."
-    palette: "trumpa"
+    palette: "trungpa"
     background_color: "#f5e6d3"
     max_elements: 70
     allow_all_shapes: true

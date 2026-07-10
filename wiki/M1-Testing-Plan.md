@@ -15,7 +15,7 @@ Add to `packages/core/src/palettes.ts`:
 - **PALETTE_GRAYSCALE_SEPIA** — Freud (grayscale + sepia blended)
 - **PALETTE_BOOCH** — Black, blue, gray (engineering)
 - **PALETTE_CARLIN** — Black, red, electric blue (subversion)
-- **PALETTE_TRUMPA** — Gold, black, red (crazy wisdom)
+- **PALETTE_TRUNGPA** — Gold, black, red (crazy wisdom)
 - **PALETTE_ROSINA** — Gray, brown, black (grounded realism)
 - **PALETTE_DOMINGO** — Gold, blue, amber (musical warmth)
 - **PALETTE_GABRIEL** — Earth, green, gold, indigo (magic realism)
@@ -40,7 +40,7 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
   nietzsche: { maxElements: 100, paletteId: "palette-256", promptTone: "..." },
   booch: { maxElements: 70, paletteId: "booch", promptTone: "..." },
   carlin: { maxElements: 80, paletteId: "carlin", promptTone: "..." },
-  trumpa: { maxElements: 70, paletteId: "trumpa", promptTone: "..." },
+  trungpa: { maxElements: 70, paletteId: "trungpa", promptTone: "..." },
   rosina: { maxElements: 50, paletteId: "rosina", promptTone: "..." },
   domingo: { maxElements: 80, paletteId: "domingo", promptTone: "..." },
   gabriel: { maxElements: 120, paletteId: "gabriel", promptTone: "..." },
@@ -57,7 +57,7 @@ Update `packages/core/src/types.ts`:
 export type ProfileId = 
   | "sagan" | "picasso" | "contento" | "dictionary"
   | "freud" | "jung" | "nietzsche"
-  | "booch" | "carlin" | "trumpa"
+  | "booch" | "carlin" | "trungpa"
   | "rosina" | "domingo" | "gabriel";
 ```
 
@@ -129,7 +129,7 @@ Test across all 13 profiles with a diverse concept set:
 1. **Jung** — Mandala + radial symmetry (structural constraint)
 2. **Nietzsche** — Opposing forces, spirals (conceptual subtlety)
 3. **Gabriel** — Cyclical time, genealogical spirals (complex concept)
-4. **Trumpa** — Paradox held simultaneously (contradictions)
+4. **Trungpa** — Paradox held simultaneously (contradictions)
 5. **Booch** — Box-and-line clarity without text (minimalist + informative)
 
 **Likely to work well (simpler constraints):**

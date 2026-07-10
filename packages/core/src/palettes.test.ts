@@ -66,7 +66,7 @@ describe("built-in palettes", () => {
         "rosina",
         "sagan",
         "sepia",
-        "trumpa",
+        "trungpa",
       ].sort()
     );
   });

@@ -125,9 +125,9 @@ export const PALETTE_CARLIN: Palette = {
   ],
 };
 
-/** Trumpa: Gold, Black, Red (sacred paradox). */
-export const PALETTE_TRUMPA: Palette = {
-  id: "trumpa",
+/** Trungpa: Gold, Black, Red (sacred paradox). */
+export const PALETTE_TRUNGPA: Palette = {
+  id: "trungpa",
   kind: "palette-16",
   label: "Sacred Paradox",
   colors: [
@@ -179,7 +179,7 @@ export const BUILTIN_PALETTES: Record<string, Palette> = {
   [PALETTE_GRAYSCALE_SEPIA.id]: PALETTE_GRAYSCALE_SEPIA,
   [PALETTE_BOOCH.id]: PALETTE_BOOCH,
   [PALETTE_CARLIN.id]: PALETTE_CARLIN,
-  [PALETTE_TRUMPA.id]: PALETTE_TRUMPA,
+  [PALETTE_TRUNGPA.id]: PALETTE_TRUNGPA,
   [PALETTE_ROSINA.id]: PALETTE_ROSINA,
   [PALETTE_DOMINGO.id]: PALETTE_DOMINGO,
   [PALETTE_GABRIEL.id]: PALETTE_GABRIEL,

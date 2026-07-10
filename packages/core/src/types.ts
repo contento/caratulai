@@ -23,7 +23,7 @@ export type ProfileId =
   // Epistemological & communication
   | "booch"
   | "carlin"
-  | "trumpa"
+  | "trungpa"
   // Pragmatic & grounded
   | "rosina"
   // Musical & integrated
