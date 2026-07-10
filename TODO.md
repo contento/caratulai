@@ -31,8 +31,8 @@ Open the wiki by reading [wiki/00-Home.md](wiki/00-Home.md) or opening [wiki/](w
       (after content, before tags footer), **accompanied by a short paragraph
       explaining the seal with a link to <https://caratul.ai>**; EN/ES/FR copy
 - [x] Wire into ship pipeline: run alongside `generate_cover.py` when a seed ships
-      (documented in conten.to CLAUDE.md)
-- [x] Update conten.to CLAUDE.md (pipeline step + "things not to break")
+      (documented in conten.to AGENTS.md)
+- [x] Update conten.to AGENTS.md (pipeline step + "things not to break")
 - [ ] **Bug found during sample run:** the validator passes malformed SVG —
       truncated output ("premature end of data") and leaked `<thinking>` tags
       reach the written file (6/15 failures, clustered in dense profiles
@@ -63,7 +63,7 @@ Legend: ✅ done · 🟡 in progress · ⬜ not started · ⭐ new
 
 > Goal: a buildable monorepo, a working engine skeleton, and a public repo.
 
-- [x] Founding docs: README (vision + founding prompt), SPEC, CLAUDE.md
+- [x] Founding docs: README (vision + founding prompt), SPEC, AGENTS.md
 - [x] ADRs: 0001 (LLM-SVG), 0002 (TS monorepo), 0003 (versioning)
 - [x] Monorepo scaffold (pnpm + Turborepo + tsconfig base)
 - [x] `core` engine: types, palettes (+ color-snap), prompt builder, validator, providers, generate

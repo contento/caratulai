@@ -1,5 +1,5 @@
 # Caratulai Configuration
-# See CLAUDE.md and README.md for full documentation
+# See AGENTS.md and README.md for full documentation
 #
 # Secrets (API keys) → .env
 # Everything else → this file

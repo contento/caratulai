@@ -32,7 +32,7 @@ pnpm samples:live
   `docs:`, `chore:`, `refactor:`, `test:`. Keep them small and focused.
 - **Code:** ESM TypeScript, `@caratulai/<name>` scope. Match the surrounding style.
 - **Aesthetic:** any change to generation must keep output passing the validator — fundamental
-  palettes only, simple primitives, little/no text. See the guardrails in [CLAUDE.md](CLAUDE.md).
+  palettes only, simple primitives, little/no text. See the guardrails in [AGENTS.md](AGENTS.md).
 - **Composition:** each profile's `composition` field in `profiles.ts` shapes spatial arrangement.
   When adding or tuning a profile, include composition guidance that matches its aesthetic philosophy.
   Test with `pnpm samples:live` to verify visual output.

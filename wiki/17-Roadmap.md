@@ -10,7 +10,7 @@ Legend: ✅ done · 🟡 in progress · ⬜ not started · ⭐ new
 
 > Goal: a buildable monorepo, a working engine skeleton, and a public repo.
 
-- [x] Founding docs: README (vision + founding prompt), SPEC, CLAUDE.md
+- [x] Founding docs: README (vision + founding prompt), SPEC, AGENTS.md
 - [x] ADRs: 0001 (LLM-SVG), 0002 (TS monorepo), 0003 (versioning)
 - [x] Monorepo scaffold (pnpm + Turborepo + tsconfig base)
 - [x] `core` engine: types, palettes (+ color-snap), prompt builder, validator, providers, generate
