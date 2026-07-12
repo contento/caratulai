@@ -16,7 +16,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "node-html-parser": "^7.1.0"
+    "node-html-parser": "^9.0.0"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",
