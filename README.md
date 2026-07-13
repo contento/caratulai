@@ -9,6 +9,8 @@ An **alien image generator**: concepts (tags/ontology) → simple vector images 
 
 Lineage: Voyager Golden Record · Picasso's line · contento/conten.to.
 
+**Why:** conten.to's post images were technically fine but *denotative* — pictures of the subject, not symbols for it. The fix drew on two old threads: a childhood memory of a magazine article on Voyager 1's Saturn images, where Carl Sagan was said to have shaped the mission's imagery for a viewer who'd never seen Earth — an alien finding the vessel — and years spent reading circuit diagrams and UML, where a handful of primitive shapes (line, arc, gate, class box) carry precise meaning without resembling what they mean. See [Vision → Origin story](wiki/01-Vision.md#origin-story) for the full account.
+
 ## Quick start
 
 Requires Node ≥ 20 and pnpm (`corepack enable pnpm`).

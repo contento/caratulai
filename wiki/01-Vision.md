@@ -36,6 +36,22 @@ caratulai plays **simple chords — A, Am, C#.** This is *not* Berlioz or Philip
 - Multi-user accounts / collaboration.
 - Colorful, ornate, or photorealistic output — out of scope **by design**.
 
+## Origin story
+
+conten.to's AI-generated post images were good — technically. What nagged was that they were **denotative, not connotative**: illustrations of a post's subject rather than a symbol for it. A picture of the thing, not a sign standing for the thing.
+
+Three threads, pulled from much further back, converged into caratulai:
+
+**The Voyager 1 memory.** As a kid in Colombia, I had a free subscription to *La Pura Verdad* — the Spanish-language edition of *The Plain Truth*, founded 1934 by Herbert W. Armstrong out of Ambassador College in Pasadena, near LA. Even if I was not a Christian myself, some of the articles were very good. Around 1981, an issue covered Voyager 1's images of Saturn and mentioned that Carl Sagan had shaped the mission's imagery with an audience in mind that had never seen Earth — an alien who might one day find the vessel. (Sagan chaired the Golden Record committee and sat on the imaging science team; the magazine's framing blurred the two, but the idea stuck regardless: *design the image for a reader who shares none of your context.*) That's the brief caratulai is built to satisfy — an **alien image generator**.
+
+Verified: the issue is *La Pura Verdad*, Vol. 14, No. 2, **March 1981**, cover story "El *Voyager I* a Saturno: nueva conquista en el espacio" by Gene H. Hogberg — [PDF](http://www.herbert-armstrong.org/SpanishPV/Pura%20Verdad%201981%20(Prelim%20No%2002)%20Mar.pdf). It quotes *Time* framing deep-space missions as "la búsqueda de planetas y el esfuerzo por comunicarse con vida extraterrestre" (the search for planets and the effort to communicate with extraterrestrial life) — the extraterrestrial-contact angle is real, even if Sagan isn't named on the pages sampled; memory likely folds in his public role as the era's face of that framing.
+
+*Still running, much changed.* The magazine survives today as *The Plain Truth*, published by Plain Truth Ministries ([ptm.org](https://www.ptm.org/)) — no longer the mass-circulation free monthly of the 1980s, but a modest bimonthly online newsletter, its end-times/prophecy framing replaced by Jesus-centered devotional content following the Worldwide Church of God's 1990s theological split.
+
+**The diagram languages.** Years of reading and drawing circuit diagrams (AND/OR gates, transistors, diodes) and UML (Booch et al.) shaped a different instinct: that a small vocabulary of primitive shapes — line, arc, diagonal, a handful of symbols — can carry precise meaning without resembling the thing it represents at all. A logic gate doesn't look like a decision; a class diagram doesn't look like an object. That's the alternative to "the image" caratulai chases: **concept → symbol**, not concept → picture.
+
+Put together: conten.to's dissatisfaction supplied the *why now*, the Voyager/Sagan memory supplied the *for whom* (a reader with zero shared context — the alien), and the diagram languages supplied the *how* (fundamental primitives, restrained palettes, symbolic rather than illustrative). The result is the small carátula image now generated for every conten.to post.
+
 ## The founding prompt (2026-05-31)
 
 Preserved verbatim for historical reasons:
