@@ -46,6 +46,9 @@ export function buildPrompt(req: GenerationRequest): string {
     constraints.maxTextElements === 0
       ? "- ZERO text. Meaning comes from visual structure alone."
       : `- At most ${constraints.maxTextElements} technical label(s).`,
+    ...(def.backgroundColor
+      ? [`- Do NOT draw a full-canvas background rectangle. The canvas already has a ${def.backgroundColor} background applied outside your output — start directly with your diagram elements on top of it.`]
+      : []),
     "",
     "Generate the SVG now:",
   ].join("\n");

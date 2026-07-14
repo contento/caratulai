@@ -46,14 +46,17 @@ export const PALETTE_16: Palette = {
   ],
 };
 
-/** Sagan: Voyager Golden Record palette — gold background + silver foreground + supporting earth tones. */
+/** Sagan: Voyager Golden Record palette — deep bronze-gold background + bright silver/cream foreground.
+ *  colors[0] must match the profile's backgroundColor (#8a6d1f) by convention — the model draws its
+ *  own full-canvas rect in colors[0], so if it doesn't match, that rect blots out the injected
+ *  background. The remaining colors are all chosen to hold ~3.4:1+ contrast against it; deliberately
+ *  no dark tones, since a dark line color also gets drawn as a full-canvas rect by the model. */
 export const PALETTE_SAGAN: Palette = {
   id: "sagan",
   kind: "palette-16",
   label: "Voyager Golden Record",
   colors: [
-    "#d4af37", "#c0c0c0", "#b8960c", "#e8d5a3", "#f5e6aa",
-    "#a8a8a8", "#808080", "#f0f0f0", "#2c2c2c", "#1a1a1a",
+    "#8a6d1f", "#ffffff", "#f0f0f0", "#d9d9d9", "#f5e6aa", "#e8d5a3",
   ],
 };
 

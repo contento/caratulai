@@ -26,10 +26,10 @@ export const PROFILES: Record<ProfileId, ProfileDef> = {
     maxElements: 48,
     maxTextElements: 0,
     allowAllShapes: false,
-    backgroundColor: "#d4af37",
+    backgroundColor: "#8a6d1f",
     promptTone: [
       "Create an engraved technical diagram in the style of the Voyager Golden Record plate.",
-      "Gold background, silver lines and marks. Precise, scientific, timeless.",
+      "Deep antique bronze-gold background, bright silver and cream lines and marks. Precise, scientific, timeless.",
       "Like a message from Earth engraved in metal for a civilization a thousand years from now.",
       "Technical, profound, archival.",
     ].join(" "),
