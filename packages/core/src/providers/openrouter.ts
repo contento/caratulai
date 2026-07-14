@@ -26,6 +26,6 @@ export function createOpenRouterProvider(opts: OpenRouterOptions): OpenAICompatP
       ...(opts.referer ? { "HTTP-Referer": opts.referer } : {}),
       ...(opts.title ? { "X-Title": opts.title } : {}),
     },
-    timeoutMs: opts.timeoutMs ?? 120_000,
+    timeoutMs: opts.timeoutMs ?? 300_000,
   });
 }

@@ -41,7 +41,7 @@ describe("OpenAICompatProvider — request shaping", () => {
     expect(body.messages[1]).toEqual({ role: "user", content: "PROMPT" });
     expect(body.temperature).toBe(0.7);
     expect(body.seed).toBe(1);
-    expect(body.max_tokens).toBe(4096);
+    expect(body.max_tokens).toBe(16384);
     expect(body.stream).toBe(false);
   });
 
