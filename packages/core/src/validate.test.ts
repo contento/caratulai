@@ -19,6 +19,15 @@ describe("extractSvg", () => {
   it("returns the trimmed input when there is no svg", () => {
     expect(extractSvg("  no image here  ")).toBe("no image here");
   });
+
+  it("takes the last block when the model narrates a false start", () => {
+    const raw = [
+      "<svg><rect/>",
+      "Actually, let me restart with a cleaner design.",
+      "<svg><circle/></svg>",
+    ].join("\n");
+    expect(extractSvg(raw)).toBe("<svg><circle/></svg>");
+  });
 });
 
 describe("sanitizeSvg — palette snapping", () => {

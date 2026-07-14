@@ -2,10 +2,21 @@ import { parse, type HTMLElement } from "node-html-parser";
 import type { Constraints, Palette, ValidationIssue, ValidationReport } from "./types.js";
 import { snapToPalette } from "./palettes.js";
 
-/** Strip markdown fences / prose an LLM may wrap around the SVG. */
+/**
+ * Strip markdown fences / prose an LLM may wrap around the SVG. Takes the LAST `<svg` opening
+ * tag through its first following `</svg>`: models that narrate a false start ("let me
+ * restart...") emit an abandoned, often-unclosed `<svg>` followed by prose and a complete
+ * final one — a single greedy/non-greedy match from the first opening tag would swallow the
+ * abandoned draft and the prose in between into one malformed blob.
+ */
 export function extractSvg(raw: string): string {
-  const match = raw.match(/<svg[\s\S]*<\/svg>/i);
-  return match ? match[0] : raw.trim();
+  const lower = raw.toLowerCase();
+  const start = lower.lastIndexOf("<svg");
+  if (start === -1) return raw.trim();
+  const closeTag = "</svg>";
+  const closeIdx = lower.indexOf(closeTag, start);
+  if (closeIdx === -1) return raw.trim();
+  return raw.slice(start, closeIdx + closeTag.length);
 }
 
 // Matches both CSS (`fill:#fff`) and attribute (`fill="#fff"`) forms, capturing the separator
