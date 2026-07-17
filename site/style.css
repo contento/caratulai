@@ -193,6 +193,27 @@ h2 {
   font-size: 1.05rem;
 }
 
+.hero-ancestor {
+  position: relative;
+  margin: 2.25rem auto 0;
+}
+
+.hero-ancestor img {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 0 6px var(--ring), 0 12px 40px var(--shadow);
+}
+
+.hero-ancestor figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
 .cta {
   position: relative;
   margin-top: 2.25rem;

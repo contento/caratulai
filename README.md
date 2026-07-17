@@ -7,6 +7,17 @@
 
 **Symbols, not pictures**: concepts (tags/ontology) → simple vector images in fundamental palettes.
 
+The ancestor, then the same two tags — `star water` — rendered through three profiles:
+
+| Voyager Golden Record (1977) | `--profile sagan` | `--profile booch` | `--profile contento` |
+| :---: | :---: | :---: | :---: |
+| <img src="docs/assets/voyager-golden-record-cover.jpg" alt="Voyager Golden Record cover, etched with pulsar map and hydrogen atom" width="180"> | <img src="samples/sagan.svg" alt="star water in the sagan profile" width="180"> | <img src="samples/booch.svg" alt="star water in the booch profile" width="180"> | <img src="samples/contento.svg" alt="star water in the contento profile" width="180"> |
+| the ancestor — NASA/JPL, public domain | gold technical diagram | engineering system diagram | layered abundance |
+
+```sh
+./caratulai.sh generate star water --profile sagan
+```
+
 Lineage: Voyager Golden Record · Picasso's line · contento/conten.to.
 
 **Why:** conten.to's post images were technically fine but *denotative* — pictures of the subject, not symbols for it. The fix drew on two old threads: a childhood memory of a magazine article on Voyager 1's Saturn images, where Carl Sagan was said to have shaped the mission's imagery for a viewer who'd never seen Earth — an alien finding the vessel — and years spent reading circuit diagrams and UML, where a handful of primitive shapes (line, arc, gate, class box) carry precise meaning without resembling what they mean. See [Vision → Origin story](wiki/01-Vision.md#origin-story) for the full account.
