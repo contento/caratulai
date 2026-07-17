@@ -107,5 +107,6 @@ Full documentation lives in the wiki — open [wiki/](wiki/) as an Obsidian vaul
 - **[LLM Providers](wiki/11-LLM%20Providers.md)** — local (Ollama · LM Studio) and remote (OpenRouter)
 - **[Roadmap](wiki/17-Roadmap.md)** — M0–M10 milestones
 - **[Contributing](wiki/13-Contributing.md)** — dev setup, conventions, PRs
+- **[Site deploy](site/DEPLOY.md)** — one-time Cloudflare Pages setup for caratul.ai
 
 Status: early build. Core engine + CLI are working; web/desktop/server deferred.
