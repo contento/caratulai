@@ -1,6 +1,6 @@
 # caratulai Wiki
 
-Welcome to the caratulai knowledge base. caratulai is an **alien image generator**: concepts (tags/ontology) → simple vector images in fundamental palettes.
+Welcome to the caratulai knowledge base. caratulai makes **symbols, not pictures**: concepts (tags/ontology) → simple vector images in fundamental palettes.
 
 ## Getting Started
 

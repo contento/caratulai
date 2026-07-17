@@ -1,6 +1,6 @@
 # Contributing to caratulai
 
-Thanks for your interest! caratulai is an alien image generator — concepts to simple vector images
+Thanks for your interest! caratulai makes symbols, not pictures — concepts to simple vector images
 in fundamental palettes. Before contributing, skim [README.md](README.md) and [SPEC.md](SPEC.md)
 to absorb the aesthetic; it is enforced, not optional.
 

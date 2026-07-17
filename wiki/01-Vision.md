@@ -4,7 +4,7 @@
 
 **Carátula** (Spanish): the cover sheet — the first image you meet.
 
-caratulai is an **alien image generator**: it turns *concepts* (tags, not narratives) into **simple vector images** — line, arc, diagonal — in restrained, fundamental palettes.
+caratulai makes **symbols, not pictures**: it turns *concepts* (tags, not narratives) into **simple vector images** — line, arc, diagonal — in restrained, fundamental palettes.
 
 The lineage is **contento / conten.to**, the **Voyager 1 Golden Record** and Pioneer plaque, and **Picasso's line**. The goal is imagery that feels like a message left for someone who has never seen Earth: fundamental, symbolic, quiet. The reaction against conten.to's current imagery is deliberate — **less obvious, far less colorful.**
 

@@ -5,7 +5,7 @@
 
 > **Carátula** (Spanish): the cover sheet — the first image you meet.
 
-An **alien image generator**: concepts (tags/ontology) → simple vector images in fundamental palettes.
+**Symbols, not pictures**: concepts (tags/ontology) → simple vector images in fundamental palettes.
 
 Lineage: Voyager Golden Record · Picasso's line · contento/conten.to.
 
