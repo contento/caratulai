@@ -212,9 +212,11 @@ pnpm install &amp;&amp; pnpm build
     <p>
       MIT licensed. <a href="https://github.com/contento/caratulai">github.com/contento/caratulai</a>
     </p>
+    <p>© Gonzalo Contento 1981–<span id="copyright-year">2026</span></p>
   </footer>
 
   <script>
+    document.getElementById("copyright-year").textContent = new Date().getFullYear();
     document.getElementById("theme-toggle").addEventListener("click", function () {
       var root = document.documentElement;
       var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
