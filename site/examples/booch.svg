@@ -1,0 +1,18 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#ffffff"></rect>
+  <g>
+    <polygon points="256,100 284,180 200,140 312,140 228,180" fill="#0047ab"></polygon>
+    <polygon points="256,100 284,180 200,140" fill="#333333"></polygon>
+    <polygon points="256,100 312,140 228,180" fill="#808080"></polygon>
+    <circle cx="256" cy="380" r="30" fill="#0047ab"></circle>
+    <circle cx="256" cy="380" r="20" fill="#333333"></circle>
+    <line x1="256" y1="160" x2="256" y2="350" stroke="#0047ab" stroke-width="2"></line>
+    <line x1="256" y1="350" x2="256" y2="400" stroke="#0047ab" stroke-width="2"></line>
+    <line x1="256" y1="350" x2="226" y2="380" stroke="#0047ab" stroke-width="2"></line>
+    <line x1="256" y1="350" x2="286" y2="380" stroke="#0047ab" stroke-width="2"></line>
+    <line x1="256" y1="350" x2="226" y2="330" stroke="#0047ab" stroke-width="2"></line>
+    <line x1="256" y1="350" x2="286" y2="330" stroke="#0047ab" stroke-width="2"></line>
+    <line x1="200" y1="140" x2="300" y2="140" stroke="#1a3a52" stroke-width="2"></line>
+    <line x1="140" y1="250" x2="372" y2="250" stroke="#1a3a52" stroke-width="2"></line>
+  </g>
+</svg>
