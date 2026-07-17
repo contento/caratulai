@@ -131,31 +131,32 @@
         <a href="https://conten.to">conten.to</a>'s post covers were technically
         fine but <em>denotative</em> — pictures of the subject, not symbols for
         it. caratulai reads the generated image with a vision model, extracts
-        the concepts, and re-renders them as a symbolic SVG seal. These are the
-        covers actually in use on conten.to today.
+        the concepts, and re-renders them as a symbolic SVG seal — through
+        whichever profile fits the post. These are the covers actually in use
+        on conten.to today.
       </p>
 
       <article class="practice-example">
-        <h3><a href="https://conten.to/posts/healthy/healthy/">From “Healthy” to Healthy</a></h3>
+        <h3><a href="https://conten.to/posts/2026/07/03/">The Metro of Medellín</a></h3>
         <div class="pair">
           <figure>
-            <img src="examples/healthy-source.webp" alt="AI-generated post cover: a rainy medicine cabinet beside a sunlit kitchen with fresh food" loading="lazy" />
+            <img src="examples/medellin-source.webp" alt="AI-generated post cover: a chaotic Medellín street scene beside the calm interior of a metro car" loading="lazy" />
             <figcaption>
               <b>generated image</b>
-              <span>raster cover — medicine cabinet in the rain, fresh food in the sun</span>
+              <span>raster cover — chaos on the street, reverence inside the metro car</span>
             </figcaption>
           </figure>
           <div class="pair-arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 12h16M14 6l6 6-6 6"/>
             </svg>
-            <code>--from-image</code>
+            <code>--profile gabriel</code>
           </div>
           <figure>
-            <img src="examples/healthy-caratula.svg" alt="Symbolic SVG caratula: the body drawn as a plumbing machine with dials for eyes, intake and exhaust pipes" loading="lazy" />
+            <img src="examples/medellin-caratula.svg" alt="Symbolic SVG caratula: an elevated metro line crossing a valley of mountains and houses, with a church, blooming flowers, and roots below" loading="lazy" />
             <figcaption>
-              <b>symbolic SVG · rosina</b>
-              <span>the body as a machine — intake, dials, exhaust; every line does work</span>
+              <b>symbolic SVG · gabriel</b>
+              <span>the metro as civic myth — a line across the valley, flowers in the sky, roots underneath</span>
             </figcaption>
           </figure>
         </div>
@@ -175,7 +176,7 @@
             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 12h16M14 6l6 6-6 6"/>
             </svg>
-            <code>--from-image</code>
+            <code>--profile rosina</code>
           </div>
           <figure>
             <img src="examples/njm-caratula.svg" alt="Symbolic SVG caratula: a stick figure pushing a large spoked wheel along a measured track" loading="lazy" />
@@ -187,7 +188,7 @@
         </div>
       </article>
 
-      <pre><code>./caratulai.sh generate --from-image https://conten.to/images/post/healthy.png --profile rosina</code></pre>
+      <pre><code>./caratulai.sh generate --from-image https://conten.to/images/post/njm.png --profile rosina</code></pre>
     </section>
 
     <section id="quick-start" class="quick-start">
